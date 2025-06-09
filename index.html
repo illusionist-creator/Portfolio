@@ -11,18 +11,17 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet"/>
     <style>
-        :root {
-            --primary-cyan: #00d4ff;
-            --secondary-purple: #7c3aed;
-            --accent-pink: #ec4899;
-            --neobrutal-black: #000;
-            --neobrutal-white: #fff;
-            --neobrutal-red: #ff3b30;
-            --neobrutal-yellow: #ffcc00;
-            --neobrutal-green: #4cd964;
-            --neobrutal-shadow: 8px 8px 0px rgba(0,0,0,0.9);
-        }
-
+       :root {
+  --primary-cyan: #00ffcc;
+  --secondary-purple: #c974ff;
+  --accent-pink: #ff5e8e;
+  --neobrutal-black: #111111;
+  --neobrutal-white: #fcfcfc;
+  --neobrutal-red: #ff3c38;
+  --neobrutal-yellow: #c9ccf5;
+  --neobrutal-green: #bcfa61;
+  --neobrutal-shadow: 7px 7px 0 rgba(0,0,0,0.9);
+}
         * {
             margin: 0;
             padding: 0;
@@ -248,7 +247,7 @@
         .tool-card:hover {
             transform: translate(-3px, -3px);
             box-shadow: 8px 8px 0px rgba(0,0,0,0.9);
-            background: var(--neobrutal-yellow);
+            background: var(--neobrutal-green);
         }
 
         .tool-icon {
@@ -549,48 +548,6 @@
 <section class="py-5" id="skills">
     <div class="container">
         <h2 class="section-title">Technical Arsenal</h2>
-        <div class="row">
-            <div class="col-lg-6 mb-4">
-                <div class="neo-card">
-                    <h3 class="mb-4 text-center">Programming & Analytics</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="fab fa-python me-2"></i>Python (Pandas, NumPy, Scikit-learn)</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="95"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="fas fa-database me-2"></i>SQL & NoSQL</span>
-                            <span>92%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="92"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="fab fa-r-project me-2"></i>R (Shiny, ggplot2, dplyr)</span>
-                            <span>88%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="88"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span><i class="fas fa-brain me-2"></i>Machine Learning & AI</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="col-lg-6">
                 <div class="neo-card">
                     <h3 class="mb-4 text-center">Tools & Platforms</h3>
@@ -681,25 +638,24 @@
         <!-- Projects Grid -->
         <div class="row" id="projectsGrid">
             <!-- Project 1 -->
-            <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="dashboard">
+            <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="web">
                 <div class="project-card">
                     <div class="project-image">
                         <i class="fas fa-chart-pie"></i>
                     </div>
                     <div class="project-card-body">
-                        <h5 class="card-title mb-3">Sales Forecasting</h5>
-                        <p class="card-text mb-3">Advanced ML pipeline with LSTM and ARIMA models for sales prediction. Interactive Streamlit dashboard with 95% accuracy.</p>
+                        <h5 class="card-title mb-3">Gmail Attachment Downloader</h5>
+                        <p class="card-text mb-3">This tool helps you download 300 attachments at once from your gmail account to your device.</p>
                         <div class="mb-3">
                             <span class="badge bg-info">Python</span>
-                            <span class="badge bg-success">TensorFlow</span>
                             <span class="badge bg-warning">Streamlit</span>
-                            <span class="badge bg-danger">Plotly</span>
+                            <span class="badge bg-danger">Gmail API</span>
                         </div>
                         <div class="project-buttons">
-                            <a class="btn-neo project-btn" href="#">
+                            <a class="btn-neo project-btn" href="https://attachment-downloader.streamlit.app/">
                                 <i class="fas fa-eye me-1"></i>Live Demo
                             </a>
-                            <a class="btn-neo project-btn" href="#">
+                            <a class="btn-neo project-btn" href="https://github.com/illusionist-creator/attachment-downloader">
                                 <i class="fab fa-github me-1"></i>Code
                             </a>
                         </div>
@@ -713,19 +669,17 @@
                         <i class="fas fa-robot"></i>
                     </div>
                     <div class="project-card-body">
-                        <h5 class="card-title mb-3">Intelligent Chatbot Platform</h5>
-                        <p class="card-text mb-3">NLP-powered customer service chatbot with sentiment analysis and automated ticket routing.</p>
+                        <h5 class="card-title mb-3">File Merger</h5>
+                        <p class="card-text mb-3">This tools can help you merge excel or csv files with similar format into a single clean excel.</p>
                         <div class="mb-3">
-                            <span class="badge bg-info">Python</span>
-                            <span class="badge bg-success">NLTK</span>
-                            <span class="badge bg-warning">Flask</span>
-                            <span class="badge bg-danger">MongoDB</span>
+                            <span class="badge bg-info">R</span>
+                            <span class="badge bg-success">R Shiny</span>
                         </div>
                         <div class="project-buttons">
-                            <a class="btn-neo project-btn" href="#">
+                            <a class="btn-neo project-btn" href="https://keyurtbd.shinyapps.io/excel__csv_file_merger/">
                                 <i class="fas fa-eye me-1"></i>Live Demo
                             </a>
-                            <a class="btn-neo project-btn" href="#">
+                            <a class="btn-neo project-btn" href="https://github.com/illusionist-creator/excel_csv_file_merger">
                                 <i class="fab fa-github me-1"></i>Code
                             </a>
                         </div>
