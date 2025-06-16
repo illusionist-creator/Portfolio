@@ -46,6 +46,10 @@
 
         /* Navigation Bar - Horizontal Style */
         .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index:100;
             background: var(--neobrutal-white) !important;
             border-bottom: 4px solid var(--neobrutal-black) !important;
             box-shadow: var(--neobrutal-shadow) !important;
@@ -488,7 +492,7 @@
         <div class="hero-content">
             <h1>Keyur Makwana</h1>
             <div class="divider"></div>
-            <p class="hero-subtitle">Data Analyst • AI Enthusiast • Visualization Expert</p>
+            <p class="hero-subtitle">Data Analyst • Visualization Expert • AI Enthusiast</p>
             <p class="mb-4">Transforming complex data into actionable insights that drive innovation and growth</p>
             <div class="btn-container">
                 <a class="btn-neo btn-neo-primary" href="#projects">
@@ -669,11 +673,11 @@
                         <i class="fas fa-robot"></i>
                     </div>
                     <div class="project-card-body">
-                        <h5 class="card-title mb-3">File Merger</h5>
+                        <h5 class="card-title mb-3">Excel & CSV File Merger</h5>
                         <p class="card-text mb-3">This tools can help you merge excel or csv files with similar format into a single clean excel.</p>
                         <div class="mb-3">
-                            <span class="badge bg-info">R</span>
-                            <span class="badge bg-success">R Shiny</span>
+                            <span class="badge bg-info">R Shiny</span>
+                            <span class="badge bg-success">R</span>
                         </div>
                         <div class="project-buttons">
                             <a class="btn-neo project-btn" href="https://keyurtbd.shinyapps.io/excel__csv_file_merger/">
@@ -687,26 +691,66 @@
                 </div>
             </div>
             <!-- Project 3 -->
-            <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="dashboard">
+            <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="web">
                 <div class="project-card">
                     <div class="project-image">
                         <i class="fas fa-heartbeat"></i>
                     </div>
                     <div class="project-card-body">
-                        <h5 class="card-title mb-3">Real-time Health Analytics</h5>
-                        <p class="card-text mb-3">Interactive R Shiny dashboard for hospital patient monitoring with real-time alerts and predictive models.</p>
+                        <h5 class="card-title mb-3">Sales Forecaster</h5>
+                        <p class="card-text mb-3">This app lets you forecast future data based on the historical data you upload.</p>
                         <div class="mb-3">
-                            <span class="badge bg-info">R</span>
-                            <span class="badge bg-success">Shiny</span>
-                            <span class="badge bg-warning">PostgreSQL</span>
-                            <span class="badge bg-danger">ggplot2</span>
+                            <span class="badge bg-info">R Shiny</span>
+                            <span class="badge bg-success">R</span>
                         </div>
                         <div class="project-buttons">
-                            <a class="btn-neo project-btn" href="#">
+                            <a class="btn-neo project-btn" href="https://keyurtbd.shinyapps.io/sales_forecaster/">
                                 <i class="fas fa-eye me-1"></i>Live Demo
                             </a>
-                            <a class="btn-neo project-btn" href="#">
+                            <a class="btn-neo project-btn" href="https://github.com/illusionist-creator/sale-forecaster/blob/master/sales_forecaster.R">
                                 <i class="fab fa-github me-1"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 4 -->
+            <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="dashboard">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fa fa-credit-card"></i>
+                    </div>
+                    <div class="project-card-body">
+                        <h5 class="card-title mb-3">Payments Dashboard</h5>
+                        <p class="card-text mb-3">Analyse all the key trends and metrics in credit cards, debit cards & UPI transactions over the years and see how has the space evolved.</p>
+                        <div class="mb-3">
+                            <span class="badge bg-info">Tableau</span>
+                            <span class="badge bg-success">R</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a class="btn-neo project-btn" href="https://public.tableau.com/app/profile/keyur.h.makwana/viz/IndianPaymentsEcosystemDashboard/CREDITCARDDASHBOARD">
+                                <i class="fas fa-eye me-1"></i>Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 5 -->
+            <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="dashboard">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fa fa-area-chart"></i>
+                    </div>
+                    <div class="project-card-body">
+                        <h5 class="card-title mb-3">Superstore Sales Dashboard</h5>
+                        <p class="card-text mb-3">Interactive dashboard representing Y-o-Y treands & KPI for different measures, also includes descriptive analysis on for selected region.</p>
+                        <div class="mb-3">
+                            <span class="badge bg-info">Tableau</span>
+                            <span class="badge bg-success">Excel</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a class="btn-neo project-btn" href="https://public.tableau.com/app/profile/keyur.h.makwana/viz/SuperStore_16578957920950/Dashboard1">
+                                <i class="fas fa-eye me-1"></i>Live Demo
                             </a>
                         </div>
                     </div>
@@ -769,12 +813,11 @@
     <div class="container text-center">
         <h3 class="mb-4">DataInsights</h3>
         <div class="mb-4">
-            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/keyur-makwana-450337197/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/illusionist-creator" class="social-icon"><i class="fab fa-github"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-medium-m"></i></a>
         </div>
-        <p class="mb-0">© 2025 Keyur Makwana. All rights reserved.</p>
+        <p class="mb-0">2025 Keyur Makwana.</p>
     </div>
 </footer>
 
