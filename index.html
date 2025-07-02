@@ -58,22 +58,55 @@
         }
 
         .navbar-brand {
-            font-weight: 900;
-            font-size: 1.8rem;
-            color: var(--neobrutal-black) !important;
-            text-shadow: none;
+            display: none; /* Hide the DataInsights brand */
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .navbar-collapse {
+            justify-content: center; /* Center the nav links */
+        }
+
+        .navbar-toggler {
+            border: 3px solid var(--neobrutal-black);
+            border-radius: 0;
+            padding: 0.5rem;
+            position: absolute;
+            right: 20px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(17, 17, 17, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
 
         .nav-links {
             display: flex;
-            justify-content: flex-end;
+            justify-content: center; /* Center align nav items */
             flex-wrap: wrap;
+        }
+
+        /* Adjustments for mobile menu */
+        @media (max-width: 992px) {
+            .navbar-collapse {
+                background: var(--neobrutal-white);
+                border: 3px solid var(--neobrutal-black);
+                box-shadow: var(--neobrutal-shadow);
+                margin-top: 10px;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                margin: 0.5rem 0;
+            }
         }
 
         .nav-link {
@@ -472,20 +505,24 @@
 <body data-bs-offset="100" data-bs-spy="scroll" data-bs-target="#navbarNav" tabindex="0">
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container nav-container">
-        <a class="navbar-brand" href="#home">
-            <i class="fas fa-brain me-2"></i>DataInsights
-        </a>
-        <div class="nav-links">
-            <a class="nav-link" href="#home">Home</a>
-            <a class="nav-link" href="#about">About</a>
-            <a class="nav-link" href="#skills">Skills</a>
-            <a class="nav-link" href="#projects">Projects</a>
-            <a class="nav-link" href="#contact">Contact</a>
+    <div class="container">
+        <!-- Toggler for mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Collapsible navigation -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="nav-links">
+                <a class="nav-link" href="#home">Home</a>
+                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="#skills">Skills</a>
+                <a class="nav-link" href="#projects">Projects</a>
+                <a class="nav-link" href="#contact">Contact</a>
+            </div>
         </div>
     </div>
 </nav>
-
 <!-- Hero Section -->
 <section class="hero-section" id="home">
     <div class="container">
