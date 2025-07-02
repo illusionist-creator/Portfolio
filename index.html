@@ -426,6 +426,24 @@
                 grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
             }
         }
+        
+        .nav-link:focus {
+    outline: 3px dashed var(--neobrutal-black);
+    outline-offset: 2px;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 
         /* Scroll to top button */
         .scroll-top {
@@ -503,18 +521,25 @@
     </style>
 </head>
 <body data-bs-offset="100" data-bs-spy="scroll" data-bs-target="#navbarNav" tabindex="0">
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav id="main-navbar" class="navbar navbar-expand-lg fixed-top" role="navigation" aria-labelledby="navbar-heading">
+    <h2 id="navbar-heading" class="visually-hidden">Main Menu</h2>
+    
     <div class="container">
+        <!-- Brand/logo -->
+        <a class="navbar-brand me-auto d-lg-none" href="#" style="display: block !important; font-weight: 700; color: var(--neobrutal-black) !important;">
+            Keyur's Portfolio
+        </a>
+        
         <!-- Toggler for mobile -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" aria-hidden="true"></span>
         </button>
         
         <!-- Collapsible navigation -->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="nav-links">
-                <a class="nav-link" href="#home">Home</a>
+            <div class="nav-links mx-auto">
+                <a class="nav-link" href="#home" aria-current="page">Home</a>
                 <a class="nav-link" href="#about">About</a>
                 <a class="nav-link" href="#skills">Skills</a>
                 <a class="nav-link" href="#projects">Projects</a>
@@ -523,6 +548,7 @@
         </div>
     </div>
 </nav>
+
 <!-- Hero Section -->
 <section class="hero-section" id="home">
     <div class="container">
