@@ -127,7 +127,9 @@
   .feature { display:grid; grid-template-columns:minmax(0, 5fr) minmax(0, 7fr); gap:clamp(28px, 4.5vw, 64px);
     align-items:center; padding:clamp(40px, 5.5vw, 72px) 0; border-top:1px solid var(--line); }
   .head + .feature { border-top:0; padding-top:0; }
+  .feature.flip { grid-template-columns:minmax(0, 7fr) minmax(0, 5fr); }
   .feature.flip .text { order:2; }
+  .feature .qa { order:3; }
   .kicker { display:flex; gap:12px; align-items:center; margin-bottom:14px; }
   .live { display:inline-flex; align-items:center; gap:6px; font:500 11.5px/1 var(--mono); color:var(--ok);
     text-transform:uppercase; letter-spacing:.08em; }
@@ -212,7 +214,7 @@
     .ledger b { font-size:23px; }
     .job { grid-template-columns:minmax(0, 1fr); }
     .job .nums { grid-column:1; }
-    .feature { grid-template-columns:minmax(0, 1fr); }
+    .feature, .feature.flip { grid-template-columns:minmax(0, 1fr); }
     .feature.flip .text { order:0; }
     .qa, .more, .kit { grid-template-columns:minmax(0, 1fr); }
     .head { grid-template-columns:1fr; }
