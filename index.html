@@ -4,205 +4,298 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Keyur Makwana &mdash; Data Analyst</title>
-<meta name="description" content="Keyur Makwana - data analyst in Ahmedabad. The production analytics stack behind a quick-commerce FMCG brand, plus self-built dashboards on India's payments data and quick-commerce shelf data.">
+<meta name="description" content="Keyur Makwana - data analyst in Ahmedabad. The production analytics stack behind a quick-commerce FMCG brand, plus tools I built myself: a quick-commerce shelf tracker, an India payments dashboard, a temple guide app and a SQL learning game.">
 <meta name="author" content="Keyur Makwana">
 <link rel="canonical" href="https://illusionist-creator.github.io/Portfolio/">
-<meta name="theme-color" content="#0e1013" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#fbfbfc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#11100d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Keyur Makwana &mdash; Data Analyst">
-<meta property="og:description" content="Keyur Makwana - data analyst in Ahmedabad. The production analytics stack behind a quick-commerce FMCG brand, plus self-built dashboards on India's payments data and quick-commerce shelf data.">
+<meta property="og:description" content="The production analytics stack behind a quick-commerce FMCG brand, plus tools I built myself: a quick-commerce shelf tracker, an India payments dashboard, a temple guide app and a SQL learning game.">
 <meta property="og:url" content="https://illusionist-creator.github.io/Portfolio/">
-<meta property="og:image" content="https://illusionist-creator.github.io/Portfolio/india_card_monitor.jpg">
+<meta property="og:image" content="https://illusionist-creator.github.io/Portfolio/shelf-monitor.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Keyur Makwana &mdash; Data Analyst">
-<meta name="twitter:description" content="Keyur Makwana - data analyst in Ahmedabad. The production analytics stack behind a quick-commerce FMCG brand, plus self-built dashboards on India's payments data and quick-commerce shelf data.">
-<meta name="twitter:image" content="https://illusionist-creator.github.io/Portfolio/india_card_monitor.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231f6fd0'/%3E%3Ctext x='50' y='72' font-size='62' font-family='Archivo,Segoe UI,sans-serif' font-weight='700' fill='white' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<meta name="twitter:description" content="The production analytics stack behind a quick-commerce FMCG brand, plus tools I built myself.">
+<meta name="twitter:image" content="https://illusionist-creator.github.io/Portfolio/shelf-monitor.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='50' fill='%2317150f'/%3E%3Ctext x='50' y='68' font-size='52' font-family='Georgia,serif' font-style='italic' fill='%23ff7b42' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap">
 <style>
   :root {
-    --bg:#fbfbfc; --panel:#ffffff; --sunk:#f2f3f5;
-    --ink:#101215; --ink-2:#3f464e; --ink-3:#6b737c;
-    --line:#e3e6ea; --line-2:#cdd2d8;
-    --accent:#1f6fd0; --hot:#dd5526;
-    --sans:"Archivo","Segoe UI",system-ui,-apple-system,sans-serif;
-    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
-    --pad:clamp(18px,3.6vw,64px);
+    --bg:#f4f1ea; --paper:#fbf9f5; --ink:#17150f; --ink2:#3d382f; --mute:#756e61; --line:#ddd6c8;
+    --accent:#c2410c; --ok:#2f7d4f; --band:#17150f; --band-ink:#f4f1ea;
+    --serif:"Instrument Serif", Georgia, "Times New Roman", serif;
+    --sans:"Geist", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --mono:"Geist Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+    --wrap:1240px; --pad:clamp(20px, 4vw, 48px);
+    color-scheme: light dark;
   }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg:#0e1013; --panel:#171a1e; --sunk:#131619;
-      --ink:#f1f3f5; --ink-2:#c3c9d0; --ink-3:#8d959e;
-      --line:#262b31; --line-2:#3a4149;
-      --accent:#4d94e8; --hot:#e0693a;
-    }
+    :root { --bg:#11100d; --paper:#1a1915; --ink:#efebe3; --ink2:#d2ccbf; --mute:#9b9384; --line:#2f2c25;
+      --accent:#ff7b42; --ok:#5fbf86; --band:#1d1b17; --band-ink:#efebe3; }
   }
-  :root[data-theme="dark"] {
-    --bg:#0e1013; --panel:#171a1e; --sunk:#131619;
-    --ink:#f1f3f5; --ink-2:#c3c9d0; --ink-3:#8d959e;
-    --line:#262b31; --line-2:#3a4149;
-    --accent:#4d94e8; --hot:#e0693a;
-  }
-
   * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--ink);
-         font-family:var(--sans); font-size:16px; line-height:1.55;
-         -webkit-font-smoothing:antialiased; }
-  p { margin:0 0 12px; } p:last-child { margin-bottom:0; }
-  strong { font-weight:600; color:var(--ink); }
-  a { color:var(--accent); text-decoration:none; }
-  a:hover { text-decoration:underline; text-underline-offset:3px; }
-  a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
-  img { max-width:100%; }
+  html { scroll-behavior:smooth; scroll-padding-top:80px; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:400 17px/1.6 var(--sans);
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+  a { color:inherit; }
+  img { max-width:100%; height:auto; display:block; }
+  ::selection { background:var(--accent); color:#fff; }
+  :focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }
+  .wrap { max-width:var(--wrap); margin:0 auto; padding:0 var(--pad); }
+  .eyebrow { font:500 12px/1.4 var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--mute); }
 
-  .band { padding-inline:var(--pad); }
-  .rule { border-bottom:1px solid var(--line); }
+  /* ---------- top bar ---------- */
+  .top { position:sticky; top:0; z-index:10; background:color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter:saturate(1.4) blur(14px); -webkit-backdrop-filter:saturate(1.4) blur(14px);
+    border-bottom:1px solid transparent; transition:border-color .2s; }
+  .top.scrolled { border-bottom-color:var(--line); }
+  .top .wrap { display:flex; align-items:center; gap:28px; height:64px; }
+  .mark { display:flex; align-items:center; gap:10px; text-decoration:none; font-weight:600; letter-spacing:-.01em; }
+  .mark i { width:30px; height:30px; border-radius:50%; background:var(--ink); color:var(--accent); display:grid;
+    place-items:center; font:italic 400 20px/1 var(--serif); }
+  .top nav { display:flex; gap:24px; margin-left:auto; font-size:14.5px; }
+  .top nav a { text-decoration:none; color:var(--ink2); }
+  .top nav a:hover { color:var(--accent); }
+  .pill { display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border-radius:999px;
+    font:500 14px/1 var(--sans); text-decoration:none; border:1px solid var(--line); background:var(--paper);
+    transition:border-color .15s, background .15s, color .15s; white-space:nowrap; }
+  .pill:hover { border-color:var(--ink); }
+  .pill.solid { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  .pill.solid:hover { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .pill .arr { transition:transform .15s; }
+  .pill:hover .arr { transform:translateX(3px); }
 
-  .tag { font-family:var(--mono); font-size:11.5px; font-weight:600;
-         letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3); }
-
-  /* ================= hero ================= */
-  .hero { padding-block:clamp(44px,7vw,92px) clamp(36px,5vw,64px); background:var(--panel); }
-  .hero h1 { font-weight:700; letter-spacing:-.035em; line-height:.94;
-             font-size:clamp(46px,10.5vw,128px); margin:16px 0 0; }
-  .hero .said { margin-top:26px; display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
-                gap:22px 48px; max-width:1500px; }
-  .hero .said p { font-size:clamp(17px,1.5vw,20px); line-height:1.5; color:var(--ink-2); margin:0; }
-  .hero .said p.lead { color:var(--ink); }
+  /* ---------- hero ---------- */
+  .hero { padding:clamp(48px, 8vw, 104px) 0 clamp(56px, 7vw, 96px); }
+  .hero .wrap { display:grid; grid-template-columns:minmax(0, 1.45fr) minmax(0, 1fr); gap:clamp(32px, 5vw, 72px); align-items:end; }
+  .status { display:inline-flex; align-items:center; gap:9px; font:500 13px/1 var(--mono); color:var(--ink2);
+    padding:8px 13px; border:1px solid var(--line); border-radius:999px; background:var(--paper); }
+  .status b { width:8px; height:8px; border-radius:50%; background:var(--ok); box-shadow:0 0 0 4px color-mix(in srgb, var(--ok) 22%, transparent); }
+  h1 { font:400 clamp(60px, 10.5vw, 148px)/.9 var(--serif); letter-spacing:-.025em; margin:28px 0 22px; }
+  .claim { font:400 clamp(26px, 2.8vw, 38px)/1.15 var(--serif); margin:0 0 26px; max-width:24ch; }
+  .claim em { color:var(--accent); }
+  .hero p.lead { font-size:18.5px; color:var(--ink2); max-width:56ch; margin:0 0 14px; }
+  .hero p.lead + p { color:var(--mute); max-width:56ch; margin:0; }
   .links { display:flex; flex-wrap:wrap; gap:10px; margin-top:30px; }
-  .links a, .links span { font-family:var(--mono); font-size:13px; padding:8px 14px;
-            border:1px solid var(--line-2); border-radius:100px; color:var(--ink-2); }
-  .links a:hover { border-color:var(--accent); color:var(--accent); text-decoration:none; }
+  .links span.pill { cursor:default; }
 
-  /* ================= section heads ================= */
-  section > .head { padding-block:34px 4px; display:flex; justify-content:space-between;
-                    align-items:baseline; gap:16px; flex-wrap:wrap; }
-  section > .head h2 { font-size:clamp(24px,3vw,34px); font-weight:600;
-                       letter-spacing:-.028em; margin:0; }
-  section > .head .tag { padding-bottom:5px; }
-  .intro { color:var(--ink-2); max-width:70ch; padding-bottom:26px; font-size:16.5px; }
+  .ledger { background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:26px 26px 18px;
+    box-shadow:0 1px 0 var(--line), 0 24px 48px -32px rgba(23,21,15,.35); }
+  .ledger h2 { margin:0 0 6px; }
+  .ledger ul { list-style:none; margin:0; padding:0; }
+  .ledger li { display:grid; grid-template-columns:128px 1fr; gap:4px 18px; align-items:baseline; padding:16px 0;
+    border-bottom:1px dashed var(--line); }
+  .ledger li:last-child { border-bottom:0; }
+  .ledger b { font:500 26px/1 var(--mono); letter-spacing:-.03em; white-space:nowrap; }
+  .ledger li.hot b { color:var(--accent); }
+  .ledger span { font-size:14.5px; color:var(--ink2); line-height:1.45; }
+  .ledger .foot { display:flex; justify-content:space-between; border-top:1px solid var(--line); padding-top:14px; margin-top:4px; }
+  .ledger .foot a { text-decoration:none; }
+  .ledger .foot a:hover { color:var(--accent); }
 
-  /* ================= production grid ================= */
-  .grid4 { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-           gap:1px; background:var(--line); border-block:1px solid var(--line); }
-  .cell { background:var(--panel); padding:26px clamp(18px,2.2vw,32px) 28px; }
-  .cell h3 { font-size:19px; font-weight:600; letter-spacing:-.018em; margin:0; }
-  .cell .sub { font-family:var(--mono); font-size:11.5px; color:var(--ink-3);
-               margin-top:6px; letter-spacing:.02em; }
-  .cell p { margin-top:13px; color:var(--ink-2); font-size:15.3px; max-width:62ch; }
-  .nums { display:flex; flex-wrap:wrap; gap:14px 30px; margin-top:20px;
-          padding-top:17px; border-top:1px solid var(--line); }
-  .nums div { display:flex; flex-direction:column; }
-  .nums b { font-family:var(--mono); font-size:21px; font-weight:600; letter-spacing:-.035em;
-            font-variant-numeric:tabular-nums; color:var(--accent); line-height:1.15; }
-  .nums .hot b { color:var(--hot); }
-  .nums span { font-size:12px; color:var(--ink-3); margin-top:3px; }
+  /* ---------- section heads ---------- */
+  section { padding:clamp(56px, 8vw, 112px) 0; border-top:1px solid var(--line); }
+  .head { display:grid; grid-template-columns:72px 1fr auto; gap:12px 24px; align-items:baseline; margin-bottom:clamp(28px, 4vw, 52px); }
+  .head .num { font:500 13px/1 var(--mono); color:var(--accent); }
+  .head h2 { font:400 clamp(40px, 5.2vw, 68px)/1 var(--serif); letter-spacing:-.02em; margin:0; }
+  .head .eyebrow { text-align:right; }
+  .head p { grid-column:2 / -1; margin:6px 0 0; color:var(--mute); max-width:60ch; font-size:17px; }
 
-  /* ================= featured projects ================= */
-  .proj { border-bottom:1px solid var(--line); padding-block:clamp(34px,4.5vw,62px); }
-  .proj:last-of-type { border-bottom:none; }
-  .split { display:grid; grid-template-columns:minmax(300px,0.86fr) 1.6fr; gap:clamp(26px,3.4vw,58px); align-items:start; }
-  .proj h3 { font-size:clamp(26px,3.1vw,38px); font-weight:600; letter-spacing:-.03em; margin:0; line-height:1.08; }
-  .proj .stack { font-family:var(--mono); font-size:12px; color:var(--ink-3);
-                 margin-top:10px; letter-spacing:.03em; }
-  .proj .what { margin-top:16px; color:var(--ink-2); font-size:16.2px; max-width:56ch; }
-  .go { display:flex; flex-wrap:wrap; gap:9px; margin-top:20px; }
-  .go a { font-family:var(--mono); font-size:12.5px; padding:9px 15px; border-radius:100px;
-          border:1px solid var(--line-2); color:var(--ink-2); }
-  .go a.primary { background:var(--accent); border-color:var(--accent); color:#fff; font-weight:500; }
-  .go a.primary:hover { text-decoration:none; filter:brightness(1.08); }
-  .go a:hover { border-color:var(--accent); color:var(--accent); text-decoration:none; }
+  /* ---------- work ---------- */
+  .job { display:grid; grid-template-columns:72px minmax(0, 290px) minmax(0, 1fr) minmax(0, 200px); gap:24px clamp(24px, 3.4vw, 48px);
+    padding:clamp(28px, 3.6vw, 44px) 0; border-top:1px solid var(--line); }
+  .head + .job { border-top:0; padding-top:0; }
+  .job .idx { font:500 13px/2.4 var(--mono); color:var(--mute); }
+  .job h3 { font:400 32px/1.05 var(--serif); letter-spacing:-.01em; margin:0 0 14px; }
+  .tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .tags span { font:500 11.5px/1 var(--mono); padding:6px 8px; border-radius:6px; background:var(--paper);
+    border:1px solid var(--line); color:var(--ink2); }
+  .job .body p { margin:0 0 14px; color:var(--ink2); max-width:62ch; }
+  .job .body p:last-child { margin-bottom:0; }
+  .job strong { color:var(--ink); font-weight:600; }
+  .nums { display:flex; flex-direction:column; gap:18px; border-left:1px solid var(--line); padding-left:22px; align-self:start; }
+  .nums div { display:flex; flex-direction:column; gap:4px; }
+  .nums b { font:500 28px/1 var(--mono); letter-spacing:-.03em; }
+  .nums .hot b { color:var(--accent); }
+  .nums span { font-size:13.5px; color:var(--mute); line-height:1.35; }
+  .textlink { font:500 14px/1.4 var(--sans); color:var(--accent); text-decoration:none; border-bottom:1px solid currentColor; align-self:flex-start; }
 
+  /* ---------- projects ---------- */
+  .feature { display:grid; grid-template-columns:minmax(0, 5fr) minmax(0, 7fr); gap:clamp(28px, 4.5vw, 64px);
+    align-items:center; padding:clamp(40px, 5.5vw, 72px) 0; border-top:1px solid var(--line); }
+  .head + .feature { border-top:0; padding-top:0; }
+  .feature.flip .text { order:2; }
+  .kicker { display:flex; gap:12px; align-items:center; margin-bottom:14px; }
+  .live { display:inline-flex; align-items:center; gap:6px; font:500 11.5px/1 var(--mono); color:var(--ok);
+    text-transform:uppercase; letter-spacing:.08em; }
+  .live::before { content:""; width:7px; height:7px; border-radius:50%; background:currentColor; }
+  .feature h3 { font:400 clamp(42px, 4.6vw, 60px)/1 var(--serif); letter-spacing:-.02em; margin:0 0 14px; }
+  .feature h3 em { color:var(--accent); }
+  .feature .tags { margin-bottom:20px; }
+  .feature p { color:var(--ink2); margin:0 0 14px; max-width:52ch; }
+  .go { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
   .shot { margin:0; }
-  .shot img { display:block; width:100%; height:auto; border:1px solid var(--line-2);
-              border-radius:8px; background:var(--panel); }
-  .shot figcaption { font-size:14px; color:var(--ink-3); margin-top:12px; max-width:88ch; }
+  .frame { border-radius:14px; overflow:hidden; border:1px solid var(--line); background:var(--paper);
+    box-shadow:0 30px 60px -36px rgba(23,21,15,.45); transition:transform .3s ease; }
+  .frame:hover { transform:translateY(-4px); }
+  .bar { display:flex; align-items:center; gap:7px; height:34px; padding:0 14px; border-bottom:1px solid var(--line); }
+  .bar i { width:10px; height:10px; border-radius:50%; background:var(--line); flex:none; }
+  .bar span { min-width:0; margin-left:12px; font:400 12px/1 var(--mono); color:var(--mute); overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+  .frame.bare { border:0; }
+  .shot figcaption { font-size:14.5px; color:var(--mute); margin-top:16px; max-width:70ch; line-height:1.55; }
+  .shot figcaption b { color:var(--ink2); font-weight:600; }
+  .qa { grid-column:1 / -1; display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:clamp(20px, 3vw, 40px);
+    padding-top:28px; border-top:1px dashed var(--line); }
+  .qa h4 { margin:0 0 8px; }
+  .qa p { margin:0; font-size:15.5px; color:var(--ink2); max-width:none; }
 
-  .qa { display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
-        gap:22px 38px; margin-top:24px; padding-top:22px; border-top:1px solid var(--line); }
-  .qa h4 { font-size:12.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
-           color:var(--ink-3); margin:0 0 6px; font-family:var(--mono); }
-  .qa p { font-size:14.8px; color:var(--ink-2); margin:0; }
+  .more { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:20px; padding-top:clamp(40px, 5.5vw, 72px); border-top:1px solid var(--line); }
+  .card { display:flex; flex-direction:column; background:var(--paper); border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+  .card img { aspect-ratio:16 / 10; object-fit:cover; object-position:top left; border-bottom:1px solid var(--line); width:100%; }
+  .card .in { padding:22px 22px 24px; display:flex; flex-direction:column; flex:1; }
+  .card h3 { font:400 30px/1.05 var(--serif); margin:0 0 12px; }
+  .card .tags { margin-bottom:14px; }
+  .card p { margin:0 0 12px; font-size:15.5px; color:var(--ink2); }
+  .card .go { margin-top:auto; padding-top:10px; }
 
-  /* ================= small projects ================= */
-  .grid3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
-           gap:1px; background:var(--line); border-block:1px solid var(--line); }
-  .grid3 .cell h3 { font-size:17px; }
-  .grid3 .cell img { display:block; width:100%; height:auto; margin-top:16px;
-                     border:1px solid var(--line); border-radius:6px; }
+  /* ---------- kit ---------- */
+  .kit { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:0 clamp(24px, 4vw, 64px); margin:0; padding-left:96px; }
+  .kit div { display:grid; grid-template-columns:170px 1fr; gap:16px; padding:18px 0; border-top:1px solid var(--line); }
+  .kit dt { font:500 12px/1.9 var(--mono); text-transform:uppercase; letter-spacing:.07em; color:var(--mute); }
+  .kit dd { margin:0; color:var(--ink2); font-size:16px; }
 
-  /* ================= kit ================= */
-  .kit { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-         gap:1px; background:var(--line); border-block:1px solid var(--line); margin-bottom:0; }
-  .kit div { background:var(--panel); padding:20px clamp(18px,2vw,28px) 22px; }
-  .kit dt { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.11em;
-            text-transform:uppercase; color:var(--ink-3); margin-bottom:9px; }
-  .kit dd { margin:0; font-size:15px; color:var(--ink-2); line-height:1.75; }
+  /* ---------- outro ---------- */
+  .outro { background:var(--band); color:var(--band-ink); border-top:0; }
+  .outro .wrap { display:grid; grid-template-columns:minmax(0, 1.3fr) minmax(0, 1fr); gap:clamp(32px, 6vw, 96px); }
+  .outro h2 { font:400 clamp(44px, 6vw, 84px)/.98 var(--serif); letter-spacing:-.02em; margin:16px 0 26px; }
+  .outro h2 em { color:#ff7b42; }
+  .outro p { color:color-mix(in srgb, var(--band-ink) 78%, transparent); max-width:54ch; margin:0 0 14px; }
+  .outro .eyebrow { color:color-mix(in srgb, var(--band-ink) 55%, transparent); }
+  .outro .pill { background:transparent; color:var(--band-ink); border-color:color-mix(in srgb, var(--band-ink) 30%, transparent); }
+  .outro .pill.solid { background:#ff7b42; color:#17150f; border-color:#ff7b42; }
+  .outro .pill:hover { border-color:var(--band-ink); }
+  .outro .pill.solid:hover { background:var(--band-ink); border-color:var(--band-ink); color:#17150f; }
+  .before { border-left:1px solid color-mix(in srgb, var(--band-ink) 18%, transparent); padding-left:clamp(20px, 3vw, 40px); align-self:end; }
+  .before h3 { font:400 30px/1.1 var(--serif); margin:12px 0 14px; }
+  .outro p.fine { font:400 13px/1.5 var(--mono); }
+  footer { background:var(--band); color:color-mix(in srgb, var(--band-ink) 55%, transparent);
+    border-top:1px solid color-mix(in srgb, var(--band-ink) 12%, transparent); }
+  footer .wrap { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-top:22px; padding-bottom:28px; font:400 13px/1.5 var(--mono); }
+  footer a { text-decoration:none; }
+  footer a:hover { color:#ff7b42; }
 
-  /* ================= outro ================= */
-  .outro { background:var(--panel); border-top:1px solid var(--line); padding-block:clamp(38px,5vw,70px); }
-  .outro .cols { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:26px 52px; }
-  .outro h2 { font-size:clamp(24px,3vw,34px); font-weight:600; letter-spacing:-.028em; margin:0 0 14px; }
-  .outro p { color:var(--ink-2); font-size:16.5px; max-width:58ch; }
-  .fine { font-family:var(--mono); font-size:12px; color:var(--ink-3); margin-top:20px; }
+  /* ---------- reveal ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .js .rv { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+    .js .rv.in { opacity:1; transform:none; }
+  }
 
-  footer { padding-block:24px 30px; display:flex; flex-wrap:wrap; gap:8px 28px;
-           justify-content:space-between; font-family:var(--mono); font-size:12.5px;
-           color:var(--ink-3); border-top:1px solid var(--line); }
-
-  @media (max-width:820px) {
-    .split { grid-template-columns:1fr; }
-    .proj .what, .cell p { max-width:none; }
+  /* ---------- small screens ---------- */
+  @media (max-width: 1080px) {
+    .job { grid-template-columns:minmax(0, 250px) minmax(0, 1fr); }
+    .job .idx { display:none; }
+    .job .nums { grid-column:2; flex-direction:row; flex-wrap:wrap; gap:18px 32px; border-left:0; padding-left:0; border-top:1px dashed var(--line); padding-top:18px; }
+    .head { grid-template-columns:1fr auto; }
+    .head .num { display:none; }
+    .head p { grid-column:1 / -1; }
+    .kit { padding-left:0; }
+  }
+  @media (max-width: 860px) {
+    body { font-size:16.5px; }
+    .top nav { display:none; }
+    .top .pill { margin-left:auto; }
+    .hero .wrap, .outro .wrap { grid-template-columns:minmax(0, 1fr); }
+    .ledger li { grid-template-columns:112px 1fr; gap:4px 12px; }
+    .ledger b { font-size:23px; }
+    .job { grid-template-columns:minmax(0, 1fr); }
+    .job .nums { grid-column:1; }
+    .feature { grid-template-columns:minmax(0, 1fr); }
+    .feature.flip .text { order:0; }
+    .qa, .more, .kit { grid-template-columns:minmax(0, 1fr); }
+    .head { grid-template-columns:1fr; }
+    .head .eyebrow { text-align:left; }
+    .kit div { grid-template-columns:1fr; gap:4px; }
+    .before { border-left:0; padding-left:0; border-top:1px solid color-mix(in srgb, var(--band-ink) 18%, transparent); padding-top:28px; }
   }
 </style>
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
-<!-- ============================ HERO ============================ -->
-<header class="hero band">
-  <span class="tag">Data analyst &middot; Ahmedabad, India</span>
-  <h1>Keyur Makwana</h1>
-  <div class="said">
-    <p class="lead">For the past three years I&rsquo;ve built and run the entire analytics stack at a
-      quick-commerce FMCG brand, on my own. The pipelines, the warehouse, the P&amp;L in SQL, the
-      dashboards, and an assistant that lets the leadership team just ask.</p>
-    <p>I like the boring end of this work: making the number at the end of the pipeline actually correct.
-      Twice now that habit has turned up money nobody knew was missing. Everything below is real, with
-      links to the code and the live tools where they exist.</p>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="mark" href="#"><i>K</i>Keyur Makwana</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#kit">Kit</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="pill solid" href="mailto:makwanakeyur2002@gmail.com">Email me <span class="arr">&rarr;</span></a>
   </div>
-  <nav class="links">
-    <a href="mailto:makwanakeyur2002@gmail.com">makwanakeyur2002@gmail.com</a>
-    <span>+91 96620 60400</span>
-    <a href="https://www.linkedin.com/in/keyur-makwana-450337197">LinkedIn</a>
-    <a href="https://github.com/illusionist-creator">GitHub</a>
-  </nav>
 </header>
 
-<!-- ============================ WORK ============================ -->
-<section>
-  <div class="band head">
-    <h2>What I do at work</h2>
-    <span class="tag">The Baker&rsquo;s Dozen &middot; Dec 2023 &rarr; now</span>
+<main>
+<!-- ============================ HERO ============================ -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <span class="status"><b></b>Data analyst &middot; Ahmedabad, India</span>
+      <h1>Keyur<br>Makwana</h1>
+      <p class="claim">I make the number at the end of the pipeline <em>actually correct</em>.</p>
+      <p class="lead">For the past three years I&rsquo;ve built and run the entire analytics stack at a
+        quick-commerce FMCG brand, on my own. The pipelines, the warehouse, the P&amp;L in SQL, the
+        dashboards, and an assistant that lets the leadership team just ask.</p>
+      <p>I like the boring end of this work. Twice now that habit has turned up money nobody knew was
+        missing. Everything below is real, with links to the code and the live tools where they exist.</p>
+      <div class="links">
+        <a class="pill" href="mailto:makwanakeyur2002@gmail.com">makwanakeyur2002@gmail.com</a>
+        <span class="pill">+91 96620 60400</span>
+        <a class="pill" href="https://www.linkedin.com/in/keyur-makwana-450337197">LinkedIn</a>
+        <a class="pill" href="https://github.com/illusionist-creator">GitHub</a>
+      </div>
+    </div>
+    <aside class="ledger" aria-label="Highlights">
+      <h2 class="eyebrow">Found along the way</h2>
+      <ul>
+        <li class="hot"><b>&#8377;5 cr</b><span>net-sales overstatement, caught by the P&amp;L model</span></li>
+        <li class="hot"><b>&#8377;2.6 cr</b><span>of &ldquo;short-credits&rdquo; that were really a missing GRN feed</span></li>
+        <li><b>8M</b><span>rows in a warehouse I run on my own</span></li>
+        <li><b>148</b><span>real questions audited so the AI assistant answers right</span></li>
+      </ul>
+      <div class="foot eyebrow"><span>The Baker&rsquo;s Dozen</span><a href="#work">Details &darr;</a></div>
+    </aside>
   </div>
-  <p class="band intro">One analyst, one stack. These four pieces carry most of the weight.</p>
+</div>
 
-  <div class="grid4">
+<!-- ============================ WORK ============================ -->
+<section id="work">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="num">01</span>
+      <h2>What I do at work</h2>
+      <span class="eyebrow">The Baker&rsquo;s Dozen &middot; Dec 2023 &rarr; now</span>
+      <p>One analyst, one stack. These five pieces carry most of the weight.</p>
+    </div>
 
-    <article class="cell">
-      <h3>Birbal, an ask-your-data assistant</h3>
-      <div class="sub">Claude API &middot; Node &middot; Vercel &middot; Supabase Postgres</div>
-      <p>You ask a question in plain English. It writes read-only SQL, runs it, and hands back the number
-        <em>and</em> the query, so anyone can check it rather than trust it.</p>
-      <p>The security is the part I care about. It doesn&rsquo;t live in the prompt, it lives in the
-        database &mdash; every question runs under the asker&rsquo;s own scoped Postgres role. Talk it into
-        anything you like and it still can&rsquo;t read a table you weren&rsquo;t granted.</p>
-      <p>I went through 148 real questions and 346 logged statements and built default query surfaces that
-        killed off each kind of wrong answer one at a time.</p>
+    <article class="job rv">
+      <span class="idx">1.1</span>
+      <div>
+        <h3>Birbal, an ask-your-data assistant</h3>
+        <div class="tags"><span>Claude API</span><span>Node</span><span>Vercel</span><span>Supabase Postgres</span></div>
+      </div>
+      <div class="body">
+        <p>You ask a question in plain English. It writes read-only SQL, runs it, and hands back the number
+          <em>and</em> the query, so anyone can check it rather than trust it.</p>
+        <p>The security is the part I care about. It doesn&rsquo;t live in the prompt, it lives in the
+          database &mdash; every question runs under the asker&rsquo;s own scoped Postgres role. Talk it into
+          anything you like and it still can&rsquo;t read a table you weren&rsquo;t granted.</p>
+        <p>I went through 148 real questions and 346 logged statements and built default query surfaces that
+          killed off each kind of wrong answer one at a time.</p>
+      </div>
       <div class="nums">
         <div><b>148</b><span>questions audited</span></div>
         <div><b>346</b><span>SQL statements reviewed</span></div>
@@ -210,14 +303,19 @@
       </div>
     </article>
 
-    <article class="cell">
-      <h3>The warehouse</h3>
-      <div class="sub">Supabase Postgres &middot; pg_cron &middot; GitHub Actions</div>
-      <p>MySQL and Neon pulled into one governed Postgres warehouse. Schema changes go through reviewed
-        migrations instead of someone running DDL in a console at 9pm.</p>
-      <p>I rebuilt the Business Central ERP sync as a resumable OData pipeline across 25 web services.
-        A dozen partners&rsquo; GRN feeds, Unicommerce orders and marketplace exports land in idempotent,
-        ledger-tracked tables &mdash; so re-running a failed load repairs it instead of doubling it.</p>
+    <article class="job rv">
+      <span class="idx">1.2</span>
+      <div>
+        <h3>The warehouse</h3>
+        <div class="tags"><span>Supabase Postgres</span><span>pg_cron</span><span>GitHub Actions</span></div>
+      </div>
+      <div class="body">
+        <p>MySQL and Neon pulled into one governed Postgres warehouse. Schema changes go through reviewed
+          migrations instead of someone running DDL in a console at 9pm.</p>
+        <p>I rebuilt the Business Central ERP sync as a resumable OData pipeline across 25 web services.
+          A dozen partners&rsquo; GRN feeds, Unicommerce orders and marketplace exports land in idempotent,
+          ledger-tracked tables &mdash; so re-running a failed load repairs it instead of doubling it.</p>
+      </div>
       <div class="nums">
         <div><b>8M</b><span>rows, 21 GB</span></div>
         <div><b>76</b><span>versioned migrations</span></div>
@@ -226,17 +324,22 @@
       </div>
     </article>
 
-    <article class="cell">
-      <h3>The P&amp;L, written in SQL</h3>
-      <div class="sub">PostgreSQL &middot; Power BI &middot; Alteryx</div>
-      <p>Sales register down to EBITDA &mdash; material cost, gross margin, yield loss, overhead allocation
-        keys taken from the management MIS &mdash; with an absorption check that proves every rupee of cost
-        actually lands somewhere instead of quietly evaporating between two steps.</p>
-      <p>This is where the find came from. A returns-capping provision for late partner credits turned up a
-        <strong>&#8377;5 crore overstatement of net sales</strong>. Nobody went looking for it. Invoiced
-        value and settled value stopped agreeing, and I followed the difference instead of writing it off.</p>
-      <p>The MIS, common-size and margin-bridge boards all run off this model, and I lead the annual
-        operating plan with scenario templates for outsourcing and pricing calls.</p>
+    <article class="job rv">
+      <span class="idx">1.3</span>
+      <div>
+        <h3>The P&amp;L, written in SQL</h3>
+        <div class="tags"><span>PostgreSQL</span><span>Power BI</span><span>Alteryx</span></div>
+      </div>
+      <div class="body">
+        <p>Sales register down to EBITDA &mdash; material cost, gross margin, yield loss, overhead allocation
+          keys taken from the management MIS &mdash; with an absorption check that proves every rupee of cost
+          actually lands somewhere instead of quietly evaporating between two steps.</p>
+        <p>This is where the find came from. A returns-capping provision for late partner credits turned up a
+          <strong>&#8377;5 crore overstatement of net sales</strong>. Nobody went looking for it. Invoiced
+          value and settled value stopped agreeing, and I followed the difference instead of writing it off.</p>
+        <p>The MIS, common-size and margin-bridge boards all run off this model, and I lead the annual
+          operating plan with scenario templates for outsourcing and pricing calls.</p>
+      </div>
       <div class="nums">
         <div class="hot"><b>&#8377;5 cr</b><span>overstatement found</span></div>
         <div><b>90%</b><span>faster P&amp;L prep</span></div>
@@ -244,16 +347,21 @@
       </div>
     </article>
 
-    <article class="cell">
-      <h3>Order-to-cash bridge</h3>
-      <div class="sub">PostgreSQL &middot; Power BI</div>
-      <p>PO to invoice to GRN to credit memo, matched end to end, feeding a live fill-rate board. A missed
-        PO shows up the day it happens, not in the next quarterly review.</p>
-      <p>It&rsquo;s also how <strong>&#8377;2.6 crore of apparent Zepto short-credits</strong> turned out
-        not to be shortages at all. The goods had arrived; the GRN feed had simply never reported them.
-        A separate 530,000-unit gap traced back to Amazon Fresh being billed through More Retail.</p>
-      <p>Knowing which half of a shortfall is real is the difference between a claim worth filing and a
-        month spent chasing nothing.</p>
+    <article class="job rv">
+      <span class="idx">1.4</span>
+      <div>
+        <h3>Order-to-cash bridge</h3>
+        <div class="tags"><span>PostgreSQL</span><span>Power BI</span></div>
+      </div>
+      <div class="body">
+        <p>PO to invoice to GRN to credit memo, matched end to end, feeding a live fill-rate board. A missed
+          PO shows up the day it happens, not in the next quarterly review.</p>
+        <p>It&rsquo;s also how <strong>&#8377;2.6 crore of apparent Zepto short-credits</strong> turned out
+          not to be shortages at all. The goods had arrived; the GRN feed had simply never reported them.
+          A separate 530,000-unit gap traced back to Amazon Fresh being billed through More Retail.</p>
+        <p>Knowing which half of a shortfall is real is the difference between a claim worth filing and a
+          month spent chasing nothing.</p>
+      </div>
       <div class="nums">
         <div class="hot"><b>&#8377;2.6 cr</b><span>traced to a feed gap</span></div>
         <div><b>99%</b><span>extraction accuracy</span></div>
@@ -261,192 +369,292 @@
       </div>
     </article>
 
-    <article class="cell">
-      <h3>Marketplace GRN automation</h3>
-      <div class="sub">Python &middot; a dozen small repos</div>
-      <p>Zepto, Reliance, BigBasket, Milkbasket, Hyperpure, More Retail &mdash; every one of them publishes
-        goods-receipt notes in its own format, on its own portal, on its own schedule. Each got its own
-        small scraper that pulls them down and turns them into one clean Excel.</p>
-      <p>It&rsquo;s the least glamorous thing on this page and none of the rest works without it. The
-        order-to-cash bridge can only match a PO to a receipt if the receipts actually arrive in a
-        consistent shape, and before this they didn&rsquo;t.</p>
-      <div class="go"><a href="https://github.com/illusionist-creator?tab=repositories">Browse the repos</a></div>
+    <article class="job rv">
+      <span class="idx">1.5</span>
+      <div>
+        <h3>Marketplace GRN automation</h3>
+        <div class="tags"><span>Python</span><span>a dozen small repos</span></div>
+      </div>
+      <div class="body">
+        <p>Zepto, Reliance, BigBasket, Milkbasket, Hyperpure, More Retail &mdash; every one of them publishes
+          goods-receipt notes in its own format, on its own portal, on its own schedule. Each got its own
+          small scraper that pulls them down and turns them into one clean Excel.</p>
+        <p>It&rsquo;s the least glamorous thing on this page and none of the rest works without it. The
+          order-to-cash bridge can only match a PO to a receipt if the receipts actually arrive in a
+          consistent shape, and before this they didn&rsquo;t.</p>
+      </div>
+      <div class="nums">
+        <div><b>6</b><span>partner portals, one clean format</span></div>
+        <a class="textlink" href="https://github.com/illusionist-creator?tab=repositories">Browse the repos &rarr;</a>
+      </div>
     </article>
-
   </div>
 </section>
 
 <!-- ============================ PROJECTS ============================ -->
-<section>
-  <div class="band head">
-    <h2>Things I built myself</h2>
-    <span class="tag">Public data &middot; open code</span>
-  </div>
-  <p class="band intro">None of this touches an employer&rsquo;s data. They exist because I wanted the
-    answer and nobody was selling it at a price I liked.</p>
+<section id="projects">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="num">02</span>
+      <h2>Things I built myself</h2>
+      <span class="eyebrow">Live tools &middot; public data</span>
+      <p>None of this touches an employer&rsquo;s data. They exist because I wanted the answer and nobody was
+        selling it at a price I liked.</p>
+    </div>
 
-  <!-- India Card Monitor -->
-  <article class="proj band">
-    <div class="split">
-      <div>
+    <!-- Shelf Monitor -->
+    <article class="feature rv">
+      <div class="text">
+        <div class="kicker"><span class="live">Live</span><span class="eyebrow">Quick commerce</span></div>
+        <h3>shelf<em>.</em>monitor</h3>
+        <div class="tags"><span>Playwright</span><span>BigQuery</span><span>React</span><span>DuckDB-WASM</span></div>
+        <p>Who shoppers see first when they search Blinkit, Zepto, Instamart and Flipkart Minutes. Every
+          three hours from 6&nbsp;AM to 9&nbsp;PM a scraper searches each app the way a shopper would, in 13
+          areas across 11 cities, and keeps the first 50 products: their order, which ones are paid ads,
+          prices and stock.</p>
+        <p>The public copy has no server at all. The same SQL the private dashboard runs on BigQuery runs
+          in your browser on DuckDB, over a snapshot refreshed after every run.</p>
+        <div class="go">
+          <a class="pill solid" href="https://qcomm-shelf-monitor.vercel.app/">Open the dashboard <span class="arr">&rarr;</span></a>
+          <a class="pill" href="https://github.com/illusionist-creator/qcomm-shelf-monitor">First version&rsquo;s source</a>
+        </div>
+      </div>
+      <figure class="shot">
+        <div class="frame">
+          <div class="bar"><i></i><i></i><i></i><span>qcomm-shelf-monitor.vercel.app</span></div>
+          <img src="shelf-monitor.png" width="1500" height="1000" alt="Shelf Monitor overview: the headline &lsquo;Who shoppers see first when they search Blinkit, Zepto, Instamart and Flipkart Minutes&rsquo;; counts of 16 search words, 4 apps, 13 areas, 703 brands seen and 15 days of history; a filter sentence set to The Health Factory in bakery around every area on 30 Oct 2026; and tiles showing it appears in the first 10 products in 432 of 624 searches, with 20% organic and 19% ad share of voice.">
+        </div>
+        <figcaption><b>Bakery searches, 30 Oct 2026.</b> The Health Factory shows up in the first ten products
+          in 432 of 624 searches and holds about a fifth of both the unpaid and the paid shelf. Split by
+          app, its ad share runs from 24% on Blinkit to 10% on Flipkart Minutes.</figcaption>
+      </figure>
+      <div class="qa">
+        <div><h4 class="eyebrow">Why I built it</h4><p>Rank and availability are the two things a brand
+          can&rsquo;t see from its own sales data, and both of them move daily.</p></div>
+        <div><h4 class="eyebrow">How it works</h4><p>Real Chrome sets each app&rsquo;s delivery pincode, checks
+          it stuck, and reads the app&rsquo;s own search responses. Results land in BigQuery by day and by run,
+          and the same product is matched across apps by brand, pack size and name.</p></div>
+        <div><h4 class="eyebrow">The hard part</h4><p>Every app fights scrapers differently: firewalls that
+          serve blank pages to automated browsers, login walls after a few guest searches, and pincode boxes
+          that quietly geocode to the wrong state.</p></div>
+      </div>
+    </article>
+
+    <!-- India Card Monitor -->
+    <article class="feature flip rv">
+      <div class="text">
+        <div class="kicker"><span class="live">Live</span><span class="eyebrow">Payments &middot; auto-refreshed</span></div>
         <h3>India Card Monitor</h3>
-        <div class="stack">Python &middot; D3.js &middot; auto-refreshed</div>
-        <p class="what">The RBI publishes bank-wise card statistics every month. NPCI publishes UPI data
-          separately. Nobody joins them, so I did &mdash; who issues India&rsquo;s cards, which banks and
-          apps carry UPI, and what a payment is actually worth, month by month since April 2011.</p>
-        <p class="what">It refreshes itself, so the series keeps extending without me touching it.</p>
+        <div class="tags"><span>Python</span><span>D3.js</span><span>GitHub Actions</span></div>
+        <p>The RBI publishes bank-wise card statistics every month. NPCI publishes UPI data separately. Nobody
+          joins them, so I did &mdash; who issues India&rsquo;s cards, which banks and apps carry UPI, and what
+          a payment is actually worth, month by month since April 2011.</p>
+        <p>It refreshes itself, so the series keeps extending without me touching it.</p>
         <div class="go">
-          <a class="primary" href="https://illusionist-creator.github.io/rbi-payments-data/">Open the dashboard &rarr;</a>
-          <a href="https://github.com/illusionist-creator/rbi-payments-data">Source</a>
+          <a class="pill solid" href="https://illusionist-creator.github.io/rbi-payments-data/">Open the dashboard <span class="arr">&rarr;</span></a>
+          <a class="pill" href="https://github.com/illusionist-creator/rbi-payments-data">Source</a>
         </div>
       </div>
       <figure class="shot">
-        <img src="india_card_monitor.jpg" alt="India Card Monitor dashboard: filters for product, month, window, share metric, top-N and bank type; six stat tiles with sparklines for cards outstanding, card payments, transactions, average payment and ATM withdrawals, each with month-on-month and year-on-year change; below, a stacked share-over-time area chart of credit cards outstanding by bank and a ranking table for the latest month.">
-        <figcaption>184 months, 86 banks. The tile I keep coming back to is the average payment: card
-          payments were up 7.4% year on year while the average ticket fell 13.7%. More transactions, each
-          one smaller &mdash; a different story from the headline growth number.</figcaption>
-      </figure>
-    </div>
-    <div class="qa">
-      <div><h4>Why I built it</h4><p>Two agencies, two file formats, one obvious question between them that nobody
-        had bothered to answer.</p></div>
-      <div><h4>How it works</h4><p>A scraper and parser for the monthly releases, a tidy long-format store, and
-        a static D3 front end with no server to keep alive.</p></div>
-      <div><h4>The hard part</h4><p>Schema drift. The published layout changes without warning, so the parser
-        has to fail loudly rather than silently mis-map a column.</p></div>
-    </div>
-  </article>
-
-  <!-- Shelf Monitor -->
-  <article class="proj band">
-    <div class="split">
-      <div>
-        <h3>shelf.monitor</h3>
-        <div class="stack">Playwright &middot; FastAPI &middot; headless capture</div>
-        <p class="what">Search rank, share of shelf, sponsored slots, price ladder and stock-outs on
-          Blinkit &mdash; by keyword and by pincode. A headless browser sets the delivery location, runs the
-          search and reads Blinkit&rsquo;s own search API as the page scrolls, so you get the shelf a real
-          shopper in that pincode sees.</p>
-        <p class="what">Type a search term and a pincode, wait about a minute, get the shelf measured.</p>
-        <div class="go">
-          <a class="primary" href="https://qcomm-shelf-monitor.vercel.app/">Open the dashboard &rarr;</a>
-          <a href="https://github.com/illusionist-creator/qcomm-shelf-monitor">Source</a>
+        <div class="frame">
+          <div class="bar"><i></i><i></i><i></i><span>illusionist-creator.github.io/rbi-payments-data</span></div>
+          <img src="india_card_monitor.jpg" width="1533" height="784" loading="lazy" alt="India Card Monitor dashboard: filters for product, month, window, share metric, top-N and bank type; six stat tiles with sparklines for cards outstanding, card payments, transactions, average payment and ATM withdrawals, each with month-on-month and year-on-year change; below, a stacked share-over-time area chart of credit cards outstanding by bank and a ranking table for the latest month.">
         </div>
-      </div>
-      <figure class="shot">
-        <img src="shelf-monitor.png" alt="Quick-Commerce Shelf Monitor: filters for keyword, pincode, top-N slots and run date; tiles for keywords tracked, result slots in view, sponsored share, sold-out share, median discount and tracked SKU slots; and a horizontal bar chart of share of shelf by brand split into organic and sponsored placements.">
-        <figcaption>Sample run, &ldquo;dog food&rdquo; across Bengaluru, Mumbai and Gurgaon. Drools holds
-          about 30% of the top-20 shelf, a third of it paid. Benny&rsquo;s Bowl holds about 15%
-          <em>entirely</em> through sponsored slots and doesn&rsquo;t rank organically at all &mdash; which
-          is invisible in any rank report that doesn&rsquo;t split paid from organic.</figcaption>
+        <figcaption><b>184 months, 86 banks.</b> The tile I keep coming back to is the average payment: card
+          payments were up 7.4% year on year while the average ticket fell 13.7%. More transactions, each one
+          smaller &mdash; a different story from the headline growth number.</figcaption>
       </figure>
-    </div>
-    <div class="qa">
-      <div><h4>Why I built it</h4><p>Rank and availability are the two things a brand can&rsquo;t see from its own
-        sales data, and both of them move daily.</p></div>
-      <div><h4>How it works</h4><p>Slot map, price ladder, discount depth by brand, availability, rank over
-        time. The viewer runs in the browser, so the data never leaves your machine.</p></div>
-      <div><h4>What's next</h4><p>Alerting when a tracked SKU falls out of the top ten or goes out of stock in a
-        dark store.</p></div>
-    </div>
-  </article>
-
-  <!-- Growth Forecaster -->
-  <article class="proj band">
-    <div class="split">
-      <div>
-        <h3>Growth Forecaster</h3>
-        <div class="stack">R Shiny</div>
-        <p class="what">Forecast a gross-margin profile from the levers that actually drive it, rather than
-          from one growth percentage applied to last year. Upload a history keyed by date, partner category,
-          supply quantity, MRP, commission, return rate, GST, raw material, packaging and manufacturing cost
-          per unit, and yield loss &mdash; then move the levers and watch the P&amp;L respond.</p>
-        <div class="go">
-          <a href="https://github.com/illusionist-creator/sale-forecaster">Source</a>
-        </div>
+      <div class="qa">
+        <div><h4 class="eyebrow">Why I built it</h4><p>Two agencies, two file formats, one obvious question
+          between them that nobody had bothered to answer.</p></div>
+        <div><h4 class="eyebrow">How it works</h4><p>A scraper and parser for the monthly releases, a tidy
+          long-format store, and a static D3 front end with no server to keep alive.</p></div>
+        <div><h4 class="eyebrow">The hard part</h4><p>Schema drift. The published layout changes without
+          warning, so the parser has to fail loudly rather than silently mis-map a column.</p></div>
       </div>
-      <figure class="shot">
-        <img src="growth_forecaster.png" alt="Growth Forecaster R Shiny application: tabbed interface across Upload Data, Historical Data, Inputs, P and L and Forecast; the upload tab shows an Excel file picker, a download-template button, the list of required columns, and a process-upload action.">
-        <figcaption>That list of required columns is really the whole point of the tool. Naming every
-          driver out loud is what stops a forecast quietly collapsing back into one optimistic number.</figcaption>
-      </figure>
-    </div>
-  </article>
-
-  <!-- smaller -->
-  <div class="grid3">
-    <article class="cell">
-      <h3>File Merger Pro</h3>
-      <div class="sub">R Shiny &middot; v2.0.0</div>
-      <p>Combine Excel and CSV files into one table. Built for the case everyone in this job knows: the
-        same report arriving as twelve files with twelve slightly different headers.</p>
-      <p>It can match columns by name or by position, trim and drop blank rows, de-duplicate on the data
-        while ignoring source columns, and stamp each row with the file and sheet it came from &mdash; which
-        is the bit you always want an hour later, when a number looks wrong and you need to know where it
-        came in from.</p>
-      <div class="go">
-        <a class="primary" href="https://keyurtbd.shinyapps.io/excel__csv_file_merger/">Open the app &rarr;</a>
-        <a href="https://github.com/illusionist-creator/excel_csv_file_merger">Source</a>
-      </div>
-      <img src="file_merger_live.jpg" alt="File Merger Pro: a drop zone for CSV, XLSX, XLSM and XLS files up to 50 MB, and an options panel with reading settings for header rows, trimming, blank rows and duplicate removal, controls to add Source_File and Source_Sheet columns, and a CSV or Excel download choice.">
     </article>
-    <article class="cell">
-      <h3>GitHub Actions Monitor</h3>
-      <div class="sub">JavaScript &middot; MIT</div>
-      <p>Cross-repo CI health, flaky failures and compute spend in one place: what&rsquo;s running now,
-        what&rsquo;s gone past its usual duration, and which repositories are burning the minutes.</p>
-      <p>I wrote it because a test that fails once a week is invisible inside any one repository&rsquo;s
-        run history, and obvious the moment you line every repository up side by side.</p>
-      <p>Your token is pasted into the sidebar and stays in that browser tab &mdash; never stored, never
-        sent anywhere except api.github.com. It opens on generated sample data so you can see what it does
-        before handing it anything.</p>
-      <div class="go">
-        <a class="primary" href="https://github-action-monitor.vercel.app/#tab=live">Open it live &rarr;</a>
-        <a href="https://github.com/illusionist-creator/github_action_monitor">Source</a>
+
+    <!-- Darshan -->
+    <article class="feature rv">
+      <div class="text">
+        <div class="kicker"><span class="live">Live</span><span class="eyebrow">Consumer app &middot; PWA</span></div>
+        <h3>Darshan</h3>
+        <div class="tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>PWA</span></div>
+        <p>A temple guide for Ahmedabad, Bengaluru, Mumbai and Banaras: find a temple, know when the aarti
+          is, watch a live darshan, and read the day&rsquo;s panchang. 1,635 temples on a map, every aarti
+          schedule sorted by what&rsquo;s happening now, and prayers in four scripts.</p>
+        <p>Built for two people: someone who has just moved to a new city and doesn&rsquo;t know what&rsquo;s
+          around them, and their parents who are visiting and have a free afternoon.</p>
+        <div class="go">
+          <a class="pill solid" href="https://darshan-sable.vercel.app/">Open the app <span class="arr">&rarr;</span></a>
+        </div>
       </div>
-      <img src="gha_monitor.jpg" alt="GitHub Actions Monitor, Live now view: a sidebar listing Overview, Live now, Repositories, All runs, Failures, Run logs and Timeline plus five watched repositories; tiles for runs in flight, runs over median duration, repositories active and average elapsed time; and a list of active workflow runs with progress bars, branch names and median comparisons.">
+      <figure class="shot">
+        <div class="frame bare">
+          <img src="darshan.jpg" width="1500" height="1000" loading="lazy" alt="Three phone screens of Darshan for Ahmedabad: the home screen with tiles for Temples, Today, Deity of the day, For you, Prayers and Festivals above an &lsquo;In the spotlight&rsquo; carousel; the temple list with aarti times and &lsquo;Open now&rsquo; badges; and the Panchang page for 30 Oct 2026 showing Aso Vad Pancham and the five limbs of the day.">
+        </div>
+        <figcaption><b>Home, temples and today&rsquo;s panchang.</b> Every tile on the home screen carries a live
+          hint &mdash; when the next good period starts, the deity of the day, how many days to the next
+          festival.</figcaption>
+      </figure>
+      <div class="qa">
+        <div><h4 class="eyebrow">What users told me</h4><p>Early feedback was that it &ldquo;isn&rsquo;t intuitive
+          enough to look at themselves&rdquo; &mdash; mostly from older users, exactly the visiting parents it
+          was built for.</p></div>
+        <div><h4 class="eyebrow">What changed</h4><p>It now says what it is on the first screen, one-word tabs
+          became plain labels, and the temple list opens before the map. Home names every section in a
+          sentence.</p></div>
+        <div><h4 class="eyebrow">The rule since</h4><p>No label that assumes prior knowledge, full-width tap
+          targets, body text no smaller than 14px, and never make the map the first thing someone sees.</p></div>
+      </div>
     </article>
+
+    <!-- SQLQuest -->
+    <article class="feature flip rv">
+      <div class="text">
+        <div class="kicker"><span class="live">Live</span><span class="eyebrow">Learning &middot; game</span></div>
+        <h3>SQL<em>Quest</em></h3>
+        <div class="tags"><span>JavaScript</span><span>SQLite in the browser</span><span>Node</span></div>
+        <p>Learn SQL by writing it. 64 challenges over five levels, from SELECT to window functions, each
+          with a short lesson and a real database to query &mdash; a chai-and-coffee chain or an HR company.</p>
+        <p>Any query that returns the right rows passes, not just one &ldquo;right&rdquo; answer, and the
+          feedback says which column or count is off. XP, ranks, streaks, 13 badges and timed drills keep
+          people coming back.</p>
+        <div class="go">
+          <a class="pill solid" href="https://illusionist-creator.github.io/sqlquest/">Play it <span class="arr">&rarr;</span></a>
+          <a class="pill" href="https://github.com/illusionist-creator/sqlquest">Source</a>
+        </div>
+      </div>
+      <figure class="shot">
+        <div class="frame">
+          <div class="bar"><i></i><i></i><i></i><span>illusionist-creator.github.io/sqlquest</span></div>
+          <img src="sqlquest.jpg" width="1500" height="1000" loading="lazy" alt="SQLQuest challenge &lsquo;Who ordered?&rsquo; at level 3: the task and an INNER JOIN lesson on the left; on the right a query joining orders to customers, a green &lsquo;Correct! +35 XP&rsquo; banner with Speedster and First Query badges, and the 90-row result table.">
+        </div>
+        <figcaption><b>A level-3 join, solved.</b> The check compares result sets, so any correct query earns
+          the XP &mdash; and a quick first solve earns two badges on the spot.</figcaption>
+      </figure>
+    </article>
+
+    <!-- smaller -->
+    <div class="more">
+      <article class="card rv">
+        <img src="growth_forecaster.png" width="1500" height="1000" loading="lazy" alt="Growth Forecaster R Shiny application: tabbed interface across Upload Data, Historical Data, Inputs, P and L and Forecast; the upload tab shows an Excel file picker, a download-template button, the list of required columns, and a process-upload action.">
+        <div class="in">
+          <h3>Growth Forecaster</h3>
+          <div class="tags"><span>R Shiny</span></div>
+          <p>Forecast a gross-margin profile from the levers that actually drive it, rather than from one
+            growth percentage applied to last year. Upload a history keyed by date, partner category, supply
+            quantity, MRP, commission, return rate, GST and unit costs &mdash; then move the levers and watch
+            the P&amp;L respond.</p>
+          <p>Naming every driver out loud is what stops a forecast quietly collapsing back into one
+            optimistic number.</p>
+          <div class="go"><a class="pill" href="https://github.com/illusionist-creator/sale-forecaster">Source</a></div>
+        </div>
+      </article>
+      <article class="card rv">
+        <img src="file_merger_live.jpg" width="1533" height="784" loading="lazy" alt="File Merger Pro: a drop zone for CSV, XLSX, XLSM and XLS files up to 50 MB, and an options panel with reading settings for header rows, trimming, blank rows and duplicate removal, controls to add Source_File and Source_Sheet columns, and a CSV or Excel download choice.">
+        <div class="in">
+          <h3>File Merger Pro</h3>
+          <div class="tags"><span>R Shiny</span><span>v2.0.0</span></div>
+          <p>Combine Excel and CSV files into one table. Built for the case everyone in this job knows: the
+            same report arriving as twelve files with twelve slightly different headers.</p>
+          <p>It matches columns by name or position, de-duplicates, and stamps each row with the file and
+            sheet it came from &mdash; the bit you always want an hour later, when a number looks wrong.</p>
+          <div class="go">
+            <a class="pill solid" href="https://keyurtbd.shinyapps.io/excel__csv_file_merger/">Open the app <span class="arr">&rarr;</span></a>
+            <a class="pill" href="https://github.com/illusionist-creator/excel_csv_file_merger">Source</a>
+          </div>
+        </div>
+      </article>
+      <article class="card rv">
+        <img src="gha_monitor.jpg" width="1533" height="784" loading="lazy" alt="GitHub Actions Monitor, Live now view: a sidebar listing Overview, Live now, Repositories, All runs, Failures, Run logs and Timeline plus five watched repositories; tiles for runs in flight, runs over median duration, repositories active and average elapsed time; and a list of active workflow runs with progress bars, branch names and median comparisons.">
+        <div class="in">
+          <h3>GitHub Actions Monitor</h3>
+          <div class="tags"><span>JavaScript</span><span>MIT</span></div>
+          <p>Cross-repo CI health, flaky failures and compute spend in one place. A test that fails once a
+            week is invisible inside one repository&rsquo;s history, and obvious the moment you line every
+            repository up side by side.</p>
+          <p>Your token stays in that browser tab, never stored. It opens on sample data so you can see what
+            it does first.</p>
+          <div class="go">
+            <a class="pill solid" href="https://github-action-monitor.vercel.app/#tab=live">Open it live <span class="arr">&rarr;</span></a>
+            <a class="pill" href="https://github.com/illusionist-creator/github_action_monitor">Source</a>
+          </div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
 <!-- ============================ KIT ============================ -->
-<section>
-  <div class="band head"><h2>The kit</h2><span class="tag">What I actually use</span></div>
-  <p class="band intro">Listed honestly &mdash; these are tools I&rsquo;ve shipped something with, not
-    tools I&rsquo;ve read about.</p>
-  <dl class="kit">
-    <div><dt>Programming</dt><dd>Python &middot; SQL &middot; JavaScript &middot; R</dd></div>
-    <div><dt>Data &amp; warehouse</dt><dd>PostgreSQL &middot; Supabase &middot; DuckDB &middot; MySQL &middot; pg_cron &middot; data modelling &middot; versioned SQL migrations</dd></div>
-    <div><dt>Pipelines &amp; APIs</dt><dd>GitHub Actions &middot; Playwright &middot; FastAPI &middot; Vercel &middot; Alteryx &middot; Business Central OData &middot; Unicommerce SOAP &middot; Google Drive &amp; Sheets &middot; Meta &amp; Google Ads</dd></div>
-    <div><dt>AI &amp; LLM</dt><dd>Claude API &middot; tool-use agents &middot; prompt caching &middot; Claude Code</dd></div>
-    <div><dt>Visualisation</dt><dd>Power BI &middot; Tableau &middot; D3.js &middot; Chart.js &middot; R Shiny &middot; Streamlit</dd></div>
-    <div><dt>Business</dt><dd>Excel &middot; Google Sheets &middot; Business Central ERP &middot; Google Analytics</dd></div>
-  </dl>
+<section id="kit">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="num">03</span>
+      <h2>The kit</h2>
+      <span class="eyebrow">What I actually use</span>
+      <p>Listed honestly &mdash; these are tools I&rsquo;ve shipped something with, not tools I&rsquo;ve read about.</p>
+    </div>
+    <dl class="kit rv">
+      <div><dt>Programming</dt><dd>Python &middot; SQL &middot; JavaScript &middot; TypeScript &middot; R</dd></div>
+      <div><dt>Data &amp; warehouse</dt><dd>PostgreSQL &middot; Supabase &middot; BigQuery &middot; DuckDB &middot; MySQL &middot; pg_cron &middot; data modelling &middot; versioned SQL migrations</dd></div>
+      <div><dt>Pipelines &amp; APIs</dt><dd>GitHub Actions &middot; Playwright &middot; FastAPI &middot; Vercel &middot; Alteryx &middot; Business Central OData &middot; Unicommerce SOAP &middot; Google Drive &amp; Sheets &middot; Meta &amp; Google Ads</dd></div>
+      <div><dt>AI &amp; LLM</dt><dd>Claude API &middot; tool-use agents &middot; prompt caching &middot; Claude Code</dd></div>
+      <div><dt>Visualisation</dt><dd>Power BI &middot; Tableau &middot; D3.js &middot; Chart.js &middot; React &middot; R Shiny &middot; Streamlit</dd></div>
+      <div><dt>Business</dt><dd>Excel &middot; Google Sheets &middot; Business Central ERP &middot; Google Analytics</dd></div>
+    </dl>
+  </div>
 </section>
 
 <!-- ============================ OUTRO ============================ -->
-<section class="outro">
-  <div class="band cols">
-    <div>
-      <h2>Working together</h2>
-      <p>I take on a small number of brands as a freelance analytics engineer. Two things, mostly:
-        SKU-level profit by platform once ads, discounts, returns and deductions come out &mdash; and the
-        reconciliation between what you invoiced and what actually landed in the bank.</p>
+<section class="outro" id="contact">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">04 &middot; Working together</span>
+      <h2>Got a number that <em>doesn&rsquo;t add up?</em></h2>
+      <p>I take on a small number of brands as a freelance analytics engineer. Two things, mostly: SKU-level
+        profit by platform once ads, discounts, returns and deductions come out &mdash; and the reconciliation
+        between what you invoiced and what actually landed in the bank.</p>
       <p>The second one is usually where the surprise sits.</p>
+      <div class="go">
+        <a class="pill solid" href="mailto:makwanakeyur2002@gmail.com">makwanakeyur2002@gmail.com <span class="arr">&rarr;</span></a>
+        <a class="pill" href="https://www.linkedin.com/in/keyur-makwana-450337197">LinkedIn</a>
+        <a class="pill" href="https://github.com/illusionist-creator">GitHub</a>
+      </div>
     </div>
-    <div>
-      <h2>Before this</h2>
-      <p>Data analyst intern at MYBYK, Sep to Nov 2023. I looked at cycle utilisation and hub performance
-        and moved fleet off weak stations into high-demand zones. A cohort analysis of the subscription
-        plans fed a pricing revision that went with a 35% rise in footfall.</p>
+    <div class="before rv">
+      <span class="eyebrow">Before this</span>
+      <h3>MYBYK, data analyst intern</h3>
+      <p>Sep to Nov 2023. I looked at cycle utilisation and hub performance and moved fleet off weak stations
+        into high-demand zones. A cohort analysis of the subscription plans fed a pricing revision that went
+        with a 35% rise in footfall.</p>
       <p class="fine">Google Data Analytics Professional Certificate &middot; Coursera</p>
     </div>
   </div>
 </section>
+</main>
 
-<footer class="band">
-  <span>Keyur Makwana &middot; analytics engineer &middot; Ahmedabad</span>
-  <span><a href="mailto:makwanakeyur2002@gmail.com">makwanakeyur2002@gmail.com</a></span>
+<footer>
+  <div class="wrap">
+    <span>Keyur Makwana &middot; analytics engineer &middot; Ahmedabad</span>
+    <span><a href="mailto:makwanakeyur2002@gmail.com">makwanakeyur2002@gmail.com</a> &middot; <a href="#top">Back to top &uarr;</a></span>
+  </div>
 </footer>
+
+<script>
+  // a rule under the header once the page scrolls; sections fade in as they arrive
+  const bar = document.getElementById("top");
+  const onScroll = () => bar.classList.toggle("scrolled", scrollY > 8);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  const items = document.querySelectorAll(".rv");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    }), { rootMargin: "0px 0px -8% 0px" });
+    items.forEach((el) => io.observe(el));
+  } else {
+    items.forEach((el) => el.classList.add("in"));
+  }
+</script>
 </body>
 </html>
