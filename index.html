@@ -316,8 +316,8 @@
       </div>
       <div class="nums">
         <div class="hot"><b>390</b><span>questions asked, by 18 people</span></div>
+        <div><b>27 s</b><span>median answer, about 3 queries each</span></div>
         <div><b>148</b><span>questions audited</span></div>
-        <div><b>346</b><span>SQL statements reviewed</span></div>
         <div><b>82%</b><span>tokens uncached, before caching</span></div>
       </div>
     </article>
@@ -332,13 +332,13 @@
         <p>MySQL and Neon pulled into one governed Postgres warehouse. Schema changes go through reviewed
           migrations instead of someone running DDL in a console at 9pm.</p>
         <p>I rebuilt the Business Central ERP sync as a resumable OData pipeline across 28 web services.
-          Some 16 partner GRN feeds, Unicommerce orders and marketplace exports land in idempotent,
+          17 partner GRN feeds, 17 payment-advice feeds, Unicommerce orders and marketplace exports land in idempotent,
           ledger-tracked tables &mdash; so re-running a failed load repairs it instead of doubling it.</p>
       </div>
       <div class="nums">
         <div><b>80M</b><span>rows, 53 GB, 407 tables</span></div>
         <div><b>242</b><span>versioned migrations</span></div>
-        <div><b>31</b><span>scheduled jobs</span></div>
+        <div><b>31</b><span>scheduled jobs, 98.2% of last week&rsquo;s 2,340 runs succeeded</span></div>
         <div><b>28</b><span>ERP web services</span></div>
       </div>
     </article>
@@ -383,6 +383,7 @@
       </div>
       <div class="nums">
         <div class="hot"><b>&#8377;2.6 cr</b><span>traced to a feed gap</span></div>
+        <div><b>87%</b><span>of FY27 invoices auto-matched to the customer&rsquo;s GRN</span></div>
         <div><b>99%</b><span>extraction accuracy</span></div>
         <div><b>20&ndash;25%</b><span>warehouse losses cut</span></div>
       </div>
@@ -395,7 +396,7 @@
         <div class="tags"><span>Python</span><span>a dozen small repos</span></div>
       </div>
       <div class="body">
-        <p>Zepto, Blinkit, Instamart, Flipkart, BigBasket, Reliance, Milkbasket, Hyperpure, More Retail,
+        <p>Zepto, Blinkit, Instamart, Flipkart, BigBasket, Reliance and its Milkbasket, Hyperpure, More Retail,
           Nature&rsquo;s Basket &mdash; every one of them publishes
           goods-receipt notes in its own format, on its own portal, on its own schedule. Each got its own
           small scraper that pulls them down and turns them into one clean Excel.</p>
@@ -404,7 +405,9 @@
           consistent shape, and before this they didn&rsquo;t.</p>
       </div>
       <div class="nums">
-        <div><b>10</b><span>partner portals, one clean format</span></div>
+        <div><b>17</b><span>GRN feeds from 9 partners, one clean format</span></div>
+        <div><b>561k</b><span>GRN lines loaded</span></div>
+        <div><b>16,200</b><span>payment advices parsed from 17 sources, no LLM</span></div>
         <a class="textlink" href="https://github.com/illusionist-creator?tab=repositories">Browse the repos &rarr;</a>
       </div>
     </article>
