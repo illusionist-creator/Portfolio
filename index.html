@@ -303,7 +303,7 @@
       <span class="idx">1.1</span>
       <div>
         <h3>Birbal, an ask-your-data assistant</h3>
-        <div class="tags"><span>Claude API</span><span>Node</span><span>Vercel</span><span>Supabase Postgres</span></div>
+        <div class="tags"><span>Claude API (Opus / Sonnet / Haiku)</span><span>Node serverless</span><span>Vercel</span><span>PostgreSQL 17</span></div>
       </div>
       <div class="body">
         <p>You ask a question in plain English. It writes read-only SQL, runs it, and hands back the number
@@ -314,7 +314,8 @@
           generated row-filtered views, 47 row-level policies and 8 scoped roles &mdash; and one planner trick took a
           restricted dashboard query from a 25-second timeout to 68&nbsp;ms.</p>
         <p>It went from first commit to production in ten weeks: 372 commits, about 150k lines, 26 dashboards
-          alongside the assistant. A three-tier model router (Haiku, Sonnet, Opus) plus prompt caching cut the cost
+          alongside the assistant, served by 30+ API endpoints and 54 database functions behind the in-app refresh
+          buttons. A three-tier model router (Haiku, Sonnet, Opus) plus prompt caching cut the cost
           of an answer by a third.</p>
         <p>I went through 148 real questions and 346 logged statements and built default query surfaces that
           killed off each kind of wrong answer one at a time.</p>
@@ -331,7 +332,7 @@
       <span class="idx">1.2</span>
       <div>
         <h3>The warehouse</h3>
-        <div class="tags"><span>PostgreSQL 17</span><span>pg_cron</span><span>dbt tests</span><span>GitHub Actions</span></div>
+        <div class="tags"><span>PostgreSQL 17</span><span>pg_cron</span><span>pg_net</span><span>Python ETL</span><span>dbt tests</span><span>GitHub Actions</span></div>
       </div>
       <div class="body">
         <p>MySQL and Neon pulled into one governed Postgres warehouse. Schema changes go through reviewed
