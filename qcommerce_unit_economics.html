@@ -1,0 +1,276 @@
+<title>Quick-Commerce Unit Economics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+  :root {
+    --ground:#f5f6f7; --surface:#ffffff; --ink:#14161a; --ink-2:#434a52; --muted:#667079;
+    --rule:#dde1e6; --rule-firm:#bfc6ce; --blue:#2a78d6; --orange:#e35f27; --neutral:#8b939c; --tax:#c3c9d0;
+    --flag-bg:#fdf3ec; --flag-ink:#8a4218;
+    --pos1:#e6effa; --pos2:#cfe0f5; --pos3:#aecbef; --neg1:#fbe6dc; --neg2:#f6c9b4;
+    --sans:"Archivo","Segoe UI",system-ui,sans-serif;
+    --serif:"Source Serif 4",Georgia,serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#131518; --surface:#1b1e22; --ink:#eef0f2; --ink-2:#c2c8ce; --muted:#949ca5;
+      --rule:#2b3037; --rule-firm:#3c434b; --blue:#3987e5; --orange:#d95926; --neutral:#78818b; --tax:#4a515a;
+      --flag-bg:#2a1d15; --flag-ink:#e0a276;
+      --pos1:#1c2a3b; --pos2:#1f3553; --pos3:#24456e; --neg1:#3a2419; --neg2:#552c1a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#131518; --surface:#1b1e22; --ink:#eef0f2; --ink-2:#c2c8ce; --muted:#949ca5;
+    --rule:#2b3037; --rule-firm:#3c434b; --blue:#3987e5; --orange:#d95926; --neutral:#78818b; --tax:#4a515a;
+    --flag-bg:#2a1d15; --flag-ink:#e0a276;
+    --pos1:#1c2a3b; --pos2:#1f3553; --pos3:#24456e; --neg1:#3a2419; --neg2:#552c1a;
+  }
+
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:var(--serif);
+         font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased; }
+  .sheet { max-width:900px; margin:0 auto; padding-inline:20px; padding-block:34px 52px; }
+  section { margin-top:32px; }
+  p { margin:0 0 9px; max-width:74ch; } p:last-child { margin-bottom:0; }
+  strong { font-weight:600; }
+
+  .eyebrow { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+  h1 { font-family:var(--sans); font-weight:700; font-size:clamp(25px,4.6vw,34px); line-height:1.1; letter-spacing:-.02em; margin:9px 0 0; text-wrap:balance; }
+  .standfirst { font-size:16.5px; color:var(--ink-2); margin-top:9px; max-width:66ch; text-wrap:pretty; }
+  .flag { display:inline-block; background:var(--flag-bg); color:var(--flag-ink); font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.05em; padding:6px 10px; border-radius:3px; margin-top:14px; }
+
+  h2 { font-family:var(--sans); font-weight:600; font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);
+       margin:0 0 12px; padding-bottom:8px; border-bottom:1px solid var(--rule); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  h2 em { font-style:normal; color:var(--muted); letter-spacing:.03em; text-transform:none; font-family:var(--mono); font-weight:500; }
+  h3 { font-family:var(--sans); font-size:14.5px; font-weight:600; margin:0 0 8px; letter-spacing:-.01em; }
+
+  .tiles { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:4px; overflow:hidden; margin:12px 0 18px; }
+  .tile { background:var(--surface); padding:14px 15px; }
+  .tile .n { font-family:var(--mono); font-weight:600; font-size:clamp(20px,3.8vw,25px); letter-spacing:-.03em; font-variant-numeric:tabular-nums; display:block; }
+  .tile .k { font-family:var(--sans); font-size:12.5px; color:var(--ink-2); display:block; margin-top:4px; line-height:1.35; }
+  .tile.b .n { color:var(--blue); } .tile.o .n { color:var(--orange); }
+
+  .scroll { overflow-x:auto; border:1px solid var(--rule); border-radius:4px; background:var(--surface); }
+  table { border-collapse:collapse; width:100%; font-family:var(--mono); font-size:12.8px; }
+  th,td { padding:8px 11px; text-align:right; white-space:nowrap; border-bottom:1px solid var(--rule); }
+  th:first-child, td:first-child { text-align:left; }
+  thead th { font-family:var(--sans); font-size:10.5px; font-weight:600; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; border-bottom:1px solid var(--rule-firm); vertical-align:bottom; }
+  tbody td { font-variant-numeric:tabular-nums; color:var(--ink-2); }
+  tbody td:first-child { color:var(--ink); }
+  tbody tr:last-child td { border-bottom:none; }
+  tr.total td { font-weight:600; color:var(--ink); border-top:1px solid var(--rule-firm); }
+  td.wrap { white-space:normal; font-family:var(--sans); font-size:12.5px; color:var(--ink-2); text-align:left; }
+  .dim { color:var(--muted); }
+  .neg { color:var(--orange); font-weight:600; }
+
+  /* heat cells */
+  td.h { font-weight:500; color:var(--ink); }
+  .p1{background:var(--pos1);} .p2{background:var(--pos2);} .p3{background:var(--pos3);}
+  .n1{background:var(--neg1);} .n2{background:var(--neg2);}
+  .rank { font-family:var(--sans); font-size:12px; }
+  .rank b { font-family:var(--mono); font-weight:600; color:var(--ink); }
+
+  /* waterfall */
+  .wf { display:grid; gap:7px; }
+  .wf-row { display:grid; grid-template-columns:minmax(128px,168px) 1fr 62px; align-items:center; gap:12px; }
+  .wf-l { font-family:var(--sans); font-size:13px; color:var(--ink-2); }
+  .wf-row.key .wf-l { color:var(--ink); font-weight:600; }
+  .wf-t { position:relative; height:13px; background:color-mix(in srgb, var(--rule) 55%, transparent); border-radius:2px; }
+  .wf-b { position:absolute; top:0; bottom:0; border-radius:2px; }
+  .wf-b.price{background:var(--neutral);} .wf-b.tax{background:var(--tax);} .wf-b.cost{background:var(--orange);} .wf-b.keep{background:var(--blue);}
+  .wf-v { font-family:var(--mono); font-size:12.8px; font-weight:600; text-align:right; font-variant-numeric:tabular-nums; }
+  .wf-p { font-family:var(--mono); font-size:12px; color:var(--muted); text-align:right; font-variant-numeric:tabular-nums; }
+  .wf-row.key .wf-v { color:var(--blue); }
+
+  .two { display:grid; grid-template-columns:1.05fr 1fr; gap:24px; align-items:start; }
+  .legend { display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:10px; font-family:var(--sans); font-size:12px; color:var(--ink-2); }
+  .legend span { display:inline-flex; align-items:center; gap:6px; }
+  .sw { width:10px; height:10px; border-radius:2px; flex:none; }
+
+  .note { font-size:13.5px; color:var(--ink-2); margin-top:10px; }
+  .callout { margin-top:12px; padding:12px 14px; border-left:3px solid var(--orange); background:var(--surface); font-size:14px; color:var(--ink-2); border-radius:0 4px 4px 0; }
+  .callout strong { color:var(--ink); }
+
+  figure { margin:0; }
+  figure img { display:block; width:100%; max-width:100%; border:1px solid var(--rule); border-radius:4px; background:var(--surface); }
+  figcaption { font-size:13px; color:var(--muted); margin-top:8px; }
+
+  .also { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:4px; overflow:hidden; }
+  .also div { background:var(--surface); padding:13px 15px; }
+  .also h3 { margin-bottom:4px; font-size:13.5px; }
+  .also p { font-size:13px; color:var(--ink-2); margin:0; }
+
+  footer { margin-top:34px; padding-top:14px; border-top:1px solid var(--rule); font-size:13.5px; color:var(--muted);
+           display:flex; flex-wrap:wrap; gap:6px 20px; justify-content:space-between; }
+  footer a { color:var(--blue); text-decoration:none; }
+  a:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
+
+  @media (max-width:720px) {
+    .tiles,.two,.also { grid-template-columns:minmax(0,1fr); }
+    .two > * { min-width:0; }
+    .wf-row { grid-template-columns:minmax(0,104px) minmax(0,1fr) 56px; gap:8px; }
+  }
+
+  @media print {
+    @page { size:A4; margin:10mm 11mm; }
+    :root, :root[data-theme="dark"], :root[data-theme="light"] {
+      --ground:#fff !important; --surface:#fff !important; --ink:#14161a !important; --ink-2:#3c434b !important; --muted:#5f6771 !important;
+      --rule:#d5dae0 !important; --rule-firm:#aab2bb !important; --blue:#2a78d6 !important; --orange:#e35f27 !important;
+      --neutral:#858d96 !important; --tax:#c3c9d0 !important; --flag-bg:#fdf3ec !important; --flag-ink:#8a4218 !important;
+      --pos1:#e6effa !important; --pos2:#cfe0f5 !important; --pos3:#aecbef !important; --neg1:#fbe6dc !important; --neg2:#f6c9b4 !important;
+    }
+    *, *::before, *::after { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+    html, body { background:#fff !important; }
+    body { font-size:9.6pt; line-height:1.4; }
+    .sheet { max-width:none; padding:0; }
+    h1 { font-size:18pt; margin-top:5pt; }
+    .standfirst { font-size:10.2pt; margin-top:5pt; }
+    .flag { margin-top:8pt; padding:3pt 7pt; font-size:7.8pt; }
+    .eyebrow { font-size:7.8pt; }
+    section { margin-top:11pt; }
+    h2 { font-size:8.3pt; margin-bottom:8pt; padding-bottom:4pt; }
+    h3 { font-size:9.6pt; margin-bottom:5pt; }
+    p { margin-bottom:6pt; max-width:none; }
+    .tiles { margin:8pt 0 11pt; }
+    .tile { padding:8pt 10pt; }
+    .tile .n { font-size:14.5pt; }
+    .tile .k { font-size:8.4pt; margin-top:2pt; }
+    table { font-size:8.2pt; }
+    th, td { padding:4.2pt 6.5pt; }
+    thead th { font-size:7.2pt; }
+    td.wrap { font-size:8.2pt; }
+    .rank { font-size:7.8pt; }
+    .wf { gap:4pt; }
+    .wf-row { grid-template-columns:72pt 1fr 34pt; gap:6pt; }
+    .s1 .two { grid-template-columns:1.3fr 1fr; }
+    .s1 th, .s1 td { padding:4.2pt 5pt; }
+    .wf-l { font-size:8.4pt; }
+    .wf-t { height:8pt; }
+    .wf-v { font-size:8.2pt; } .wf-p { font-size:7.8pt; }
+    .two { gap:16pt; }
+    .legend { font-size:7.8pt; margin-top:6pt; }
+    .note { font-size:8.8pt; margin-top:6pt; }
+    .callout { font-size:9pt; padding:7pt 10pt; margin-top:8pt; }
+    figure img { width:auto; max-width:100%; max-height:92mm; margin-inline:auto; }
+    figcaption { font-size:8.2pt; margin-top:5pt; }
+    .also div { padding:8pt 10pt; }
+    .also h3 { font-size:9pt; } .also p { font-size:8.4pt; }
+    footer { margin-top:12pt; padding-top:7pt; font-size:8.6pt; }
+    footer a { color:var(--ink); }
+    header, section, figure, table, .tiles, .two, .wf, .also, .callout { break-inside:avoid; }
+    h2, h3 { break-after:avoid; }
+    .pb { break-before:page; }
+  }
+</style>
+
+<div class="sheet">
+
+  <header>
+    <span class="eyebrow">Keyur Makwana &middot; analytics engineer &middot; Ahmedabad</span>
+    <h1>Which SKUs actually make money on quick commerce?</h1>
+    <p class="standfirst">Most brands can tell you revenue by platform. Very few can tell you profit by SKU by platform, once margin, ads, discounts, returns and deductions come out, or why the payout never matches what was invoiced. This is what that looks like when it is built properly.</p>
+    <span class="flag">Figures are synthetic, for a fictional personal-care brand &mdash; the models are the ones I run in-house</span>
+  </header>
+
+  <section class="s1">
+    <h2>01 &nbsp;Profit by SKU and platform <em>one month &middot; three q-comm platforms, anonymised</em></h2>
+
+    <div class="tiles">
+      <div class="tile b"><span class="n">8.7%</span><span class="k">Blended contribution on &#8377;60.1L of revenue from the top five SKUs</span></div>
+      <div class="tile o"><span class="n">1 of 5</span><span class="k">top SKUs loses money on every platform, on every order</span></div>
+      <div class="tile"><span class="n">#2 &rarr; #4</span><span class="k">Second-biggest SKU by revenue is fourth by profit</span></div>
+    </div>
+
+    <div class="two">
+      <div>
+        <h3>Where &#8377;299 goes &middot; body wash, Platform B</h3>
+        <div class="wf" role="img" aria-label="Waterfall from a 299 rupee consumer price down to 9.10 rupees of contribution per unit.">
+          <div class="wf-row"><span class="wf-l">Consumer price</span><div class="wf-t"><div class="wf-b price" style="left:0;width:100%"></div></div><span class="wf-v">&#8377;299.0</span></div>
+          <div class="wf-row"><span class="wf-l">GST at 18%</span><div class="wf-t"><div class="wf-b tax" style="left:84.75%;width:15.25%"></div></div><span class="wf-v">&minus;45.6</span></div>
+          <div class="wf-row"><span class="wf-l">Platform margin</span><div class="wf-t"><div class="wf-b cost" style="left:59.33%;width:25.42%"></div></div><span class="wf-v">&minus;76.0</span></div>
+          <div class="wf-row"><span class="wf-l">Product cost</span><div class="wf-t"><div class="wf-b cost" style="left:28.56%;width:30.77%"></div></div><span class="wf-v">&minus;92.0</span></div>
+          <div class="wf-row"><span class="wf-l">Ads</span><div class="wf-t"><div class="wf-b cost" style="left:18.19%;width:10.37%"></div></div><span class="wf-v">&minus;31.0</span></div>
+          <div class="wf-row"><span class="wf-l">Brand discount</span><div class="wf-t"><div class="wf-b cost" style="left:12.17%;width:6.02%"></div></div><span class="wf-v">&minus;18.0</span></div>
+          <div class="wf-row"><span class="wf-l">Freight</span><div class="wf-t"><div class="wf-b cost" style="left:8.49%;width:3.68%"></div></div><span class="wf-v">&minus;11.0</span></div>
+          <div class="wf-row"><span class="wf-l">Returns &amp; expiry</span><div class="wf-t"><div class="wf-b cost" style="left:5.32%;width:3.18%"></div></div><span class="wf-v">&minus;9.5</span></div>
+          <div class="wf-row"><span class="wf-l">Deductions</span><div class="wf-t"><div class="wf-b cost" style="left:3.04%;width:2.27%"></div></div><span class="wf-v">&minus;6.8</span></div>
+          <div class="wf-row key"><span class="wf-l">Kept &middot; 3%</span><div class="wf-t"><div class="wf-b keep" style="left:0;width:3.04%"></div></div><span class="wf-v">&#8377;9.1</span></div>
+        </div>
+        <div class="legend">
+          <span><i class="sw" style="background:var(--tax)"></i>Tax, passed through</span>
+          <span><i class="sw" style="background:var(--orange)"></i>Cost to the brand</span>
+          <span><i class="sw" style="background:var(--blue)"></i>Kept</span>
+        </div>
+      </div>
+
+      <div>
+        <h3>Contribution margin by SKU &times; platform</h3>
+        <div class="scroll">
+          <table>
+            <thead><tr><th>SKU</th><th>Revenue</th><th>A</th><th>B</th><th>C</th><th>Contrib.</th></tr></thead>
+            <tbody>
+              <tr><td>Shampoo 250 ml</td><td>&#8377;18.2L</td><td class="h p2">14%</td><td class="h p2">9%</td><td class="h p2">11%</td><td>&#8377;2.09L</td></tr>
+              <tr><td>Body wash 200 ml</td><td>&#8377;14.6L</td><td class="h p1">6%</td><td class="h p1">3%</td><td class="h n1">&minus;2%</td><td>&#8377;0.37L</td></tr>
+              <tr><td>Face wash 100 ml</td><td>&#8377;11.8L</td><td class="h p3">22%</td><td class="h p3">19%</td><td class="h p3">18%</td><td>&#8377;2.36L</td></tr>
+              <tr><td>Hand wash 750 ml</td><td>&#8377;9.4L</td><td class="h n1">&minus;4%</td><td class="h n2">&minus;7%</td><td class="h n1">&minus;3%</td><td class="neg">&minus;&#8377;0.45L</td></tr>
+              <tr><td>Conditioner 180 ml</td><td>&#8377;6.1L</td><td class="h p3">16%</td><td class="h p2">12%</td><td class="h p3">15%</td><td>&#8377;0.88L</td></tr>
+              <tr class="total"><td>Top five SKUs</td><td>&#8377;60.1L</td><td></td><td></td><td></td><td>&#8377;5.25L</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Ranked by revenue: shampoo, body wash, face wash, hand wash, conditioner. <strong>Ranked by profit: face wash, shampoo, conditioner, body wash, hand wash.</strong> The 750 ml refill is heavy, cheap per litre and freight-intensive; it looks like a volume driver and loses money on every order.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>02 &nbsp;Invoice to payout <em>why the money received never matches the money billed</em></h2>
+    <div class="two">
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Month across three platforms</th><th>Value</th><th>Treatment</th></tr></thead>
+          <tbody>
+            <tr><td>Invoiced to platforms</td><td>&#8377;84.6L</td><td class="wrap"></td></tr>
+            <tr><td>Paid out</td><td>&#8377;71.2L</td><td class="wrap"></td></tr>
+            <tr class="total"><td>Gap to explain</td><td>&#8377;13.4L</td><td class="wrap">16%</td></tr>
+            <tr><td>&nbsp;&nbsp;Short receipts vs invoice</td><td>&#8377;3.7L</td><td class="wrap">Claim</td></tr>
+            <tr><td>&nbsp;&nbsp;Returns &amp; near-expiry</td><td>&#8377;3.2L</td><td class="wrap">Provision</td></tr>
+            <tr><td>&nbsp;&nbsp;Fees &amp; fill-rate penalties</td><td>&#8377;2.8L</td><td class="wrap">Channel cost</td></tr>
+            <tr><td>&nbsp;&nbsp;Ads netted off the payout</td><td>&#8377;2.0L</td><td class="wrap">Marketing</td></tr>
+            <tr><td>&nbsp;&nbsp;Rate differences</td><td>&#8377;1.0L</td><td class="wrap">Recover</td></tr>
+            <tr><td>&nbsp;&nbsp;Unexplained</td><td>&#8377;0.7L</td><td class="wrap">Manual queue</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <p>Every platform settles in its own file, on its own cycle. Deductions arrive netted, returns arrive weeks after the sale, and credit notes land 30 to 60 days late against an invoice from two cycles back.</p>
+        <div class="callout"><strong>&#8377;7.9L of this month's gap reduces sales, not costs.</strong> Book revenue at invoice value and let those credits land when they land, and net sales are overstated by 9.3% this month and understated next month &mdash; so the P&amp;L swings for reasons nobody can explain in the review.</div>
+        <p class="note">Built properly, every rupee of the gap has a cause and an owner, and the month closes on provisioned numbers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb">
+    <h2>03 &nbsp;Shelf &amp; keyword rank monitor <em>keyword &times; pincode</em></h2>
+    <p>My own tool. It captures the Blinkit results page for a keyword in a given pincode and turns it into share of shelf, sponsored slots, price ladder and stock-outs &mdash; who is buying the shelf above you, and where you fell off it. It now runs on Blinkit, Zepto, Instamart and Flipkart Minutes: 16 searches in 13 areas, every three hours. <a href="https://qcomm-shelf-monitor.vercel.app/">Open the live dashboard &rarr;</a></p>
+    <figure>
+      <img src="shelf-monitor-dogfood.png" alt="Shelf monitor dashboard showing filters for keyword, pincode, top-N slots and run date; tiles for keywords tracked, sponsored share, sold-out share and median discount; and a share-of-shelf bar chart by brand split into organic and sponsored placements.">
+      <figcaption>Sample run from the first, Blinkit-only version, keyword &ldquo;dog food&rdquo; across Bengaluru, Mumbai and Gurgaon. 25% of top-20 slots were sponsored. One brand held ~15% of the shelf entirely through paid slots, with no organic rank at all &mdash; invisible in any rank report that does not separate paid from organic.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>04 &nbsp;Also in the stack</h2>
+    <div class="also">
+      <div><h3>Fill rate against platform POs</h3><p>PO to invoice to receipt, by SKU, platform and city &mdash; so a missed PO shows up the day it is missed, not in the next quarterly business review.</p></div>
+      <div><h3>Ask-your-data assistant</h3><p>Plain-English questions become read-only SQL against the warehouse, answered with the numbers and the query. Access control lives in the database, not the prompt.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Keyur Makwana &middot; analytics engineer &middot; Ahmedabad</span>
+    <span><a href="mailto:makwanakeyur2002@gmail.com">makwanakeyur2002@gmail.com</a> &middot; <a href="https://wa.me/919662060400">WhatsApp</a> &middot; <a href="./">Portfolio</a> &middot; <a href="https://www.linkedin.com/in/keyur-makwana-450337197">LinkedIn</a></span>
+  </footer>
+
+</div>

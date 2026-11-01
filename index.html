@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Keyur Makwana &mdash; Data Analyst</title>
-<meta name="description" content="Keyur Makwana - data analyst in Ahmedabad. The production analytics stack behind a quick-commerce FMCG brand, plus tools I built myself: a quick-commerce shelf tracker, an India payments dashboard, a temple guide app and a SQL learning game.">
+<title>Keyur Makwana &mdash; Analytics Engineer</title>
+<meta name="description" content="Keyur Makwana - analytics engineer in Ahmedabad, open to new roles. The production analytics stack behind a quick-commerce FMCG brand, plus tools I built myself: a quick-commerce shelf tracker, an India payments dashboard, a temple guide app and a SQL learning game.">
 <meta name="author" content="Keyur Makwana">
 <link rel="canonical" href="https://illusionist-creator.github.io/Portfolio/">
 <meta name="theme-color" content="#11100d" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
 <meta property="og:type" content="profile">
-<meta property="og:title" content="Keyur Makwana &mdash; Data Analyst">
+<meta property="og:title" content="Keyur Makwana &mdash; Analytics Engineer">
 <meta property="og:description" content="The production analytics stack behind a quick-commerce FMCG brand, plus tools I built myself: a quick-commerce shelf tracker, an India payments dashboard, a temple guide app and a SQL learning game.">
 <meta property="og:url" content="https://illusionist-creator.github.io/Portfolio/">
 <meta property="og:image" content="https://illusionist-creator.github.io/Portfolio/shelf-monitor.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Keyur Makwana &mdash; Data Analyst">
+<meta name="twitter:title" content="Keyur Makwana &mdash; Analytics Engineer">
 <meta name="twitter:description" content="The production analytics stack behind a quick-commerce FMCG brand, plus tools I built myself.">
 <meta name="twitter:image" content="https://illusionist-creator.github.io/Portfolio/shelf-monitor.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='50' fill='%2317150f'/%3E%3Ctext x='50' y='68' font-size='52' font-family='Georgia,serif' font-style='italic' fill='%23ff7b42' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
@@ -189,6 +189,21 @@
   footer a { text-decoration:none; }
   footer a:hover { color:#ff7b42; }
 
+  .hero p.open { margin:22px 0 0; font:500 15px/1.5 var(--sans); color:var(--ink); }
+  .hero p.open b { color:var(--ok); font-weight:600; }
+  .prior { display:grid; grid-template-columns:72px minmax(0, 290px) minmax(0, 1fr); gap:12px clamp(24px, 3.4vw, 48px);
+    padding:28px 0 0; border-top:1px solid var(--line); color:var(--ink2); }
+  .prior h3 { font:400 26px/1.1 var(--serif); margin:0; }
+  .prior p { margin:0 0 8px; max-width:62ch; }
+  .prior .fine { font:400 13px/1.5 var(--mono); color:var(--mute); }
+  .outro .wrap { display:block; }
+  .paths { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:clamp(28px, 5vw, 72px); margin-top:8px; }
+  .path { border-top:1px solid color-mix(in srgb, var(--band-ink) 22%, transparent); padding-top:22px; }
+  .path h3 { font:400 30px/1.1 var(--serif); margin:10px 0 14px; }
+  .path .go { margin-top:20px; }
+  .outro a.inl { color:#ff7b42; text-decoration:none; border-bottom:1px solid currentColor; }
+  .outro .elsewhere { margin-top:clamp(36px, 5vw, 56px); display:flex; gap:10px; flex-wrap:wrap; }
+
   /* ---------- email chooser ---------- */
   .mailbox { position:fixed; z-index:50; width:min(310px, calc(100vw - 24px)); background:var(--paper); color:var(--ink);
     border:1px solid var(--line); border-radius:16px; padding:16px; box-shadow:0 28px 56px -24px rgba(0,0,0,.5); }
@@ -236,7 +251,10 @@
     .head { grid-template-columns:1fr; }
     .head .eyebrow { text-align:left; }
     .kit div { grid-template-columns:1fr; gap:4px; }
-    .before { border-left:0; padding-left:0; border-top:1px solid color-mix(in srgb, var(--band-ink) 18%, transparent); padding-top:28px; }
+    .paths { grid-template-columns:minmax(0, 1fr); }
+    .prior { grid-template-columns:minmax(0, 1fr); }
+    .prior .idx { display:none; }
+    .pill.sm-hide { display:none; }
   }
 </style>
 <script>document.documentElement.classList.add("js")</script>
@@ -252,6 +270,7 @@
       <a href="#kit">Kit</a>
       <a href="#contact">Contact</a>
     </nav>
+    <a class="pill sm-hide" href="Keyur_Makwana_Resume.pdf">Resume (PDF)</a>
     <a class="pill solid" href="mailto:makwanakeyur2002@gmail.com">Email me <span class="arr">&rarr;</span></a>
   </div>
 </header>
@@ -261,7 +280,7 @@
 <div class="hero">
   <div class="wrap">
     <div>
-      <span class="status"><b></b>Data analyst &middot; Ahmedabad, India</span>
+      <span class="status"><b></b>Analytics engineer &middot; Ahmedabad &middot; open to roles</span>
       <h1>Keyur<br>Makwana</h1>
       <p class="claim">I make the number at the end of the pipeline <em>actually correct</em>.</p>
       <p class="lead">For nearly four years I&rsquo;ve built and run the entire analytics stack at a
@@ -269,9 +288,11 @@
         dashboards, and an assistant that lets the leadership team just ask.</p>
       <p>I like the boring end of this work. Twice now that habit has turned up money nobody knew was
         missing. Everything below is real, with links to the code and the live tools where they exist.</p>
+      <p class="open"><b>Open to analytics engineer roles</b> &mdash; remote, or I&rsquo;ll relocate.</p>
       <div class="links">
+        <a class="pill solid" href="Keyur_Makwana_Resume.pdf">Resume (PDF) <span class="arr">&darr;</span></a>
         <a class="pill" href="mailto:makwanakeyur2002@gmail.com">makwanakeyur2002@gmail.com</a>
-        <span class="pill">+91 96620 60400</span>
+        <a class="pill" href="tel:+919662060400">+91 96620 60400</a>
         <a class="pill" href="https://www.linkedin.com/in/keyur-makwana-450337197">LinkedIn</a>
         <a class="pill" href="https://github.com/illusionist-creator">GitHub</a>
       </div>
@@ -280,7 +301,7 @@
       <h2 class="eyebrow">Found along the way</h2>
       <ul>
         <li class="hot"><b>&#8377;5 cr</b><span>net-sales overstatement, caught by the P&amp;L model</span></li>
-        <li class="hot"><b>&#8377;2.6 cr</b><span>of &ldquo;short-credits&rdquo; that were really a missing GRN feed</span></li>
+        <li class="hot"><b>&#8377;2.6 cr</b><span>of &ldquo;short-credits&rdquo; that were really a missing goods-receipt feed</span></li>
         <li><b>80M</b><span>rows in a warehouse I run on my own</span></li>
         <li><b>390</b><span>questions put to the AI assistant by 18 colleagues</span></li>
       </ul>
@@ -308,17 +329,12 @@
       <div class="body">
         <p>You ask a question in plain English. It writes read-only SQL, runs it, and hands back the number
           <em>and</em> the query, so anyone can check it rather than trust it.</p>
-        <p>The security is the part I care about. It doesn&rsquo;t live in the prompt, it lives in the
-          database &mdash; every question runs under the asker&rsquo;s own scoped Postgres role. Talk it into
-          anything you like and it still can&rsquo;t read a table you weren&rsquo;t granted. That&rsquo;s 372
-          generated row-filtered views, 47 row-level policies and 8 scoped roles &mdash; and one planner trick took a
-          restricted dashboard query from a 25-second timeout to 68&nbsp;ms.</p>
-        <p>It went from first commit to production in ten weeks: 372 commits, about 150k lines, 26 dashboards
-          alongside the assistant, served by 30+ API endpoints and 54 database functions behind the in-app refresh
-          buttons. A three-tier model router (Haiku, Sonnet, Opus) plus prompt caching cut the cost
-          of an answer by a third.</p>
-        <p>I went through 148 real questions and 346 logged statements and built default query surfaces that
-          killed off each kind of wrong answer one at a time.</p>
+        <p>Security lives in the database, not the prompt: every question runs under the asker&rsquo;s own
+          Postgres role, through 372 generated row-filtered views. Talk it into anything and it still can&rsquo;t
+          read a table you weren&rsquo;t granted.</p>
+        <p>Ten weeks from first commit to production: 372 commits, about 150k lines and 26 dashboards. I audited
+          its first 148 real questions to kill each kind of wrong answer, and a three-tier model router (Haiku,
+          Sonnet, Opus) with prompt caching cut the cost of an answer by a third.</p>
       </div>
       <div class="nums">
         <div class="hot"><b>390</b><span>questions asked, by 18 people</span></div>
@@ -337,11 +353,10 @@
       <div class="body">
         <p>MySQL and Neon pulled into one governed Postgres warehouse. Schema changes go through reviewed
           migrations instead of someone running DDL in a console at 9pm.</p>
-        <p>I rebuilt the Business Central ERP sync as a resumable OData pipeline across 28 web services.
-          17 partner GRN feeds, 17 payment-advice feeds, Unicommerce orders and marketplace exports land in idempotent,
-          ledger-tracked tables &mdash; so re-running a failed load repairs it instead of doubling it.</p>
-        <p>Scheduling lives in the database now, on pg_cron, after GitHub&rsquo;s scheduler kept starting jobs four to
-          five hours late. A nightly CI job exports 1,200+ schema files, runs dbt data tests, and fails the moment the
+        <p>I rebuilt the ERP sync (Business Central, 28 web services) as a resumable pipeline. Partner goods-receipt
+          feeds, payment advices, Unicommerce orders and marketplace exports land in idempotent tables, so re-running
+          a failed load repairs it instead of doubling it.</p>
+        <p>Jobs run inside the database on pg_cron, and a nightly CI check with dbt tests fails the moment the
           database drifts from its migrations.</p>
       </div>
       <div class="nums">
@@ -360,7 +375,7 @@
       </div>
       <div class="body">
         <p>Sales register down to EBITDA &mdash; material cost, gross margin, yield loss, overhead allocation
-          keys taken from the management MIS &mdash; with an absorption check that proves every rupee of cost
+          keys taken from the management accounts (MIS) &mdash; with an absorption check that proves every rupee of cost
           actually lands somewhere instead of quietly evaporating between two steps.</p>
         <p>This is where the find came from. A returns-capping provision for late partner credits turned up a
           <strong>&#8377;5 crore overstatement of net sales</strong>. Nobody went looking for it. Invoiced
@@ -382,7 +397,7 @@
         <div class="tags"><span>PostgreSQL</span><span>Power BI</span></div>
       </div>
       <div class="body">
-        <p>PO to invoice to GRN to credit memo, matched end to end, feeding a live fill-rate board. A missed
+        <p>Purchase order to invoice to goods receipt (GRN) to credit note, matched end to end, feeding a live fill-rate board. A missed
           PO shows up the day it happens, not in the next quarterly review.</p>
         <p>It&rsquo;s also how <strong>&#8377;2.6 crore of apparent Zepto short-credits</strong> turned out
           not to be shortages at all. The goods had arrived; the GRN feed had simply never reported them.
@@ -401,7 +416,7 @@
     <article class="job rv">
       <span class="idx">1.5</span>
       <div>
-        <h3>Marketplace GRN automation</h3>
+        <h3>Goods-receipt (GRN) automation</h3>
         <div class="tags"><span>Python</span><span>a dozen small repos</span></div>
       </div>
       <div class="body">
@@ -420,6 +435,17 @@
         <a class="textlink" href="https://github.com/illusionist-creator?tab=repositories">Browse the repos &rarr;</a>
       </div>
     </article>
+
+    <div class="prior rv">
+      <span class="idx eyebrow">Before</span>
+      <div><span class="eyebrow">MYBYK &middot; Sep to Dec 2022</span><h3>Data analyst intern</h3></div>
+      <div>
+        <p>I looked at cycle utilisation and hub performance and moved fleet off weak stations into high-demand
+          zones. A cohort analysis of the subscription plans fed a pricing revision that went with a 35% rise in
+          footfall.</p>
+        <p class="fine">Google Data Analytics Professional Certificate &middot; Coursera</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -647,25 +673,42 @@
 <section class="outro" id="contact">
   <div class="wrap">
     <div class="rv">
-      <span class="eyebrow">04 &middot; Working together</span>
-      <h2>Got a number that <em>doesn&rsquo;t add up?</em></h2>
-      <p>I take on a small number of brands as a freelance analytics engineer. Two things, mostly: SKU-level
-        profit by platform once ads, discounts, returns and deductions come out &mdash; and the reconciliation
-        between what you invoiced and what actually landed in the bank.</p>
-      <p>The second one is usually where the surprise sits.</p>
-      <div class="go">
-        <a class="pill solid" href="mailto:makwanakeyur2002@gmail.com">makwanakeyur2002@gmail.com <span class="arr">&rarr;</span></a>
-        <a class="pill" href="https://www.linkedin.com/in/keyur-makwana-450337197">LinkedIn</a>
-        <a class="pill" href="https://github.com/illusionist-creator">GitHub</a>
+      <span class="eyebrow">04 &middot; Get in touch</span>
+      <h2>Hiring, or got a number that <em>doesn&rsquo;t add up?</em></h2>
+    </div>
+    <div class="paths">
+      <div class="path rv">
+        <span class="eyebrow">If you&rsquo;re hiring</span>
+        <h3>An analytics engineer who ships</h3>
+        <p>I&rsquo;m looking for an analytics engineer role, remote or somewhere I&rsquo;d relocate to. I&rsquo;d
+          bring the whole path from raw partner files to a number leadership trusts: pipelines, a governed
+          warehouse, tested SQL models and the dashboards on top.</p>
+        <div class="go">
+          <a class="pill solid" href="Keyur_Makwana_Resume.pdf">Resume (PDF) <span class="arr">&darr;</span></a>
+          <a class="pill" href="mailto:makwanakeyur2002@gmail.com?subject=Analytics%20engineer%20role">Email me</a>
+        </div>
+      </div>
+      <div class="path rv">
+        <span class="eyebrow">If you run a brand</span>
+        <h3>Where did the money go?</h3>
+        <p>I take on a small number of brands selling on quick commerce. Two things, mostly: SKU-level profit by
+          platform once ads, discounts, returns and deductions come out &mdash; and the reconciliation between what
+          you invoiced and what actually landed in the bank. The second one is usually where the surprise sits.</p>
+        <p>See both on a sample brand: <a class="inl" href="short_credit_teardown.html">short-credit teardown</a>
+          and <a class="inl" href="qcommerce_unit_economics.html">profit by SKU and platform</a> (synthetic
+          figures, real failure modes).</p>
+        <p><b style="color:var(--band-ink);font-weight:600">Free first pass:</b> send one month of goods-receipt exports and
+          invoices for one platform. Within a week you get that split for your own data, free, once.</p>
+        <p class="fine">Your data stays in your own accounts and is never shared or reused.</p>
+        <div class="go">
+          <a class="pill solid" href="https://wa.me/919662060400?text=Hi%20Keyur%2C%20I%20saw%20your%20portfolio">WhatsApp me <span class="arr">&rarr;</span></a>
+          <a class="pill" href="mailto:makwanakeyur2002@gmail.com?subject=Quick-commerce%20numbers">Email me</a>
+        </div>
       </div>
     </div>
-    <div class="before rv">
-      <span class="eyebrow">Before this</span>
-      <h3>MYBYK, data analyst intern</h3>
-      <p>Sep to Dec 2022. I looked at cycle utilisation and hub performance and moved fleet off weak stations
-        into high-demand zones. A cohort analysis of the subscription plans fed a pricing revision that went
-        with a 35% rise in footfall.</p>
-      <p class="fine">Google Data Analytics Professional Certificate &middot; Coursera</p>
+    <div class="elsewhere rv">
+      <a class="pill" href="https://www.linkedin.com/in/keyur-makwana-450337197">LinkedIn</a>
+      <a class="pill" href="https://github.com/illusionist-creator">GitHub</a>
     </div>
   </div>
 </section>

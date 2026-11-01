@@ -1,0 +1,266 @@
+<title>Short-Credit Teardown</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+  :root {
+    --ground:#f5f6f7; --surface:#ffffff; --ink:#14161a; --ink-2:#464d55; --muted:#6b737c;
+    --rule:#dde1e6; --rule-firm:#c3cad1; --blue:#2a78d6; --orange:#eb6834; --neutral:#8b939c;
+    --flag-bg:#fdf3ec; --flag-ink:#8a4218;
+    --sans:"Archivo","Segoe UI",system-ui,sans-serif;
+    --serif:"Source Serif 4",Georgia,serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#131518; --surface:#1b1e22; --ink:#eef0f2; --ink-2:#c2c8ce; --muted:#949ca5;
+      --rule:#2b3037; --rule-firm:#3c434b; --blue:#3987e5; --orange:#d95926; --neutral:#78818b;
+      --flag-bg:#2a1d15; --flag-ink:#e0a276;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#131518; --surface:#1b1e22; --ink:#eef0f2; --ink-2:#c2c8ce; --muted:#949ca5;
+    --rule:#2b3037; --rule-firm:#3c434b; --blue:#3987e5; --orange:#d95926; --neutral:#78818b;
+    --flag-bg:#2a1d15; --flag-ink:#e0a276;
+  }
+
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--ink); font-family:var(--serif);
+         font-size:15.5px; line-height:1.55; -webkit-font-smoothing:antialiased; }
+  .sheet { max-width:880px; margin:0 auto; padding-inline:20px; padding-block:36px 56px; }
+  section { margin-top:36px; }
+  p { margin:0 0 10px; max-width:70ch; } p:last-child { margin-bottom:0; }
+  strong { font-weight:600; }
+
+  .eyebrow { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em;
+             text-transform:uppercase; color:var(--muted); }
+  h1 { font-family:var(--sans); font-weight:700; font-size:clamp(26px,5vw,36px); line-height:1.1;
+       letter-spacing:-.02em; margin:10px 0 0; text-wrap:balance; }
+  .standfirst { font-size:17px; color:var(--ink-2); margin-top:10px; max-width:64ch; text-wrap:pretty; }
+  .flag { display:inline-block; background:var(--flag-bg); color:var(--flag-ink); font-family:var(--mono);
+          font-size:11px; font-weight:600; letter-spacing:.06em; padding:6px 10px; border-radius:3px; margin-top:16px; }
+
+  h2 { font-family:var(--sans); font-weight:600; font-size:12.5px; letter-spacing:.1em; text-transform:uppercase;
+       color:var(--muted); margin:0 0 14px; padding-bottom:8px; border-bottom:1px solid var(--rule);
+       display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  h2 em { font-style:normal; color:var(--rule-firm); letter-spacing:.04em; text-transform:none; font-family:var(--mono); }
+
+  .figures { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--rule);
+             border:1px solid var(--rule); border-radius:4px; overflow:hidden; margin-bottom:16px; }
+  .fig { background:var(--surface); padding:16px; }
+  .fig .n { font-family:var(--mono); font-weight:600; font-size:clamp(21px,4vw,27px); letter-spacing:-.03em;
+            font-variant-numeric:tabular-nums; display:block; }
+  .fig .k { font-family:var(--sans); font-size:11.5px; font-weight:600; color:var(--muted); letter-spacing:.05em;
+            text-transform:uppercase; display:block; margin-top:6px; }
+  .fig .d { font-size:13.5px; color:var(--ink-2); margin-top:5px; display:block; line-height:1.4; }
+  .fig.b .n { color:var(--blue); } .fig.o .n { color:var(--orange); }
+
+  .scroll { overflow-x:auto; border:1px solid var(--rule); border-radius:4px; background:var(--surface); }
+  table { border-collapse:collapse; width:100%; font-family:var(--mono); font-size:13px; }
+  th,td { padding:9px 13px; text-align:right; white-space:nowrap; border-bottom:1px solid var(--rule); }
+  th:first-child, td:first-child { text-align:left; white-space:normal; }
+  thead th { font-family:var(--sans); font-size:10.5px; font-weight:600; color:var(--muted); letter-spacing:.07em;
+             text-transform:uppercase; border-bottom:1px solid var(--rule-firm); }
+  tbody td { font-variant-numeric:tabular-nums; color:var(--ink-2); }
+  tbody td:first-child { color:var(--ink); }
+  tbody tr:last-child td { border-bottom:none; }
+  tr.total td { font-weight:600; color:var(--ink); border-top:1px solid var(--rule-firm); }
+  .dim { color:var(--muted); }
+
+  /* bar-in-table */
+  td.barcell { width:34%; min-width:150px; padding-right:16px; }
+  .track { height:11px; background:color-mix(in srgb, var(--rule) 70%, transparent); border-radius:2px; }
+  .fill { height:100%; border-radius:0 3px 3px 0; }
+  .fill.blue{background:var(--blue);} .fill.orange{background:var(--orange);} .fill.neutral{background:var(--neutral);}
+  .legend { display:flex; flex-wrap:wrap; gap:6px 18px; margin:12px 0 0; font-family:var(--sans);
+            font-size:12.5px; color:var(--ink-2); }
+  .legend span { display:inline-flex; align-items:center; gap:6px; }
+  .sw { width:10px; height:10px; border-radius:2px; flex:none; }
+  .sw.blue{background:var(--blue);} .sw.orange{background:var(--orange);} .sw.neutral{background:var(--neutral);}
+
+  .note { font-size:13.5px; color:var(--muted); margin-top:10px; }
+
+  .cols { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .cols h3 { font-family:var(--sans); font-size:14.5px; font-weight:600; margin:0 0 5px; letter-spacing:-.01em; }
+  .cols p { font-size:13.5px; color:var(--ink-2); margin:0; }
+
+  figure { margin:0; }
+  figure img { display:block; width:100%; max-width:100%; border:1px solid var(--rule); border-radius:4px; background:var(--surface); }
+  figcaption { font-size:13px; color:var(--muted); margin-top:9px; }
+
+  .capline { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--rule);
+             border:1px solid var(--rule); border-radius:4px; overflow:hidden; margin-bottom:16px; }
+  .capline div { background:var(--surface); padding:13px 14px; }
+  .capline b { font-family:var(--mono); font-size:17px; font-weight:600; display:block; letter-spacing:-.02em; }
+  .capline span { font-family:var(--sans); font-size:11px; font-weight:600; color:var(--muted);
+                  letter-spacing:.05em; text-transform:uppercase; display:block; margin-top:4px; }
+
+  .also { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule);
+          border:1px solid var(--rule); border-radius:4px; overflow:hidden; }
+  .also div { background:var(--surface); padding:16px; }
+  .also h3 { font-family:var(--sans); font-size:14.5px; font-weight:600; margin:0 0 5px; }
+  .also p { font-size:13.5px; color:var(--ink-2); margin:0; }
+
+  footer { margin-top:44px; padding-top:16px; border-top:1px solid var(--rule); font-size:13.5px;
+           color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 20px; justify-content:space-between; }
+  footer a { color:var(--blue); text-decoration:none; border-bottom:1px solid color-mix(in srgb, var(--blue) 35%, transparent); }
+  footer a:hover { border-bottom-color:var(--blue); }
+  a:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
+
+  @media (max-width:680px) {
+    .figures,.cols,.also { grid-template-columns:1fr; }
+    .capline { grid-template-columns:repeat(2,1fr); }
+  }
+  @media print {
+    @page { size: A4; margin: 13mm 12mm; }
+
+    /* Force the light palette: without this, a viewer on dark mode prints pale ink on white. */
+    :root, :root[data-theme="dark"], :root[data-theme="light"] {
+      --ground:#ffffff !important; --surface:#ffffff !important;
+      --ink:#14161a !important; --ink-2:#3c434b !important; --muted:#5f6771 !important;
+      --rule:#d5dae0 !important; --rule-firm:#aab2bb !important;
+      --blue:#2a78d6 !important; --orange:#e35f27 !important; --neutral:#858d96 !important;
+      --flag-bg:#fdf3ec !important; --flag-ink:#8a4218 !important;
+    }
+    /* Chrome drops background fills unless this is set - the bars and tiles depend on them. */
+    *, *::before, *::after { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+
+    html, body { background:#fff !important; }
+    body { font-size:10pt; line-height:1.42; }
+    .sheet { max-width:none; padding:0; }
+
+    h1 { font-size:19pt; margin-top:6pt; }
+    .standfirst { font-size:10.5pt; margin-top:6pt; }
+    .flag { margin-top:9pt; padding:4pt 7pt; font-size:8pt; }
+    .eyebrow { font-size:8pt; }
+    h2 { font-size:8.5pt; margin-bottom:9pt; padding-bottom:5pt; }
+    section { margin-top:15pt; }
+    p { margin-bottom:7pt; max-width:none; }
+    .note { font-size:9pt; margin-top:7pt; }
+
+    .fig { padding:9pt 10pt; }
+    .fig .n { font-size:15pt; }
+    .fig .k { font-size:8pt; margin-top:4pt; }
+    .fig .d { font-size:8.5pt; margin-top:3pt; }
+    .figures { margin-bottom:10pt; }
+
+    table { font-size:8.4pt; }
+    th, td { padding:5pt 7pt; }
+    thead th { font-size:7.5pt; }
+    .track { height:8pt; }
+    .legend { font-size:8.5pt; margin-top:8pt; }
+
+    .capline div { padding:8pt 9pt; }
+    .capline b { font-size:13pt; }
+    .capline span { font-size:7.5pt; }
+    .cols { gap:14pt; margin-top:14pt; }
+    .cols h3 { font-size:10pt; }
+    .cols p { font-size:9pt; }
+    .also div { padding:10pt; }
+    .also h3 { font-size:10pt; }
+    .also p { font-size:9pt; }
+
+    /* Let the image scale on its own aspect so the border hugs it - no dead box. */
+    figure img { width:auto; max-width:100%; max-height:118mm; margin-inline:auto; }
+    figcaption { font-size:8.5pt; margin-top:6pt; }
+    h2 em { color:var(--muted); }
+
+    header, section, figure, table, .figures, .capline, .also, .cols, .legend { break-inside:avoid; }
+    h2, h3 { break-after:avoid; }
+
+    footer { margin-top:14pt; padding-top:9pt; font-size:9pt; }
+    footer a { color:var(--ink); border-bottom:none; }
+  }
+</style>
+
+<div class="sheet">
+
+  <header>
+    <span class="eyebrow">Keyur Makwana &middot; analytics engineer &middot; Ahmedabad</span>
+    <h1>Two things I build for brands selling on quick commerce</h1>
+    <p class="standfirst">Settlement reconciliation that separates a real shortage from a missing feed, and shelf monitoring that shows where your SKU actually ranks, by keyword and pincode.</p>
+    <span class="flag">Recon figures below are synthetic &mdash; the failure modes are not</span>
+  </header>
+
+  <section>
+    <h2>01 &nbsp;Marketplace reconciliation <em>PO &rarr; invoice &rarr; GRN &rarr; credit note</em></h2>
+    <p>Sample pass: one personal-care brand, one platform, one month &mdash; 4,120 PO lines, 183 SKUs, &#8377;2.41 cr ordered. The platform appeared to be short-paying <strong>&#8377;16.4 lakh</strong>.</p>
+    <div class="figures" style="margin-top:14px">
+      <div class="fig"><span class="n">83.8%</span><span class="k">Value fill rate</span><span class="d">Receipted against ordered</span></div>
+      <div class="fig b"><span class="n">40%</span><span class="k">Never a shortage</span><span class="d">Goods arrived; the GRN feed never reported them</span></div>
+      <div class="fig o"><span class="n">&#8377;6.6L</span><span class="k">Recoverable, unclaimed</span><span class="d">Sitting in &ldquo;returns&rdquo; waiting to be written off</span></div>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>What the &#8377;16.4L was</th><th class="barcell"></th><th>Value</th><th>Share</th><th>Verdict</th></tr></thead>
+        <tbody>
+          <tr><td>GRN feed gap &mdash; received, never reported</td>
+              <td class="barcell"><div class="track"><div class="fill blue" style="width:100%"></div></div></td>
+              <td>&#8377;6,56,000</td><td class="dim">40%</td><td>Do not chase</td></tr>
+          <tr><td>Short-receipt, credit note never issued</td>
+              <td class="barcell"><div class="track"><div class="fill orange" style="width:62.5%"></div></div></td>
+              <td>&#8377;4,10,000</td><td class="dim">25%</td><td>Claim it</td></tr>
+          <tr><td>Rate difference &mdash; billed at the old price</td>
+              <td class="barcell"><div class="track"><div class="fill orange" style="width:37.5%"></div></div></td>
+              <td>&#8377;2,46,000</td><td class="dim">15%</td><td>Claim it</td></tr>
+          <tr><td>Returns netted in, no SKU detail</td>
+              <td class="barcell"><div class="track"><div class="fill neutral" style="width:37.5%"></div></div></td>
+              <td>&#8377;2,46,000</td><td class="dim">15%</td><td>Split first</td></tr>
+          <tr><td>True shrinkage</td>
+              <td class="barcell"><div class="track"><div class="fill neutral" style="width:12.5%"></div></div></td>
+              <td>&#8377;82,000</td><td class="dim">5%</td><td>Accept</td></tr>
+          <tr class="total"><td>Apparent shortfall</td><td class="barcell"></td><td>&#8377;16,40,000</td><td>100%</td><td>&#8377;6.6L real</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="legend">
+      <span><i class="sw blue"></i> Not a real shortage</span>
+      <span><i class="sw orange"></i> Recoverable</span>
+      <span><i class="sw neutral"></i> Needs more data, or accept</span>
+    </div>
+    <p class="note">Six SKUs carried 78% of the exposure &mdash; two of them pure feed gaps needing no claim at all. Without the split, all six look like the same problem.</p>
+
+    <div class="cols" style="margin-top:24px">
+      <div><h3>No shared key</h3><p>Each partner mangles references differently. A lookup on the reference column matches most lines and silently drops the ones that matter.</p></div>
+      <div><h3>Credit notes arrive late</h3><p>One landing 60 days on settles an invoice from two cycles back, and often nets several POs at once.</p></div>
+      <div><h3>Two effective dates</h3><p>Yours and the platform's. Match price without a date window and every revision week becomes a phantom shortfall.</p></div>
+    </div>
+    <p class="note">Matching runs exact reference &rarr; PO + SKU in a date window &rarr; normalised reference &rarr; manual queue. In this sample <strong>2.1% of lines</strong> stayed unmatched. A pass claiming to match everything is hiding its failures inside a loosened rule.</p>
+  </section>
+
+  <section>
+    <h2>02 &nbsp;Shelf &amp; keyword rank monitor <em>by keyword &times; pincode</em></h2>
+    <p>My own tool, not an employer's. It captures the Blinkit result page for a keyword in a given pincode and turns it into share of shelf, sponsored slots, price ladder and stock-outs &mdash; so you can see who is buying the shelf above you, and where you fell off it. It now runs on Blinkit, Zepto, Instamart and Flipkart Minutes: 16 searches in 13 areas, every three hours. <a href="https://qcomm-shelf-monitor.vercel.app/">Open the live dashboard &rarr;</a></p>
+    <div class="capline" style="margin-top:14px">
+      <div><b>5 &times; 3</b><span>Keywords &times; cities</span></div>
+      <div><b>25%</b><span>Slots sponsored</span></div>
+      <div><b>9.7%</b><span>Median discount</span></div>
+      <div><b>Daily</b><span>Capture cadence</span></div>
+    </div>
+    <figure>
+      <img src="shelf-monitor-dogfood.png" alt="Shelf monitor dashboard: filters for keyword, pincode, top-N slots and run date; tiles for keywords tracked, result slots, sponsored share, sold-out share, median discount; and a share-of-shelf bar chart by brand split into organic and sponsored placements.">
+      <figcaption>Sample run from the first, Blinkit-only version, 15 Sep 2026, keyword &ldquo;dog food&rdquo; across Bengaluru, Mumbai and Gurgaon. Drools holds ~30% of the top-20 shelf, a third of it paid. Benny&rsquo;s Bowl holds ~15% <em>entirely</em> through sponsored slots &mdash; it does not rank organically at all. That distinction is invisible in any rank report that does not separate paid from organic.</figcaption>
+    </figure>
+    <p class="note">The public dashboard has no server: the same SQL runs in your browser over a snapshot refreshed after each run.</p>
+  </section>
+
+  <section>
+    <h2>03 &nbsp;Also in the stack</h2>
+    <div class="also">
+      <div>
+        <h3>Channel P&amp;L down to SKU</h3>
+        <p>The P&amp;L modelled in SQL from sales register to EBITDA &mdash; material cost, yield loss, returns provisions and marketing spend allocated per SKU, with an absorption check proving every rupee of cost lands somewhere.</p>
+      </div>
+      <div>
+        <h3>Ask-your-data assistant</h3>
+        <p>Plain-English questions become read-only SQL against the warehouse, answered with the numbers and the query. Access control lives in the database, not the prompt.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Keyur Makwana &middot; analytics engineer &middot; Ahmedabad</span>
+    <span><a href="mailto:makwanakeyur2002@gmail.com">makwanakeyur2002@gmail.com</a> &middot; <a href="https://wa.me/919662060400">WhatsApp</a> &middot; <a href="./">Portfolio</a> &middot; <a href="https://www.linkedin.com/in/keyur-makwana-450337197">LinkedIn</a></span>
+  </footer>
+
+</div>
