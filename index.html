@@ -310,15 +310,20 @@
           <em>and</em> the query, so anyone can check it rather than trust it.</p>
         <p>The security is the part I care about. It doesn&rsquo;t live in the prompt, it lives in the
           database &mdash; every question runs under the asker&rsquo;s own scoped Postgres role. Talk it into
-          anything you like and it still can&rsquo;t read a table you weren&rsquo;t granted.</p>
+          anything you like and it still can&rsquo;t read a table you weren&rsquo;t granted. That&rsquo;s 372
+          generated row-filtered views, 47 row-level policies and 8 scoped roles &mdash; and one planner trick took a
+          restricted dashboard query from a 25-second timeout to 68&nbsp;ms.</p>
+        <p>It went from first commit to production in ten weeks: 372 commits, about 150k lines, 26 dashboards
+          alongside the assistant. A three-tier model router (Haiku, Sonnet, Opus) plus prompt caching cut the cost
+          of an answer by a third.</p>
         <p>I went through 148 real questions and 346 logged statements and built default query surfaces that
           killed off each kind of wrong answer one at a time.</p>
       </div>
       <div class="nums">
         <div class="hot"><b>390</b><span>questions asked, by 18 people</span></div>
         <div><b>27 s</b><span>median answer, about 3 queries each</span></div>
-        <div><b>148</b><span>questions audited</span></div>
-        <div><b>82%</b><span>tokens uncached, before caching</span></div>
+        <div><b>&minus;33%</b><span>cost per answer, Sep to Oct</span></div>
+        <div><b>10 wk</b><span>first commit to production</span></div>
       </div>
     </article>
 
@@ -326,7 +331,7 @@
       <span class="idx">1.2</span>
       <div>
         <h3>The warehouse</h3>
-        <div class="tags"><span>Supabase Postgres</span><span>pg_cron</span><span>GitHub Actions</span></div>
+        <div class="tags"><span>PostgreSQL 17</span><span>pg_cron</span><span>dbt tests</span><span>GitHub Actions</span></div>
       </div>
       <div class="body">
         <p>MySQL and Neon pulled into one governed Postgres warehouse. Schema changes go through reviewed
@@ -334,6 +339,9 @@
         <p>I rebuilt the Business Central ERP sync as a resumable OData pipeline across 28 web services.
           17 partner GRN feeds, 17 payment-advice feeds, Unicommerce orders and marketplace exports land in idempotent,
           ledger-tracked tables &mdash; so re-running a failed load repairs it instead of doubling it.</p>
+        <p>Scheduling lives in the database now, on pg_cron, after GitHub&rsquo;s scheduler kept starting jobs four to
+          five hours late. A nightly CI job exports 1,200+ schema files, runs dbt data tests, and fails the moment the
+          database drifts from its migrations.</p>
       </div>
       <div class="nums">
         <div><b>80M</b><span>rows, 53 GB, 407 tables</span></div>
@@ -625,7 +633,7 @@
     </div>
     <dl class="kit rv">
       <div><dt>Programming</dt><dd>Python &middot; SQL &middot; JavaScript &middot; TypeScript &middot; R</dd></div>
-      <div><dt>Data &amp; warehouse</dt><dd>PostgreSQL &middot; Supabase &middot; BigQuery &middot; DuckDB &middot; MySQL &middot; pg_cron &middot; data modelling &middot; versioned SQL migrations</dd></div>
+      <div><dt>Data &amp; warehouse</dt><dd>PostgreSQL &middot; Supabase &middot; BigQuery &middot; DuckDB &middot; MySQL &middot; pg_cron &middot; dbt tests &middot; data modelling &middot; versioned SQL migrations</dd></div>
       <div><dt>Pipelines &amp; APIs</dt><dd>GitHub Actions &middot; Playwright &middot; FastAPI &middot; Vercel &middot; Alteryx &middot; Business Central OData &middot; Unicommerce SOAP &middot; Google Drive &amp; Sheets &middot; Meta &amp; Google Ads</dd></div>
       <div><dt>AI &amp; LLM</dt><dd>Claude API &middot; tool-use agents &middot; prompt caching &middot; Claude Code</dd></div>
       <div><dt>Visualisation</dt><dd>Power BI &middot; Tableau &middot; D3.js &middot; Chart.js &middot; React &middot; R Shiny &middot; Streamlit</dd></div>
