@@ -189,6 +189,22 @@
   footer a { text-decoration:none; }
   footer a:hover { color:#ff7b42; }
 
+  /* ---------- email chooser ---------- */
+  .mailbox { position:fixed; z-index:50; width:min(310px, calc(100vw - 24px)); background:var(--paper); color:var(--ink);
+    border:1px solid var(--line); border-radius:16px; padding:16px; box-shadow:0 28px 56px -24px rgba(0,0,0,.5); }
+  .mailbox[hidden] { display:none; }
+  .mailbox .addr { font:500 14px/1.35 var(--mono); margin:6px 0 14px; word-break:break-all; }
+  .mailbox .opts { display:grid; gap:6px; }
+  .mailbox .opts a, .mailbox .opts button { display:flex; justify-content:space-between; align-items:center; gap:12px; width:100%;
+    padding:12px 13px; border-radius:10px; border:1px solid var(--line); background:var(--bg); color:var(--ink);
+    font:500 15px/1 var(--sans); text-decoration:none; cursor:pointer; text-align:left; transition:border-color .15s, color .15s; }
+  .mailbox .opts a:hover, .mailbox .opts button:hover { border-color:var(--ink); }
+  .mailbox .opts small { color:var(--mute); font:400 12px/1 var(--mono); }
+  .mailbox .opts button.done, .mailbox .opts button.done small { color:var(--ok); border-color:var(--ok); }
+  @media (max-width: 560px) {
+    .mailbox { left:12px !important; right:12px; top:auto !important; bottom:12px; width:auto; }
+  }
+
   /* ---------- reveal ---------- */
   @media (prefers-reduced-motion: no-preference) {
     .js .rv { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
@@ -248,7 +264,7 @@
       <span class="status"><b></b>Data analyst &middot; Ahmedabad, India</span>
       <h1>Keyur<br>Makwana</h1>
       <p class="claim">I make the number at the end of the pipeline <em>actually correct</em>.</p>
-      <p class="lead">For the past three years I&rsquo;ve built and run the entire analytics stack at a
+      <p class="lead">For nearly four years I&rsquo;ve built and run the entire analytics stack at a
         quick-commerce FMCG brand, on my own. The pipelines, the warehouse, the P&amp;L in SQL, the
         dashboards, and an assistant that lets the leadership team just ask.</p>
       <p>I like the boring end of this work. Twice now that habit has turned up money nobody knew was
@@ -279,7 +295,7 @@
     <div class="head rv">
       <span class="num">01</span>
       <h2>What I do at work</h2>
-      <span class="eyebrow">The Baker&rsquo;s Dozen &middot; Dec 2023 &rarr; now</span>
+      <span class="eyebrow">The Baker&rsquo;s Dozen &middot; Dec 2022 &rarr; now</span>
       <p>One analyst, one stack. These five pieces carry most of the weight.</p>
     </div>
 
@@ -462,9 +478,10 @@
           <div class="bar"><i></i><i></i><i></i><span>illusionist-creator.github.io/rbi-payments-data</span></div>
           <img src="india_card_monitor.jpg" width="1533" height="784" loading="lazy" alt="India Card Monitor dashboard: filters for product, month, window, share metric, top-N and bank type; six stat tiles with sparklines for cards outstanding, card payments, transactions, average payment and ATM withdrawals, each with month-on-month and year-on-year change; below, a stacked share-over-time area chart of credit cards outstanding by bank and a ranking table for the latest month.">
         </div>
-        <figcaption><b>184 months, 86 banks.</b> The tile I keep coming back to is the average payment: card
-          payments were up 7.4% year on year while the average ticket fell 13.7%. More transactions, each one
-          smaller &mdash; a different story from the headline growth number.</figcaption>
+        <figcaption><b>Credit cards, July 2026 &middot; 86 banks.</b> The tile I keep coming back to is the average
+          payment: credit card spend was up 7.4% year on year and transactions up 24.5%, but the average payment
+          fell 13.7%. More transactions, each one smaller &mdash; a different story from the headline growth
+          number.</figcaption>
       </figure>
       <div class="qa">
         <div><h4 class="eyebrow">Why I built it</h4><p>Two agencies, two file formats, one obvious question
@@ -483,7 +500,7 @@
         <h3>Darshan</h3>
         <div class="tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>PWA</span></div>
         <p>A temple guide for Ahmedabad, Bengaluru, Mumbai and Banaras: find a temple, know when the aarti
-          is, watch a live darshan, and read the day&rsquo;s panchang. 1,635 temples on a map, every aarti
+          is, watch a live darshan, and read the day&rsquo;s panchang. 1,735 temples on a map, every aarti
           schedule sorted by what&rsquo;s happening now, and prayers in four scripts.</p>
         <p>Built for two people: someone who has just moved to a new city and doesn&rsquo;t know what&rsquo;s
           around them, and their parents who are visiting and have a free afternoon.</p>
@@ -631,7 +648,7 @@
     <div class="before rv">
       <span class="eyebrow">Before this</span>
       <h3>MYBYK, data analyst intern</h3>
-      <p>Sep to Nov 2023. I looked at cycle utilisation and hub performance and moved fleet off weak stations
+      <p>Sep to Dec 2022. I looked at cycle utilisation and hub performance and moved fleet off weak stations
         into high-demand zones. A cohort analysis of the subscription plans fed a pricing revision that went
         with a 35% rise in footfall.</p>
       <p class="fine">Google Data Analytics Professional Certificate &middot; Coursera</p>
@@ -647,6 +664,18 @@
   </div>
 </footer>
 
+<!-- Clicking any email link opens this. A bare mailto: does nothing on a computer with no mail app set up. -->
+<div class="mailbox" id="mailbox" role="dialog" aria-label="Email Keyur" hidden>
+  <span class="eyebrow">Email Keyur</span>
+  <p class="addr">makwanakeyur2002@gmail.com</p>
+  <div class="opts">
+    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=makwanakeyur2002@gmail.com&amp;su=Saw%20your%20portfolio" target="_blank" rel="noopener">Write in Gmail <small>&nearr;</small></a>
+    <a href="https://outlook.live.com/mail/0/deeplink/compose?to=makwanakeyur2002@gmail.com&amp;subject=Saw%20your%20portfolio" target="_blank" rel="noopener">Write in Outlook <small>&nearr;</small></a>
+    <a href="mailto:makwanakeyur2002@gmail.com?subject=Saw%20your%20portfolio" data-direct>Open my mail app <small>&rarr;</small></a>
+    <button type="button" data-copy>Copy the address <small>copy</small></button>
+  </div>
+</div>
+
 <script>
   // a rule under the header once the page scrolls; sections fade in as they arrive
   const bar = document.getElementById("top");
@@ -661,6 +690,60 @@
   } else {
     items.forEach((el) => el.classList.add("in"));
   }
+
+  // every email link opens a chooser: Gmail, Outlook, the mail app, or copy the address
+  const box = document.getElementById("mailbox");
+  const copyBtn = box.querySelector("[data-copy]");
+  const ADDR = "makwanakeyur2002@gmail.com";
+  let opener = null;
+  const closeBox = (refocus) => {
+    if (box.hidden) return;
+    box.hidden = true;
+    if (opener) { opener.setAttribute("aria-expanded", "false"); if (refocus) opener.focus(); }
+    opener = null;
+  };
+  const openBox = (link) => {
+    opener = link;
+    link.setAttribute("aria-expanded", "true");
+    copyBtn.classList.remove("done");
+    copyBtn.innerHTML = "Copy the address <small>copy</small>";
+    box.hidden = false;
+    const r = link.getBoundingClientRect(), w = box.offsetWidth, h = box.offsetHeight;
+    let left = Math.min(Math.max(12, r.right - w), innerWidth - w - 12);
+    let top = r.bottom + 10;
+    if (top + h > innerHeight - 12) top = Math.max(12, r.top - h - 10);
+    box.style.left = left + "px"; box.style.top = top + "px";
+    box.querySelector(".opts a").focus({ preventScroll: true });
+  };
+  document.querySelectorAll('a[href^="mailto:"]').forEach((a) => {
+    if (!box.contains(a)) a.setAttribute("aria-haspopup", "dialog");
+  });
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href^="mailto:"]');
+    if (link && !box.contains(link)) {
+      e.preventDefault();
+      if (opener === link) closeBox(false); else { closeBox(false); openBox(link); }
+      return;
+    }
+    if (box.hidden) return;
+    if (!box.contains(e.target)) { closeBox(false); return; }
+    if (e.target.closest(".opts a")) setTimeout(() => closeBox(false), 0);
+  });
+  copyBtn.addEventListener("click", async () => {
+    let ok = false;
+    try { await navigator.clipboard.writeText(ADDR); ok = true; } catch {
+      const t = document.createElement("textarea");
+      t.value = ADDR; t.setAttribute("readonly", ""); t.style.position = "fixed"; t.style.opacity = "0";
+      document.body.appendChild(t); t.select();
+      try { ok = document.execCommand("copy"); } catch {}
+      t.remove();
+    }
+    copyBtn.classList.toggle("done", ok);
+    copyBtn.innerHTML = ok ? "Copied <small>&check;</small>" : "Select and copy it above <small>&uarr;</small>";
+  });
+  addEventListener("keydown", (e) => { if (e.key === "Escape") closeBox(true); });
+  addEventListener("resize", () => closeBox(false));
+  addEventListener("scroll", () => { if (!matchMedia("(max-width: 560px)").matches) closeBox(false); }, { passive: true });
 </script>
 </body>
 </html>
