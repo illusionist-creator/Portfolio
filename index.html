@@ -149,7 +149,7 @@
   .frame.bare { border:0; }
   .shot figcaption { font-size:14.5px; color:var(--mute); margin-top:16px; max-width:70ch; line-height:1.55; }
   .shot figcaption b { color:var(--ink2); font-weight:600; }
-  .qa { grid-column:1 / -1; display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:clamp(20px, 3vw, 40px);
+  .qa { grid-column:1 / -1; display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:clamp(20px, 3vw, 40px);
     padding-top:28px; border-top:1px dashed var(--line); }
   .qa h4 { margin:0 0 8px; }
   .qa p { margin:0; font-size:15.5px; color:var(--ink2); max-width:none; }
@@ -182,6 +182,7 @@
   .flow.pipe { max-width:none; }
   .flow .band { fill:var(--bg); stroke:var(--line); }
   .flow .hd { font:600 10.5px var(--mono); fill:var(--accent); letter-spacing:.08em; }
+  .feature .flow { grid-column:1 / -1; order:3; margin:0; }
   /* brand offer, folded so the page reads as a hiring page first */
   details.path summary { list-style:none; cursor:pointer; }
   details.path summary::-webkit-details-marker { display:none; }
@@ -308,12 +309,10 @@
       <span class="status"><b></b>Analytics engineer &middot; Ahmedabad &middot; open to roles</span>
       <h1>Keyur<br>Makwana</h1>
       <p class="claim">I make the number at the end of the pipeline <em>actually correct</em>.</p>
-      <p class="lead">For nearly four years I&rsquo;ve built and run the entire analytics stack at a
-        quick-commerce FMCG brand, on my own. The pipelines, the warehouse, the P&amp;L in SQL, the
-        dashboards, and an assistant that lets the leadership team just ask.</p>
-      <p>I taught myself all of it, with no degree, so everything here is something I had to make work
-        rather than something I was taught. I like the boring end of this work. Twice now that habit has turned up money nobody knew was
-        missing. Everything below is real, with links to the code and the live tools where they exist.</p>
+      <p class="lead">For nearly four years I&rsquo;ve run the whole analytics stack at a quick-commerce FMCG
+        brand, alone: pipelines, warehouse, the P&amp;L in SQL, dashboards, and an assistant leadership can just ask.</p>
+      <p>Self-taught, no degree: everything here I had to make work. I like the boring end of the job, and
+        twice that habit has found money nobody knew was missing. All of it is real, with code and live links.</p>
       <p class="open"><b>Open to analytics engineer roles</b> &mdash; remote, or I&rsquo;ll relocate.</p>
       <div class="links">
         <a class="pill solid" href="Keyur_Makwana_Resume.pdf">Resume (PDF) <span class="arr">&darr;</span></a>
@@ -353,14 +352,13 @@
         <div class="tags"><span>Claude API (Opus / Sonnet / Haiku)</span><span>Node serverless</span><span>Vercel</span><span>PostgreSQL 17</span></div>
       </div>
       <div class="body">
-        <p>You ask a question in plain English. It writes read-only SQL, runs it, and hands back the number
-          <em>and</em> the query, so anyone can check it rather than trust it.</p>
-        <p>Security lives in the database, not the prompt: every question runs under the asker&rsquo;s own
-          Postgres role, through 402 generated row-filtered views. Talk it into anything and it still can&rsquo;t
-          read a table you weren&rsquo;t granted.</p>
-        <p>Ten weeks from first commit to production: 408 commits, about 170k lines of code and 29 boards. I audited
-          its first 148 real questions to kill each kind of wrong answer, and a three-tier model router (Haiku,
-          Sonnet, Opus) with prompt caching cut the cost of an answer by a third.</p>
+        <p>Ask in plain English. It writes read-only SQL, runs it, and returns the number <em>and</em> the query,
+          so anyone can check it rather than trust it.</p>
+        <p>Security lives in the database, not the prompt: each question runs as the asker&rsquo;s own Postgres
+          role, through 402 generated row-filtered views. No prompt reaches a table you weren&rsquo;t granted.</p>
+        <p>Ten weeks to production: 408 commits, about 170k lines, 29 boards. I audited its first 148 real
+          questions to kill each kind of wrong answer; a Haiku/Sonnet/Opus router with prompt caching cut the cost
+          per answer by a third.</p>
       </div>
       <div class="nums">
         <div class="hot"><b>394</b><span>questions asked, by 16 people</span></div>
@@ -382,7 +380,7 @@
           <text class="s" x="402" y="53" text-anchor="middle">Postgres login</text>
           <rect class="bx" x="493" y="10" width="146" height="56" rx="8"/>
           <text class="t" x="566" y="35" text-anchor="middle">Row-filtered views</text>
-          <text class="s" x="566" y="53" text-anchor="middle">372, generated</text>
+          <text class="s" x="566" y="53" text-anchor="middle">402, generated</text>
           <path class="ar" d="M147 38 H161 M155 33 L161 38 L155 43"/>
           <path class="ar" d="M311 38 H325 M319 33 L325 38 L319 43"/>
           <path class="ar" d="M475 38 H489 M483 33 L489 38 L483 43"/>
@@ -408,7 +406,7 @@
           <text class="s" x="101" y="190" text-anchor="middle">Postgres login</text>
           <rect class="bx" x="1" y="223" width="200" height="52" rx="8"/>
           <text class="t" x="101" y="246" text-anchor="middle">Row-filtered views</text>
-          <text class="s" x="101" y="264" text-anchor="middle">372, generated</text>
+          <text class="s" x="101" y="264" text-anchor="middle">402, generated</text>
           <rect class="bx key" x="1" y="297" width="200" height="52" rx="8"/>
           <text class="t" x="101" y="320" text-anchor="middle">Number + the SQL</text>
           <text class="s" x="101" y="338" text-anchor="middle">so it can be checked</text>
@@ -433,13 +431,12 @@
       </div>
       <div class="body">
         <p>MySQL and Neon pulled into one governed Postgres warehouse. Schema changes go through reviewed
-          migrations instead of someone running DDL in a console at 9pm.</p>
-        <p>I rebuilt the ERP sync (Business Central, 25 web services) as a resumable pipeline. Partner goods-receipt
-          feeds, payment advices, Unicommerce orders and marketplace exports land in idempotent tables, so re-running
+          migrations, not DDL typed into a console at 9pm.</p>
+        <p>I rebuilt the ERP sync as a resumable pipeline, and every feed lands in idempotent tables: re-running
           a failed load repairs it instead of doubling it.</p>
-        <p>Jobs run inside the database on pg_cron, which hands the ERP sync and the loaders to their workers over
-          pg_net. A lock guard keeps a loader&rsquo;s setup DDL from queuing behind live queries, and a nightly CI check with dbt tests fails the moment the
-          database drifts from its migrations.</p>
+        <p>Jobs run in the database on pg_cron and hand off to workers over pg_net. A lock guard stops loader DDL
+          queuing behind live queries, and a nightly CI check with dbt tests fails the moment the database drifts
+          from its migrations.</p>
       </div>
       <div class="nums">
         <div><b>85M</b><span>rows, 59 GB, 417 tables</span></div>
@@ -461,17 +458,15 @@
         <div class="tags"><span>PostgreSQL</span><span>Power BI</span><span>Alteryx</span></div>
       </div>
       <div class="body">
-        <p>Sales register down to EBITDA &mdash; material cost, gross margin, yield loss, overhead allocation
-          keys taken from the management accounts (MIS) &mdash; with an absorption check that proves every rupee of cost
-          actually lands somewhere instead of quietly evaporating between two steps.</p>
-        <p>This is where the find came from. A returns-capping provision for late partner credits turned up an
-          <strong>overstatement of net sales running into crores</strong>. Nobody went looking for it. Invoiced
-          value and settled value stopped agreeing, and I followed the difference instead of writing it off.</p>
-        <p>Costs now load straight from finance&rsquo;s Management MIS for every month they close. A tie-out
-          checks each month against the statement and refuses one that doesn&rsquo;t reconcile, which retired
-          the feeder file everyone used to re-fill by hand.</p>
-        <p>The MIS, common-size and margin-bridge boards all run off this model, and I lead the annual
-          operating plan with scenario templates for outsourcing and pricing calls.</p>
+        <p>Sales register to EBITDA (material cost, gross margin, yield loss, overheads on the MIS&rsquo;s keys),
+          with an absorption check proving every rupee of cost lands somewhere.</p>
+        <p>That&rsquo;s where the find came from: a returns-capping provision for late partner credits exposed an
+          <strong>overstatement of net sales running into crores</strong>. Invoiced and settled value stopped
+          agreeing, and I followed the gap instead of writing it off.</p>
+        <p>Costs now load straight from finance&rsquo;s MIS as each month closes, and a tie-out refuses any month
+          that doesn&rsquo;t reconcile. That retired a feeder file everyone re-filled by hand.</p>
+        <p>The MIS, common-size and margin-bridge boards run off this model, and I lead the annual operating
+          plan with scenario templates for outsourcing and pricing.</p>
       </div>
       <div class="nums">
         <div class="hot"><b>&#8377; Cr</b><span>net-sales overstatement found</span></div>
@@ -487,15 +482,14 @@
         <div class="tags"><span>PostgreSQL</span><span>Power BI</span></div>
       </div>
       <div class="body">
-        <p>Purchase order to invoice to goods receipt (GRN) to credit note to cash, matched end to end, feeding a live
-          fill-rate board. A missed PO shows up the day it happens, not in the next quarterly review.</p>
-        <p>The last link is new: each customer&rsquo;s payment advice is tied to the invoices it settles and to the
-          ERP receipt it became, so a short payment can be read line by line.</p>
-        <p>It&rsquo;s also how <strong>crores of apparent short-credits from one platform</strong> turned out
-          not to be shortages at all. The goods had arrived; the GRN feed had simply never reported them.
-          A separate half-million-unit gap traced back to one platform being billed through another company&rsquo;s entity.</p>
-        <p>Knowing which half of a shortfall is real is the difference between a claim worth filing and a
-          month spent chasing nothing.</p>
+        <p>PO to invoice to goods receipt (GRN) to credit note to cash, matched end to end, feeding a live fill-rate
+          board. A missed PO shows up the day it happens, not at the next quarterly review.</p>
+        <p>The newest link ties each payment advice to the invoices it settles and the ERP receipt it became, so a
+          short payment reads line by line.</p>
+        <p>It&rsquo;s how <strong>crores of apparent short-credits from one platform</strong> turned out not to be
+          shortages: the goods had arrived, the GRN feed had never reported them. A separate half-million-unit gap
+          traced to one platform billed through another company&rsquo;s entity. Knowing which half of a shortfall is
+          real separates a claim worth filing from a month chasing nothing.</p>
       </div>
       <div class="nums">
         <div class="hot"><b>&#8377; Cr</b><span>of short-credits traced to a feed gap</span></div>
@@ -513,12 +507,10 @@
       </div>
       <div class="body">
         <p>Zepto, Blinkit, Instamart, Flipkart, BigBasket, Reliance and its Milkbasket, Hyperpure, More Retail,
-          Nature&rsquo;s Basket &mdash; every one of them publishes
-          goods-receipt notes in its own format, on its own portal, on its own schedule. Each got its own
-          small scraper that pulls them down and turns them into one clean Excel.</p>
-        <p>It&rsquo;s the least glamorous thing on this page and none of the rest works without it. The
-          order-to-cash bridge can only match a PO to a receipt if the receipts actually arrive in a
-          consistent shape, and before this they didn&rsquo;t.</p>
+          Nature&rsquo;s Basket: each publishes goods-receipt notes in its own format, portal and schedule. Each got
+          a small scraper that turns them into one clean format.</p>
+        <p>The least glamorous thing on this page, and nothing else works without it: the order-to-cash bridge
+          can only match a PO to a receipt if receipts arrive in one shape.</p>
       </div>
       <div class="nums">
         <div><b>17</b><span>GRN feeds from 9 partners, one clean format</span></div>
@@ -532,9 +524,8 @@
       <span class="idx eyebrow">Before</span>
       <div><span class="eyebrow">MYBYK &middot; Sep to Dec 2022</span><h3>Data analyst intern</h3></div>
       <div>
-        <p>I looked at cycle utilisation and hub performance and moved fleet off weak stations into high-demand
-          zones. A cohort analysis of the subscription plans fed a pricing revision that went with a 35% rise in
-          footfall.</p>
+        <p>Moved fleet from weak stations to high-demand zones using utilisation and hub data. A cohort analysis
+          of subscription plans fed a pricing revision that went with a 35% rise in footfall.</p>
         <p class="fine">Google Data Analytics Professional Certificate &middot; Coursera</p>
       </div>
     </div>
@@ -548,8 +539,7 @@
       <span class="num">02</span>
       <h2>Things I built myself</h2>
       <span class="eyebrow">Live tools &middot; public data</span>
-      <p>None of this touches an employer&rsquo;s data. They exist because I wanted the answer and nobody was
-        selling it at a price I liked.</p>
+      <p>No employer data. Each exists because I wanted the answer and nobody sold it at a price I liked.</p>
     </div>
 
     <!-- Shelf Monitor -->
@@ -558,12 +548,10 @@
         <div class="kicker"><span class="live">Live</span><span class="eyebrow">Quick commerce</span></div>
         <h3>shelf<em>.</em>monitor</h3>
         <div class="tags"><span>Playwright</span><span>BigQuery</span><span>React</span><span>DuckDB-WASM</span></div>
-        <p>Who shoppers see first when they search Blinkit, Zepto, Instamart and Flipkart Minutes. Every
-          three hours from 6&nbsp;AM to 9&nbsp;PM a scraper searches each app the way a shopper would, in 13
-          areas across 11 cities, and keeps the first 50 products: their order, which ones are paid ads,
-          prices and stock.</p>
-        <p>The public copy has no server at all. The same SQL the private dashboard runs on BigQuery runs
-          in your browser on DuckDB, over a snapshot refreshed after every run.</p>
+        <p>Who shoppers see first when they search Blinkit, Zepto, Instamart and Flipkart Minutes: the first 50
+          products per search, which are paid ads, prices and stock, every three hours in 13 areas.</p>
+        <p>The public copy has no server. The SQL the private dashboard runs on BigQuery runs in your browser on
+          DuckDB, over a snapshot refreshed after every run.</p>
         <div class="go">
           <a class="pill solid" href="https://qcomm-shelf-monitor.vercel.app/">Open the dashboard <span class="arr">&rarr;</span></a>
           <a class="pill" href="https://github.com/illusionist-creator/qcomm-shelf-monitor">First version&rsquo;s source</a>
@@ -574,19 +562,20 @@
           <div class="bar"><i></i><i></i><i></i><span>qcomm-shelf-monitor.vercel.app</span></div>
           <img src="shelf-monitor.png" width="1500" height="1000" alt="Shelf Monitor overview: the headline &lsquo;Who shoppers see first when they search Blinkit, Zepto, Instamart and Flipkart Minutes&rsquo;; counts of 16 search words, 4 apps, 13 areas, 703 brands seen and 15 days of history; a filter sentence set to The Health Factory in bakery around every area on 30 Oct 2026; and tiles showing it appears in the first 10 products in 432 of 624 searches, with 20% organic and 19% ad share of voice.">
         </div>
-        <figcaption><b>Bakery searches, 30 Oct 2026.</b> The Health Factory shows up in the first ten products
-          in 432 of 624 searches and holds about a fifth of both the unpaid and the paid shelf. Split by
-          app, its ad share runs from 24% on Blinkit to 10% on Flipkart Minutes.</figcaption>
+        <figcaption><b>Bakery searches, 30 Oct 2026.</b> The Health Factory makes the first ten in 432 of 624
+          searches and holds about a fifth of both the unpaid and paid shelf; its ad share runs from 24% on
+          Blinkit to 10% on Flipkart Minutes.</figcaption>
+      </figure>
+      <figure class="flow pipe">
+        <svg class="h" viewBox="-1 0 962 300" role="img" aria-labelledby="shelf-pipe-t"><title id="shelf-pipe-t">Every three hours from 6 AM to 9 PM, Playwright drives real Chrome through Blinkit, Zepto, Instamart and Flipkart Minutes in 13 areas across 11 cities, setting and checking each delivery pincode and reading the app's own search results. The first 50 products per search (rank, ad slot, price, stock) land in BigQuery by day and by run, matched across apps, and a Parquet snapshot is exported after every run. A private React dashboard reads BigQuery; the public shelf.monitor runs the same SQL in the browser on DuckDB.</title><text class="hd" x="0" y="14">SOURCES</text><rect class="bx" x="0" y="56.0" width="220" height="40" rx="7"/><text class="t" x="12" y="80" text-anchor="start">Blinkit</text><path class="ar" d="M220 76 H238"/><rect class="bx" x="0" y="112.0" width="220" height="40" rx="7"/><text class="t" x="12" y="136" text-anchor="start">Zepto</text><path class="ar" d="M220 132 H238"/><rect class="bx" x="0" y="168.0" width="220" height="40" rx="7"/><text class="t" x="12" y="192" text-anchor="start">Instamart</text><path class="ar" d="M220 188 H238"/><rect class="bx" x="0" y="224.0" width="220" height="40" rx="7"/><text class="t" x="12" y="248" text-anchor="start">Flipkart Minutes</text><path class="ar" d="M220 244 H238"/><path class="ar" d="M238 76 V244"/><path class="ar" d="M238 160 H256 M250 155 L256 160 L250 165"/><text class="hd" x="258" y="14">RUNS ON</text><rect class="bx" x="258" y="104" width="200" height="112" rx="7"/><text class="t" x="358" y="128" text-anchor="middle">Playwright, real Chrome</text><text class="s" x="358" y="150" text-anchor="middle">every 3 h, 6 AM to 9 PM</text><text class="s" x="358" y="167" text-anchor="middle">13 areas in 11 cities</text><text class="s" x="358" y="184" text-anchor="middle">pincode set, then checked</text><text class="s" x="358" y="201" text-anchor="middle">reads the app&#8217;s own results</text><path class="ar" d="M458 160 H494 M488 155 L494 160 L488 165"/><text class="hd" x="496" y="14">LANDS IN</text><rect class="bx key" x="496" y="26" width="232" height="268" rx="9"/><text class="t" x="612" y="50" text-anchor="middle">BigQuery</text><text class="s" x="612" y="66" text-anchor="middle">by day and by run</text><rect class="bx band" x="512" y="82" width="200" height="56" rx="7"/><text class="t" x="612.0" y="107" text-anchor="middle">First 50 per search</text><text class="s" x="612.0" y="122" text-anchor="middle">rank, ads, price, stock</text><path class="ar" d="M612 138 V151 M607 145 L612 151 L617 145"/><rect class="bx band" x="512" y="152" width="200" height="56" rx="7"/><text class="t" x="612.0" y="177" text-anchor="middle">Matched products</text><text class="s" x="612.0" y="192" text-anchor="middle">one item across apps</text><path class="ar" d="M612 208 V221 M607 215 L612 221 L617 215"/><rect class="bx band key" x="512" y="222" width="200" height="56" rx="7"/><text class="t" x="612.0" y="247" text-anchor="middle">Public snapshot</text><text class="s" x="612.0" y="262" text-anchor="middle">Parquet, after every run</text><text class="hd" x="764" y="14">GOES TO</text><rect class="bx" x="764" y="84.0" width="195" height="56" rx="7"/><text class="t" x="861.5" y="109" text-anchor="middle">Private dashboard</text><text class="s" x="861.5" y="124" text-anchor="middle">React &#183; BigQuery</text><path class="ar" d="M728 112 H762 M756 107 L762 112 L756 117"/><rect class="bx key" x="764" y="180.0" width="195" height="56" rx="7"/><text class="t" x="861.5" y="205" text-anchor="middle">shelf.monitor</text><text class="s" x="861.5" y="220" text-anchor="middle">DuckDB in your browser</text><path class="ar" d="M728 208 H762 M756 203 L762 208 L756 213"/></svg>
+        <svg class="v" viewBox="-1 0 342 576" role="img" aria-labelledby="shelf-pipe-tv"><title id="shelf-pipe-tv">Every three hours from 6 AM to 9 PM, Playwright drives real Chrome through Blinkit, Zepto, Instamart and Flipkart Minutes in 13 areas across 11 cities, setting and checking each delivery pincode and reading the app's own search results. The first 50 products per search (rank, ad slot, price, stock) land in BigQuery by day and by run, matched across apps, and a Parquet snapshot is exported after every run. A private React dashboard reads BigQuery; the public shelf.monitor runs the same SQL in the browser on DuckDB.</title><text class="hd" x="0" y="12">SOURCES</text><rect class="bx" x="0" y="22" width="164" height="34" rx="7"/><text class="t" x="82.0" y="43" text-anchor="middle">Blinkit</text><rect class="bx" x="176" y="22" width="164" height="34" rx="7"/><text class="t" x="258.0" y="43" text-anchor="middle">Zepto</text><rect class="bx" x="0" y="64" width="164" height="34" rx="7"/><text class="t" x="82.0" y="85" text-anchor="middle">Instamart</text><rect class="bx" x="176" y="64" width="164" height="34" rx="7"/><text class="t" x="258.0" y="85" text-anchor="middle">Flipkart Minutes</text><path class="ar" d="M170 104 V128 M165 122 L170 128 L175 122"/><text class="hd" x="0" y="124">RUNS ON</text><rect class="bx" x="0" y="132" width="340" height="62" rx="7"/><text class="t" x="170" y="152" text-anchor="middle">Playwright, real Chrome &#183; every 3 h</text><text class="s" x="170" y="170" text-anchor="middle">13 areas in 11 cities, pincode checked,</text><text class="s" x="170" y="186" text-anchor="middle">first 50 products per search</text><path class="ar" d="M170 200 V224 M165 218 L170 224 L175 218"/><text class="hd" x="0" y="220">LANDS IN</text><rect class="bx key" x="0" y="228" width="340" height="216" rx="9"/><text class="t" x="170" y="250" text-anchor="middle">BigQuery</text><text class="s" x="170" y="266" text-anchor="middle">by day and by run</text><rect class="bx band" x="14" y="280" width="312" height="44" rx="7"/><text class="t" x="170.0" y="299" text-anchor="middle">First 50 per search</text><text class="s" x="170.0" y="314" text-anchor="middle">rank, ads, price, stock</text><path class="ar" d="M170 324 V333 M165 327 L170 333 L175 327"/><rect class="bx band" x="14" y="334" width="312" height="44" rx="7"/><text class="t" x="170.0" y="353" text-anchor="middle">Matched products</text><text class="s" x="170.0" y="368" text-anchor="middle">one item across apps</text><path class="ar" d="M170 378 V387 M165 381 L170 387 L175 381"/><rect class="bx band key" x="14" y="388" width="312" height="44" rx="7"/><text class="t" x="170.0" y="407" text-anchor="middle">Public snapshot</text><text class="s" x="170.0" y="422" text-anchor="middle">Parquet, after every run</text><path class="ar" d="M170 450 V474 M165 468 L170 474 L175 468"/><text class="hd" x="0" y="470">GOES TO</text><rect class="bx" x="0" y="478" width="340" height="44" rx="7"/><text class="t" x="170.0" y="497" text-anchor="middle">Private dashboard</text><text class="s" x="170.0" y="512" text-anchor="middle">React &#183; BigQuery</text><rect class="bx key" x="0" y="530" width="340" height="44" rx="7"/><text class="t" x="170.0" y="549" text-anchor="middle">shelf.monitor</text><text class="s" x="170.0" y="564" text-anchor="middle">DuckDB in your browser</text></svg>
+        <figcaption>Four apps in, one comparable shelf out. The public copy needs no server.</figcaption>
       </figure>
       <div class="qa">
-        <div><h4 class="eyebrow">Why I built it</h4><p>Rank and availability are the two things a brand
-          can&rsquo;t see from its own sales data, and both of them move daily.</p></div>
-        <div><h4 class="eyebrow">How it works</h4><p>Real Chrome sets each app&rsquo;s delivery pincode, checks
-          it stuck, and reads the app&rsquo;s own search responses. Results land in BigQuery by day and by run,
-          and the same product is matched across apps by brand, pack size and name.</p></div>
-        <div><h4 class="eyebrow">The hard part</h4><p>Every app fights scrapers differently: firewalls that
-          serve blank pages to automated browsers, login walls after a few guest searches, and pincode boxes
-          that quietly geocode to the wrong state.</p></div>
+        <div><h4 class="eyebrow">Why I built it</h4><p>Rank and availability are what a brand can&rsquo;t see in
+          its own sales data, and both move daily.</p></div>
+        <div><h4 class="eyebrow">The hard part</h4><p>Every app fights scrapers differently: firewalls that serve
+          bots blank pages, login walls after a few searches, pincode boxes that geocode to the wrong state.</p></div>
       </div>
     </article>
 
@@ -596,12 +585,11 @@
         <div class="kicker"><span class="live">Live</span><span class="eyebrow">Payments &middot; auto-refreshed</span></div>
         <h3>India Card Monitor</h3>
         <div class="tags"><span>Python</span><span>dbt</span><span>DuckDB</span><span>D3.js</span><span>GitHub Actions</span></div>
-        <p>The RBI publishes bank-wise card statistics every month. NPCI publishes UPI data separately. Nobody
-          joins them, so I did &mdash; who issues India&rsquo;s cards, which banks and apps carry UPI, and what
-          a payment is actually worth, month by month since April 2011.</p>
-        <p>It refreshes itself twice a week, and every refresh is rebuilt as a dbt project that has to pass
-          its tests before it goes live: bank rows that don&rsquo;t add up to RBI&rsquo;s printed total, a unit
-          that converted wrong, or an NPCI total row sneaking into the bank list all stop the publish.</p>
+        <p>RBI publishes bank-wise card statistics; NPCI publishes UPI data separately. Nobody joins them, so I
+          did: who issues India&rsquo;s cards, which banks and apps carry UPI, and what a payment is worth, monthly
+          since April 2011.</p>
+        <p>It refreshes itself twice a week, and dbt tests gate every refresh: bank rows that miss RBI&rsquo;s
+          printed total, a bad unit conversion or a stray NPCI total row stop the publish.</p>
         <div class="go">
           <a class="pill solid" href="https://illusionist-creator.github.io/rbi-payments-data/">Open the dashboard <span class="arr">&rarr;</span></a>
           <a class="pill" href="https://illusionist-creator.github.io/rbi-payments-data/dbt/">dbt models &amp; tests</a>
@@ -613,20 +601,19 @@
           <div class="bar"><i></i><i></i><i></i><span>illusionist-creator.github.io/rbi-payments-data</span></div>
           <img src="india_card_monitor.jpg" width="1533" height="784" loading="lazy" alt="India Card Monitor dashboard: filters for product, month, window, share metric, top-N and bank type; six stat tiles with sparklines for cards outstanding, card payments, transactions, average payment and ATM withdrawals, each with month-on-month and year-on-year change; below, a stacked share-over-time area chart of credit cards outstanding by bank and a ranking table for the latest month.">
         </div>
-        <figcaption><b>Credit cards, July 2026 &middot; 86 banks.</b> The tile I keep coming back to is the average
-          payment: credit card spend was up 7.4% year on year and transactions up 24.5%, but the average payment
-          fell 13.7%. More transactions, each one smaller &mdash; a different story from the headline growth
-          number.</figcaption>
+        <figcaption><b>Credit cards, July 2026 &middot; 86 banks.</b> Spend up 7.4% a year, transactions up 24.5%,
+          average payment down 13.7%: more transactions, each smaller. Not the story the headline growth tells.</figcaption>
+      </figure>
+      <figure class="flow pipe">
+        <svg class="h" viewBox="-1 0 962 300" role="img" aria-labelledby="rbi-pipe-t"><title id="rbi-pipe-t">RBI's monthly bank-wise card statistics (186 Excel releases since April 2011), NPCI's UPI statistics (10 tables from its JSON API) and reference files are fetched by Python on GitHub Actions every Monday and Thursday. The parser folds RBI's four layouts and three units into one shape. Raw files and processed CSVs are committed to the repo, then rebuilt as a dbt project on DuckDB with 13 models and 47 tests. Only if every test passes do the dashboard on GitHub Pages, the dbt docs and the open CSV and Excel files update.</title><text class="hd" x="0" y="14">SOURCES</text><rect class="bx" x="0" y="56.0" width="220" height="56" rx="7"/><text class="t" x="12" y="81" text-anchor="start">RBI card statistics</text><text class="s" x="12" y="96" text-anchor="start">186 monthly Excel files</text><path class="ar" d="M220 84 H238"/><rect class="bx" x="0" y="132.0" width="220" height="56" rx="7"/><text class="t" x="12" y="157" text-anchor="start">NPCI UPI statistics</text><text class="s" x="12" y="172" text-anchor="start">JSON API &#183; 10 tables</text><path class="ar" d="M220 160 H238"/><rect class="bx" x="0" y="208.0" width="220" height="56" rx="7"/><text class="t" x="12" y="233" text-anchor="start">Reference files</text><text class="s" x="12" y="248" text-anchor="start">populations &#183; map outlines</text><path class="ar" d="M220 236 H238"/><path class="ar" d="M238 84 V236"/><path class="ar" d="M238 160 H256 M250 155 L256 160 L250 165"/><text class="hd" x="258" y="14">RUNS ON</text><rect class="bx" x="258" y="95.5" width="200" height="129" rx="7"/><text class="t" x="358" y="119.5" text-anchor="middle">GitHub Actions</text><text class="s" x="358" y="141.5" text-anchor="middle">Mon + Thu, 09:00 IST</text><text class="s" x="358" y="158.5" text-anchor="middle">Python fetches new and</text><text class="s" x="358" y="175.5" text-anchor="middle">revised releases, folds</text><text class="s" x="358" y="192.5" text-anchor="middle">4 RBI layouts and 3 units</text><text class="s" x="358" y="209.5" text-anchor="middle">into one shape</text><path class="ar" d="M458 160 H494 M488 155 L494 160 L488 165"/><text class="hd" x="496" y="14">LANDS IN</text><rect class="bx key" x="496" y="26" width="232" height="268" rx="9"/><text class="t" x="612" y="50" text-anchor="middle">The Git repo</text><text class="s" x="612" y="66" text-anchor="middle">every run committed</text><rect class="bx band" x="512" y="82" width="200" height="56" rx="7"/><text class="t" x="612.0" y="107" text-anchor="middle">Raw files</text><text class="s" x="612.0" y="122" text-anchor="middle">each release as published</text><path class="ar" d="M612 138 V151 M607 145 L612 151 L617 145"/><rect class="bx band" x="512" y="152" width="200" height="56" rx="7"/><text class="t" x="612.0" y="177" text-anchor="middle">Processed CSVs</text><text class="s" x="612.0" y="192" text-anchor="middle">one row per bank per month</text><path class="ar" d="M612 208 V221 M607 215 L612 221 L617 215"/><rect class="bx band key" x="512" y="222" width="200" height="56" rx="7"/><text class="t" x="612.0" y="247" text-anchor="middle">dbt on DuckDB</text><text class="s" x="612.0" y="262" text-anchor="middle">13 models &#183; 47 tests</text><text class="hd" x="764" y="14">LIVE IF TESTS PASS</text><rect class="bx key" x="764" y="56.0" width="195" height="56" rx="7"/><text class="t" x="861.5" y="81" text-anchor="middle">India Card Monitor</text><text class="s" x="861.5" y="96" text-anchor="middle">GitHub Pages &#183; D3</text><path class="ar" d="M728 84 H762 M756 79 L762 84 L756 89"/><rect class="bx" x="764" y="132.0" width="195" height="56" rx="7"/><text class="t" x="861.5" y="157" text-anchor="middle">dbt docs</text><text class="s" x="861.5" y="172" text-anchor="middle">models &#183; tests &#183; lineage</text><path class="ar" d="M728 160 H762 M756 155 L762 160 L756 165"/><rect class="bx" x="764" y="208.0" width="195" height="56" rx="7"/><text class="t" x="861.5" y="233" text-anchor="middle">Open data</text><text class="s" x="861.5" y="248" text-anchor="middle">CSV + Excel in the repo</text><path class="ar" d="M728 236 H762 M756 231 L762 236 L756 241"/></svg>
+        <svg class="v" viewBox="-1 0 342 690" role="img" aria-labelledby="rbi-pipe-tv"><title id="rbi-pipe-tv">RBI's monthly bank-wise card statistics (186 Excel releases since April 2011), NPCI's UPI statistics (10 tables from its JSON API) and reference files are fetched by Python on GitHub Actions every Monday and Thursday. The parser folds RBI's four layouts and three units into one shape. Raw files and processed CSVs are committed to the repo, then rebuilt as a dbt project on DuckDB with 13 models and 47 tests. Only if every test passes do the dashboard on GitHub Pages, the dbt docs and the open CSV and Excel files update.</title><text class="hd" x="0" y="12">SOURCES</text><rect class="bx" x="0" y="22" width="340" height="42" rx="7"/><text class="t" x="12" y="40" text-anchor="start">RBI card statistics</text><text class="s" x="12" y="55" text-anchor="start">186 monthly Excel files</text><rect class="bx" x="0" y="70" width="340" height="42" rx="7"/><text class="t" x="12" y="88" text-anchor="start">NPCI UPI statistics</text><text class="s" x="12" y="103" text-anchor="start">JSON API &#183; 10 tables</text><rect class="bx" x="0" y="118" width="340" height="42" rx="7"/><text class="t" x="12" y="136" text-anchor="start">Reference files</text><text class="s" x="12" y="151" text-anchor="start">populations &#183; map outlines</text><path class="ar" d="M170 166 V190 M165 184 L170 190 L175 184"/><text class="hd" x="0" y="186">RUNS ON</text><rect class="bx" x="0" y="194" width="340" height="62" rx="7"/><text class="t" x="170" y="214" text-anchor="middle">GitHub Actions &#183; Mon + Thu</text><text class="s" x="170" y="232" text-anchor="middle">Python: new and revised releases,</text><text class="s" x="170" y="248" text-anchor="middle">4 RBI layouts and 3 units, one shape</text><path class="ar" d="M170 262 V286 M165 280 L170 286 L175 280"/><text class="hd" x="0" y="282">LANDS IN</text><rect class="bx key" x="0" y="290" width="340" height="216" rx="9"/><text class="t" x="170" y="312" text-anchor="middle">The Git repo</text><text class="s" x="170" y="328" text-anchor="middle">every run committed</text><rect class="bx band" x="14" y="342" width="312" height="44" rx="7"/><text class="t" x="170.0" y="361" text-anchor="middle">Raw files</text><text class="s" x="170.0" y="376" text-anchor="middle">each release as published</text><path class="ar" d="M170 386 V395 M165 389 L170 395 L175 389"/><rect class="bx band" x="14" y="396" width="312" height="44" rx="7"/><text class="t" x="170.0" y="415" text-anchor="middle">Processed CSVs</text><text class="s" x="170.0" y="430" text-anchor="middle">one row per bank per month</text><path class="ar" d="M170 440 V449 M165 443 L170 449 L175 443"/><rect class="bx band key" x="14" y="450" width="312" height="44" rx="7"/><text class="t" x="170.0" y="469" text-anchor="middle">dbt on DuckDB</text><text class="s" x="170.0" y="484" text-anchor="middle">13 models &#183; 47 tests</text><path class="ar" d="M170 512 V536 M165 530 L170 536 L175 530"/><text class="hd" x="0" y="532">LIVE IF TESTS PASS</text><rect class="bx key" x="0" y="540" width="340" height="44" rx="7"/><text class="t" x="170.0" y="559" text-anchor="middle">India Card Monitor</text><text class="s" x="170.0" y="574" text-anchor="middle">GitHub Pages &#183; D3</text><rect class="bx" x="0" y="592" width="340" height="44" rx="7"/><text class="t" x="170.0" y="611" text-anchor="middle">dbt docs</text><text class="s" x="170.0" y="626" text-anchor="middle">models &#183; tests &#183; lineage</text><rect class="bx" x="0" y="644" width="340" height="44" rx="7"/><text class="t" x="170.0" y="663" text-anchor="middle">Open data</text><text class="s" x="170.0" y="678" text-anchor="middle">CSV + Excel in the repo</text></svg>
+        <figcaption>Two public sources in, one tested dataset out. A failed test publishes nothing; the last good version stays live.</figcaption>
       </figure>
       <div class="qa">
-        <div><h4 class="eyebrow">Why I built it</h4><p>Two agencies, two file formats, one obvious question
-          between them that nobody had bothered to answer.</p></div>
-        <div><h4 class="eyebrow">How it works</h4><p>A scraper and parser for the monthly releases, dbt models
-          on DuckDB (staging, intermediate, marts) with tests as the publish gate, and a static D3 front end with
-          no server to keep alive.</p></div>
-        <div><h4 class="eyebrow">The hard part</h4><p>Schema drift. RBI has changed its layout three times and
-          its unit twice; NPCI redesigned its app table in 2020. The pipeline has to fail loudly rather than
-          silently mis-map a column.</p></div>
+        <div><h4 class="eyebrow">Why I built it</h4><p>Two agencies, two file formats, and one obvious question
+          between them nobody had answered.</p></div>
+        <div><h4 class="eyebrow">The hard part</h4><p>Schema drift. RBI has changed its layout three times and its
+          unit twice; NPCI redesigned its app table in 2020. The pipeline must fail loudly, never mis-map a column.</p></div>
       </div>
     </article>
 
@@ -637,18 +624,15 @@
         <div class="in">
           <h3>Growth Forecaster</h3>
           <div class="tags"><span>R Shiny</span></div>
-          <p>Turn monthly sales by partner and category into a fiscal-year P&amp;L forecast. Every month walks
-            the same waterfall &mdash; MRP billing, commission, returns, GST, unit costs, yield loss &mdash; down to
-            gross margin, with volume forecast per series by seasonal YoY growth, or by ETS or auto-ARIMA with 80%
-            and 95% prediction ranges.</p>
-          <p>Base, Upside and Downside scenarios, a one-driver-at-a-time sensitivity, and an Excel board pack at
-            the end. On the sample data a 10% price move shifts gross margin twice as far as a 10% volume move
-            &mdash; something one growth percentage applied to last year would never show you.</p>
+          <p>Monthly sales by partner and category become a fiscal-year P&amp;L forecast: MRP billing down to gross
+            margin, with volume by seasonal growth, ETS or auto-ARIMA and 80% / 95% ranges.</p>
+          <p>Scenarios, one-driver sensitivity and an Excel board pack. On the sample data a 10% price move shifts
+            margin twice as far as a 10% volume move, which one growth rate on last year would never show.</p>
           <div class="go">
             <a class="pill solid" href="https://keyurtbd.shinyapps.io/growth_forecaster/">Open the app <span class="arr">&rarr;</span></a>
             <a class="pill" href="https://github.com/illusionist-creator/sale-forecaster">Source</a>
           </div>
-          <p class="wake">Free hosting: the app sleeps when nobody is using it, so the first load takes about 30 seconds.</p>
+          <p class="wake">Free hosting: it sleeps when idle, so the first load takes about 30 seconds.</p>
         </div>
       </article>
       <article class="card rv">
@@ -656,15 +640,15 @@
         <div class="in">
           <h3>File Merger Pro</h3>
           <div class="tags"><span>R Shiny</span><span>v2.0.0</span></div>
-          <p>Combine Excel and CSV files into one table. Built for the case everyone in this job knows: the
-            same report arriving as twelve files with twelve slightly different headers.</p>
-          <p>It matches columns by name or position, de-duplicates, and stamps each row with the file and
-            sheet it came from &mdash; the bit you always want an hour later, when a number looks wrong.</p>
+          <p>Excel and CSV files into one table, for the report that arrives as twelve files with twelve slightly
+            different headers.</p>
+          <p>It matches columns by name or position, de-duplicates, and stamps each row with its file and sheet:
+            what you want an hour later, when a number looks wrong.</p>
           <div class="go">
             <a class="pill solid" href="https://keyurtbd.shinyapps.io/excel__csv_file_merger/">Open the app <span class="arr">&rarr;</span></a>
             <a class="pill" href="https://github.com/illusionist-creator/excel_csv_file_merger">Source (v1)</a>
           </div>
-          <p class="wake">Free hosting: the app sleeps when nobody is using it, so the first load takes about 30 seconds.</p>
+          <p class="wake">Free hosting: it sleeps when idle, so the first load takes about 30 seconds.</p>
         </div>
       </article>
       <article class="card rv">
@@ -672,11 +656,9 @@
         <div class="in">
           <h3>GitHub Actions Monitor</h3>
           <div class="tags"><span>JavaScript</span><span>MIT</span></div>
-          <p>Cross-repo CI health, flaky failures and compute spend in one place. A test that fails once a
-            week is invisible inside one repository&rsquo;s history, and obvious the moment you line every
-            repository up side by side.</p>
-          <p>Your token stays in that browser tab, never stored. It opens on sample data so you can see what
-            it does first.</p>
+          <p>Cross-repo CI health, flaky failures and compute spend in one place. A test that fails once a week
+            hides in one repo&rsquo;s history and is obvious with every repo side by side.</p>
+          <p>Your token stays in the tab, never stored, and it opens on sample data.</p>
           <div class="go">
             <a class="pill solid" href="https://github-action-monitor.vercel.app/#tab=live">Open it live <span class="arr">&rarr;</span></a>
             <a class="pill" href="https://github.com/illusionist-creator/github_action_monitor">Source</a>
@@ -693,11 +675,10 @@
         <div class="in">
           <h3>Darshan</h3>
           <div class="tags"><span>React</span><span>TypeScript</span><span>PWA</span></div>
-          <p>A temple guide for Ahmedabad, Bengaluru, Mumbai and Banaras: 1,735 temples on a map, every aarti
-            sorted by what&rsquo;s happening now, live darshan and the day&rsquo;s panchang. Built for someone new to
-            a city, and their parents visiting with a free afternoon.</p>
-          <p>Older users said it wasn&rsquo;t intuitive enough, so the first screen now says what the app is, tabs
-            got plain labels, and the temple list opens before the map.</p>
+          <p>A temple guide for Ahmedabad, Bengaluru, Mumbai and Banaras: 1,735 temples on a map, aartis sorted by
+            what&rsquo;s on now, live darshan and the day&rsquo;s panchang. For someone new to a city, and their visiting parents.</p>
+          <p>Older users found it hard to follow, so the first screen now says what it is, tabs have plain labels,
+            and the list opens before the map.</p>
           <div class="go">
             <a class="pill solid" href="https://darshan-sable.vercel.app/">Open the app <span class="arr">&rarr;</span></a>
           </div>
@@ -708,10 +689,9 @@
         <div class="in">
           <h3>SQLQuest</h3>
           <div class="tags"><span>JavaScript</span><span>SQLite in the browser</span></div>
-          <p>Learn SQL by writing it: 64 challenges over five levels, from SELECT to window functions, each
-            against a real database in the browser.</p>
-          <p>Any query that returns the right rows passes, not just one &ldquo;right&rdquo; answer, and the feedback
-            says which column or count is off.</p>
+          <p>Learn SQL by writing it: 64 challenges from SELECT to window functions, against a real database in
+            the browser.</p>
+          <p>Any query with the right rows passes, and the feedback says which column or count is off.</p>
           <div class="go">
             <a class="pill solid" href="https://illusionist-creator.github.io/sqlquest/">Play it <span class="arr">&rarr;</span></a>
             <a class="pill" href="https://github.com/illusionist-creator/sqlquest">Source</a>
@@ -729,7 +709,7 @@
       <span class="num">03</span>
       <h2>The kit</h2>
       <span class="eyebrow">What I actually use</span>
-      <p>Listed honestly &mdash; these are tools I&rsquo;ve shipped something with, not tools I&rsquo;ve read about.</p>
+      <p>Only tools I&rsquo;ve shipped something with.</p>
     </div>
     <dl class="kit rv">
       <div><dt>Programming</dt><dd>Python &middot; SQL &middot; JavaScript &middot; TypeScript &middot; R</dd></div>
@@ -753,9 +733,8 @@
       <div class="path rv">
         <span class="eyebrow">If you&rsquo;re hiring</span>
         <h3>An analytics engineer who ships</h3>
-        <p>I&rsquo;m looking for an analytics engineer role, remote or somewhere I&rsquo;d relocate to. I&rsquo;d
-          bring the whole path from raw partner files to a number leadership trusts: pipelines, a governed
-          warehouse, tested SQL models and the dashboards on top.</p>
+        <p>I want an analytics engineer role, remote or relocating. I bring the whole path from raw partner files
+          to a number leadership trusts: pipelines, a governed warehouse, tested SQL models, dashboards.</p>
         <div class="go">
           <a class="pill solid" href="Keyur_Makwana_Resume.pdf">Resume (PDF) <span class="arr">&darr;</span></a>
           <a class="pill" href="mailto:makwanakeyur2002@gmail.com?subject=Analytics%20engineer%20role">Email me</a>
@@ -767,14 +746,14 @@
           <h3>Where did the money go?</h3>
           <span class="more-link">Small freelance offer for quick-commerce brands +</span>
         </summary>
-        <p>I take on a small number of brands selling on quick commerce. Two things, mostly: SKU-level profit by
-          platform once ads, discounts, returns and deductions come out &mdash; and the reconciliation between what
-          you invoiced and what actually landed in the bank. The second one is usually where the surprise sits.</p>
+        <p>I take on a few quick-commerce brands, mostly for two things: SKU profit by platform after ads,
+          discounts, returns and deductions, and what you invoiced against what reached the bank. The surprise
+          usually sits in the second.</p>
         <p>See both on a sample brand: <a class="inl" href="short_credit_teardown.html">short-credit teardown</a>
           and <a class="inl" href="qcommerce_unit_economics.html">profit by SKU and platform</a> (synthetic
           figures, real failure modes).</p>
-        <p><b style="color:var(--band-ink);font-weight:600">Free first pass:</b> send one month of goods-receipt exports and
-          invoices for one platform. Within a week you get that split for your own data, free, once.</p>
+        <p><b style="color:var(--band-ink);font-weight:600">Free first pass:</b> send one month of goods-receipt
+          exports and invoices for one platform, and within a week you get that split for your own data.</p>
         <p class="fine">Your data stays in your own accounts and is never shared or reused.</p>
         <div class="go">
           <a class="pill solid" href="https://wa.me/919662060400?text=Hi%20Keyur%2C%20I%20saw%20your%20portfolio">WhatsApp me <span class="arr">&rarr;</span></a>
