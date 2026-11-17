@@ -162,6 +162,28 @@
   .card .tags { margin-bottom:14px; }
   .card p { margin:0 0 12px; font-size:15.5px; color:var(--ink2); }
   .card .go { margin-top:auto; padding-top:10px; }
+  .card .wake { margin:12px 0 0; font-size:13px; color:var(--mute); }
+  .more.two { grid-template-columns:repeat(2, minmax(0, 1fr)); margin-top:clamp(40px, 5.5vw, 72px); }
+  .more .label { grid-column:1 / -1; margin:0; }
+  @media (max-width: 860px) { .more.two { grid-template-columns:minmax(0, 1fr); } }
+  /* Birbal: how a question reaches the data */
+  .flow { grid-column:2 / -1; margin:6px 0 0; max-width:760px; }
+  .flow svg { width:100%; height:auto; display:block; }
+  .flow svg.v { display:none; max-width:340px; }
+  @media (max-width: 1080px) { .flow { grid-column:1 / -1; } }
+  @media (max-width: 700px) { .flow svg.h { display:none; } .flow svg.v { display:block; } }
+  .flow .bx { fill:var(--paper); stroke:var(--line); }
+  .flow .bx.key { stroke:var(--accent); }
+  .flow .t { font:500 12.5px var(--sans); fill:var(--ink); }
+  .flow .s { font:400 11px var(--mono); fill:var(--mute); }
+  .flow .ar { stroke:var(--mute); fill:none; }
+  .flow .no { stroke:var(--accent); stroke-dasharray:4 4; fill:none; }
+  .flow figcaption { font-size:13px; color:var(--mute); margin-top:8px; }
+  /* brand offer, folded so the page reads as a hiring page first */
+  details.path summary { list-style:none; cursor:pointer; }
+  details.path summary::-webkit-details-marker { display:none; }
+  details.path summary .more-link { display:inline-block; margin-top:4px; font:500 13px var(--mono); color:var(--accent); }
+  details.path[open] summary .more-link { display:none; }
 
   /* ---------- kit ---------- */
   .kit { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:0 clamp(24px, 4vw, 64px); margin:0; padding-left:96px; }
@@ -286,7 +308,8 @@
       <p class="lead">For nearly four years I&rsquo;ve built and run the entire analytics stack at a
         quick-commerce FMCG brand, on my own. The pipelines, the warehouse, the P&amp;L in SQL, the
         dashboards, and an assistant that lets the leadership team just ask.</p>
-      <p>I like the boring end of this work. Twice now that habit has turned up money nobody knew was
+      <p>I taught myself all of it, with no degree, so everything here is something I had to make work
+        rather than something I was taught. I like the boring end of this work. Twice now that habit has turned up money nobody knew was
         missing. Everything below is real, with links to the code and the live tools where they exist.</p>
       <p class="open"><b>Open to analytics engineer roles</b> &mdash; remote, or I&rsquo;ll relocate.</p>
       <div class="links">
@@ -342,6 +365,61 @@
         <div><b>&minus;33%</b><span>cost per answer, Sep to Oct</span></div>
         <div><b>10 wk</b><span>first commit to production</span></div>
       </div>
+      <figure class="flow">
+        <svg class="h" viewBox="0 0 640 190" role="img" aria-labelledby="flow-t">
+          <title id="flow-t">A question asked in plain English goes to Claude, which writes read-only SQL. The SQL runs under the asker's own Postgres role and can only reach the row-filtered views that role was granted; tables it was not granted are unreachable whatever the prompt says. The answer comes back with the SQL that produced it.</title>
+          <rect class="bx" x="1" y="10" width="146" height="56" rx="8"/>
+          <text class="t" x="74" y="35" text-anchor="middle">Ask in plain English</text>
+          <text class="s" x="74" y="53" text-anchor="middle">any colleague</text>
+          <rect class="bx" x="165" y="10" width="146" height="56" rx="8"/>
+          <text class="t" x="238" y="35" text-anchor="middle">Claude writes SQL</text>
+          <text class="s" x="238" y="53" text-anchor="middle">read-only</text>
+          <rect class="bx key" x="329" y="10" width="146" height="56" rx="8"/>
+          <text class="t" x="402" y="35" text-anchor="middle">Runs as your own role</text>
+          <text class="s" x="402" y="53" text-anchor="middle">Postgres login</text>
+          <rect class="bx" x="493" y="10" width="146" height="56" rx="8"/>
+          <text class="t" x="566" y="35" text-anchor="middle">Row-filtered views</text>
+          <text class="s" x="566" y="53" text-anchor="middle">372, generated</text>
+          <path class="ar" d="M147 38 H161 M155 33 L161 38 L155 43"/>
+          <path class="ar" d="M311 38 H325 M319 33 L325 38 L319 43"/>
+          <path class="ar" d="M475 38 H489 M483 33 L489 38 L483 43"/>
+          <path class="no" d="M402 66 V122"/>
+          <rect class="bx" x="329" y="124" width="146" height="56" rx="8" style="stroke:var(--accent);stroke-dasharray:4 4"/>
+          <text class="t" x="402" y="149" text-anchor="middle">Tables not granted</text>
+          <text class="s" x="402" y="167" text-anchor="middle">unreachable</text>
+          <path class="ar" d="M566 66 V120 M561 114 L566 120 L571 114"/>
+          <rect class="bx key" x="493" y="124" width="146" height="56" rx="8"/>
+          <text class="t" x="566" y="149" text-anchor="middle">Number + the SQL</text>
+          <text class="s" x="566" y="167" text-anchor="middle">so it can be checked</text>
+        </svg>
+        <svg class="v" viewBox="0 0 340 352" role="img" aria-labelledby="flow-tv">
+          <title id="flow-tv">A question asked in plain English goes to Claude, which writes read-only SQL. The SQL runs under the asker's own Postgres role and can only reach the row-filtered views that role was granted; tables it was not granted are unreachable whatever the prompt says. The answer comes back with the SQL that produced it.</title>
+          <rect class="bx" x="1" y="1" width="200" height="52" rx="8"/>
+          <text class="t" x="101" y="24" text-anchor="middle">Ask in plain English</text>
+          <text class="s" x="101" y="42" text-anchor="middle">any colleague</text>
+          <rect class="bx" x="1" y="75" width="200" height="52" rx="8"/>
+          <text class="t" x="101" y="98" text-anchor="middle">Claude writes SQL</text>
+          <text class="s" x="101" y="116" text-anchor="middle">read-only</text>
+          <rect class="bx key" x="1" y="149" width="200" height="52" rx="8"/>
+          <text class="t" x="101" y="172" text-anchor="middle">Runs as your own role</text>
+          <text class="s" x="101" y="190" text-anchor="middle">Postgres login</text>
+          <rect class="bx" x="1" y="223" width="200" height="52" rx="8"/>
+          <text class="t" x="101" y="246" text-anchor="middle">Row-filtered views</text>
+          <text class="s" x="101" y="264" text-anchor="middle">372, generated</text>
+          <rect class="bx key" x="1" y="297" width="200" height="52" rx="8"/>
+          <text class="t" x="101" y="320" text-anchor="middle">Number + the SQL</text>
+          <text class="s" x="101" y="338" text-anchor="middle">so it can be checked</text>
+          <path class="ar" d="M101 53 V71 M96 65 L101 71 L106 65"/>
+          <path class="ar" d="M101 127 V145 M96 139 L101 145 L106 139"/>
+          <path class="ar" d="M101 201 V219 M96 213 L101 219 L106 213"/>
+          <path class="ar" d="M101 275 V293 M96 287 L101 293 L106 287"/>
+          <path class="no" d="M201 175 H218"/>
+          <rect class="bx" x="219" y="149" width="120" height="52" rx="8" style="stroke:var(--accent);stroke-dasharray:4 4"/>
+          <text class="t" x="279" y="172" text-anchor="middle">Not granted</text>
+          <text class="s" x="279" y="190" text-anchor="middle">unreachable</text>
+        </svg>
+        <figcaption>The guard is the database login, not the prompt.</figcaption>
+      </figure>
     </article>
 
     <article class="job rv">
@@ -503,13 +581,16 @@
       <div class="text">
         <div class="kicker"><span class="live">Live</span><span class="eyebrow">Payments &middot; auto-refreshed</span></div>
         <h3>India Card Monitor</h3>
-        <div class="tags"><span>Python</span><span>D3.js</span><span>GitHub Actions</span></div>
+        <div class="tags"><span>Python</span><span>dbt</span><span>DuckDB</span><span>D3.js</span><span>GitHub Actions</span></div>
         <p>The RBI publishes bank-wise card statistics every month. NPCI publishes UPI data separately. Nobody
           joins them, so I did &mdash; who issues India&rsquo;s cards, which banks and apps carry UPI, and what
           a payment is actually worth, month by month since April 2011.</p>
-        <p>It refreshes itself, so the series keeps extending without me touching it.</p>
+        <p>It refreshes itself twice a week, and every refresh is rebuilt as a dbt project that has to pass
+          its tests before it goes live: bank rows that don&rsquo;t add up to RBI&rsquo;s printed total, a unit
+          that converted wrong, or an NPCI total row sneaking into the bank list all stop the publish.</p>
         <div class="go">
           <a class="pill solid" href="https://illusionist-creator.github.io/rbi-payments-data/">Open the dashboard <span class="arr">&rarr;</span></a>
+          <a class="pill" href="https://illusionist-creator.github.io/rbi-payments-data/dbt/">dbt models &amp; tests</a>
           <a class="pill" href="https://github.com/illusionist-creator/rbi-payments-data">Source</a>
         </div>
       </div>
@@ -526,72 +607,13 @@
       <div class="qa">
         <div><h4 class="eyebrow">Why I built it</h4><p>Two agencies, two file formats, one obvious question
           between them that nobody had bothered to answer.</p></div>
-        <div><h4 class="eyebrow">How it works</h4><p>A scraper and parser for the monthly releases, a tidy
-          long-format store, and a static D3 front end with no server to keep alive.</p></div>
-        <div><h4 class="eyebrow">The hard part</h4><p>Schema drift. The published layout changes without
-          warning, so the parser has to fail loudly rather than silently mis-map a column.</p></div>
+        <div><h4 class="eyebrow">How it works</h4><p>A scraper and parser for the monthly releases, dbt models
+          on DuckDB (staging, intermediate, marts) with tests as the publish gate, and a static D3 front end with
+          no server to keep alive.</p></div>
+        <div><h4 class="eyebrow">The hard part</h4><p>Schema drift. RBI has changed its layout three times and
+          its unit twice; NPCI redesigned its app table in 2020. The pipeline has to fail loudly rather than
+          silently mis-map a column.</p></div>
       </div>
-    </article>
-
-    <!-- Darshan -->
-    <article class="feature rv">
-      <div class="text">
-        <div class="kicker"><span class="live">Live</span><span class="eyebrow">Consumer app &middot; PWA</span></div>
-        <h3>Darshan</h3>
-        <div class="tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>PWA</span></div>
-        <p>A temple guide for Ahmedabad, Bengaluru, Mumbai and Banaras: find a temple, know when the aarti
-          is, watch a live darshan, and read the day&rsquo;s panchang. 1,735 temples on a map, every aarti
-          schedule sorted by what&rsquo;s happening now, and prayers in four scripts.</p>
-        <p>Built for two people: someone who has just moved to a new city and doesn&rsquo;t know what&rsquo;s
-          around them, and their parents who are visiting and have a free afternoon.</p>
-        <div class="go">
-          <a class="pill solid" href="https://darshan-sable.vercel.app/">Open the app <span class="arr">&rarr;</span></a>
-        </div>
-      </div>
-      <figure class="shot">
-        <div class="frame bare">
-          <img src="darshan.jpg" width="1500" height="1000" loading="lazy" alt="Three phone screens of Darshan for Ahmedabad: the home screen with tiles for Temples, Today, Deity of the day, For you, Prayers and Festivals above an &lsquo;In the spotlight&rsquo; carousel; the temple list with aarti times and &lsquo;Open now&rsquo; badges; and the Panchang page for 30 Oct 2026 showing Aso Vad Pancham and the five limbs of the day.">
-        </div>
-        <figcaption><b>Home, temples and today&rsquo;s panchang.</b> Every tile on the home screen carries a live
-          hint &mdash; when the next good period starts, the deity of the day, how many days to the next
-          festival.</figcaption>
-      </figure>
-      <div class="qa">
-        <div><h4 class="eyebrow">What users told me</h4><p>Early feedback was that it &ldquo;isn&rsquo;t intuitive
-          enough to look at themselves&rdquo; &mdash; mostly from older users, exactly the visiting parents it
-          was built for.</p></div>
-        <div><h4 class="eyebrow">What changed</h4><p>It now says what it is on the first screen, one-word tabs
-          became plain labels, and the temple list opens before the map. Home names every section in a
-          sentence.</p></div>
-        <div><h4 class="eyebrow">The rule since</h4><p>No label that assumes prior knowledge, full-width tap
-          targets, body text no smaller than 14px, and never make the map the first thing someone sees.</p></div>
-      </div>
-    </article>
-
-    <!-- SQLQuest -->
-    <article class="feature flip rv">
-      <div class="text">
-        <div class="kicker"><span class="live">Live</span><span class="eyebrow">Learning &middot; game</span></div>
-        <h3>SQL<em>Quest</em></h3>
-        <div class="tags"><span>JavaScript</span><span>SQLite in the browser</span><span>Node</span></div>
-        <p>Learn SQL by writing it. 64 challenges over five levels, from SELECT to window functions, each
-          with a short lesson and a real database to query &mdash; a chai-and-coffee chain or an HR company.</p>
-        <p>Any query that returns the right rows passes, not just one &ldquo;right&rdquo; answer, and the
-          feedback says which column or count is off. XP, ranks, streaks, 13 badges and timed drills keep
-          people coming back.</p>
-        <div class="go">
-          <a class="pill solid" href="https://illusionist-creator.github.io/sqlquest/">Play it <span class="arr">&rarr;</span></a>
-          <a class="pill" href="https://github.com/illusionist-creator/sqlquest">Source</a>
-        </div>
-      </div>
-      <figure class="shot">
-        <div class="frame">
-          <div class="bar"><i></i><i></i><i></i><span>illusionist-creator.github.io/sqlquest</span></div>
-          <img src="sqlquest.jpg" width="1500" height="1000" loading="lazy" alt="SQLQuest challenge &lsquo;Who ordered?&rsquo; at level 3: the task and an INNER JOIN lesson on the left; on the right a query joining orders to customers, a green &lsquo;Correct! +35 XP&rsquo; banner with Speedster and First Query badges, and the 90-row result table.">
-        </div>
-        <figcaption><b>A level-3 join, solved.</b> The check compares result sets, so any correct query earns
-          the XP &mdash; and a quick first solve earns two badges on the spot.</figcaption>
-      </figure>
     </article>
 
     <!-- smaller -->
@@ -612,6 +634,7 @@
             <a class="pill solid" href="https://keyurtbd.shinyapps.io/growth_forecaster/">Open the app <span class="arr">&rarr;</span></a>
             <a class="pill" href="https://github.com/illusionist-creator/sale-forecaster">Source</a>
           </div>
+          <p class="wake">Free hosting: the app sleeps when nobody is using it, so the first load takes about 30 seconds.</p>
         </div>
       </article>
       <article class="card rv">
@@ -625,8 +648,9 @@
             sheet it came from &mdash; the bit you always want an hour later, when a number looks wrong.</p>
           <div class="go">
             <a class="pill solid" href="https://keyurtbd.shinyapps.io/excel__csv_file_merger/">Open the app <span class="arr">&rarr;</span></a>
-            <a class="pill" href="https://github.com/illusionist-creator/excel_csv_file_merger">Source</a>
+            <a class="pill" href="https://github.com/illusionist-creator/excel_csv_file_merger">Source (v1)</a>
           </div>
+          <p class="wake">Free hosting: the app sleeps when nobody is using it, so the first load takes about 30 seconds.</p>
         </div>
       </article>
       <article class="card rv">
@@ -646,6 +670,41 @@
         </div>
       </article>
     </div>
+
+    <!-- outside data work -->
+    <div class="more two">
+      <p class="eyebrow label">Outside data work</p>
+      <article class="card rv">
+        <img src="darshan.jpg" width="1500" height="1000" loading="lazy" alt="Three phone screens of Darshan for Ahmedabad: the home screen with tiles for Temples, Today, Deity of the day, For you, Prayers and Festivals above an &lsquo;In the spotlight&rsquo; carousel; the temple list with aarti times and &lsquo;Open now&rsquo; badges; and the Panchang page for 30 Oct 2026 showing Aso Vad Pancham and the five limbs of the day.">
+        <div class="in">
+          <h3>Darshan</h3>
+          <div class="tags"><span>React</span><span>TypeScript</span><span>PWA</span></div>
+          <p>A temple guide for Ahmedabad, Bengaluru, Mumbai and Banaras: 1,735 temples on a map, every aarti
+            sorted by what&rsquo;s happening now, live darshan and the day&rsquo;s panchang. Built for someone new to
+            a city, and their parents visiting with a free afternoon.</p>
+          <p>Older users said it wasn&rsquo;t intuitive enough, so the first screen now says what the app is, tabs
+            got plain labels, and the temple list opens before the map.</p>
+          <div class="go">
+            <a class="pill solid" href="https://darshan-sable.vercel.app/">Open the app <span class="arr">&rarr;</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="card rv">
+        <img src="sqlquest.jpg" width="1500" height="1000" loading="lazy" alt="SQLQuest challenge &lsquo;Who ordered?&rsquo; at level 3: the task and an INNER JOIN lesson on the left; on the right a query joining orders to customers, a green &lsquo;Correct! +35 XP&rsquo; banner with Speedster and First Query badges, and the 90-row result table.">
+        <div class="in">
+          <h3>SQLQuest</h3>
+          <div class="tags"><span>JavaScript</span><span>SQLite in the browser</span></div>
+          <p>Learn SQL by writing it: 64 challenges over five levels, from SELECT to window functions, each
+            against a real database in the browser.</p>
+          <p>Any query that returns the right rows passes, not just one &ldquo;right&rdquo; answer, and the feedback
+            says which column or count is off.</p>
+          <div class="go">
+            <a class="pill solid" href="https://illusionist-creator.github.io/sqlquest/">Play it <span class="arr">&rarr;</span></a>
+            <a class="pill" href="https://github.com/illusionist-creator/sqlquest">Source</a>
+          </div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -660,7 +719,7 @@
     </div>
     <dl class="kit rv">
       <div><dt>Programming</dt><dd>Python &middot; SQL &middot; JavaScript &middot; TypeScript &middot; R</dd></div>
-      <div><dt>Data &amp; warehouse</dt><dd>PostgreSQL &middot; Supabase &middot; BigQuery &middot; DuckDB &middot; MySQL &middot; pg_cron &middot; dbt tests &middot; data modelling &middot; versioned SQL migrations</dd></div>
+      <div><dt>Data &amp; warehouse</dt><dd>PostgreSQL &middot; Supabase &middot; BigQuery &middot; DuckDB &middot; MySQL &middot; pg_cron &middot; dbt (models, tests, docs) &middot; data modelling &middot; versioned SQL migrations</dd></div>
       <div><dt>Pipelines &amp; APIs</dt><dd>GitHub Actions &middot; Playwright &middot; FastAPI &middot; Vercel &middot; Alteryx &middot; Business Central OData &middot; Unicommerce SOAP &middot; Google Drive &amp; Sheets &middot; Meta &amp; Google Ads</dd></div>
       <div><dt>AI &amp; LLM</dt><dd>Claude API &middot; tool-use agents &middot; prompt caching &middot; Claude Code</dd></div>
       <div><dt>Visualisation</dt><dd>Power BI &middot; Tableau &middot; D3.js &middot; Chart.js &middot; React &middot; R Shiny &middot; Streamlit</dd></div>
@@ -688,9 +747,12 @@
           <a class="pill" href="mailto:makwanakeyur2002@gmail.com?subject=Analytics%20engineer%20role">Email me</a>
         </div>
       </div>
-      <div class="path rv">
-        <span class="eyebrow">If you run a brand</span>
-        <h3>Where did the money go?</h3>
+      <details class="path rv">
+        <summary>
+          <span class="eyebrow">If you run a brand</span>
+          <h3>Where did the money go?</h3>
+          <span class="more-link">Small freelance offer for quick-commerce brands +</span>
+        </summary>
         <p>I take on a small number of brands selling on quick commerce. Two things, mostly: SKU-level profit by
           platform once ads, discounts, returns and deductions come out &mdash; and the reconciliation between what
           you invoiced and what actually landed in the bank. The second one is usually where the surprise sits.</p>
@@ -704,7 +766,7 @@
           <a class="pill solid" href="https://wa.me/919662060400?text=Hi%20Keyur%2C%20I%20saw%20your%20portfolio">WhatsApp me <span class="arr">&rarr;</span></a>
           <a class="pill" href="mailto:makwanakeyur2002@gmail.com?subject=Quick-commerce%20numbers">Email me</a>
         </div>
-      </div>
+      </details>
     </div>
     <div class="elsewhere rv">
       <a class="pill" href="https://www.linkedin.com/in/keyur-makwana-450337197">LinkedIn</a>
